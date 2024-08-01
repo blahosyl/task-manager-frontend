@@ -40,6 +40,7 @@ const Task = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeletionComplete, setShowDeletionComplete] = useState(false);
 
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
@@ -52,6 +53,7 @@ const Task = (props) => {
     } catch (err) {
       console.log(err);
       setShowDeleteModal(false);
+      setShowDeletionComplete(false);
     }
   };
 
@@ -139,7 +141,11 @@ const Task = (props) => {
           <Modal.Footer>
             <Button
               variant="secondary"
-              onClick={() => setShowDeleteModal(false)}
+              onClick={() => 
+                {setShowDeleteModal(false);
+                  showDeletionComplete(true);
+                }
+              }
             >
               Cancel
             </Button>
@@ -148,6 +154,30 @@ const Task = (props) => {
             </Button>
           </Modal.Footer>
         </Modal>
+        
+        {/* deletion complete confirmation modal */}
+        <Modal
+          show={showDeletionComplete}
+          onHide={() => setShowDeletionComplete(false)}
+          centered={true}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Task Deleted</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>You have successfully deleted the task</Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="primary"
+              onClick={() => 
+                  showDeletionComplete(false)
+              }
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        
+
         </Media>
       </Card.Body>
 
