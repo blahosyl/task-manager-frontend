@@ -18,6 +18,11 @@ Tasks should remain intact even when their creator (owner) or assignee are delet
 
 ##### Watch model
 
+#### React component structure
+
+`TaskTabs` uses `ProfileList` and `TaskList` directly when the `list` prop is passed. `TaskList` uses `Task`.
+Otherwise, `TaskTabs` uses `TaskKanban`, which uses `TaskList`, which uses `Task`
+
 #### Access management structure
 
 #### CRUD
@@ -266,6 +271,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [alternative fix to InfiniteScroll not triggering – worked](https://stackoverflow.com/a/76741176)
 - [Bootstrap tabs](https://react-bootstrap-v4.netlify.app/components/tabs/)
 - [`flex` properyies](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+- [conditional tags in React JSX](https://stackoverflow.com/a/33471928)
 
 ### Text
 
