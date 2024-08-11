@@ -1,4 +1,4 @@
 .Container {
     overflow: scroll; /* Make container scrollable */
-    height: 100vh; /* Set the height equal to the viewport height to limit scrolling */
+    height: 100vh; /* Set the height equal to the viewport height */
 }

@@ -30,9 +30,7 @@ const ProfileList = () => {
         className={`
           ${appStyles.Content}          
           ${styles.Container}
-          // overflowY: "scroll"
         `} 
-          // id="scrollableDiv"
       >
         {/* if profiles are loaded, render them using the Profile component */}
         {profileList.results.length ? (
@@ -51,6 +49,7 @@ const ProfileList = () => {
                     <Profile
                       key={profile.id}
                       profile={profile}
+                      // `setProfileData` by John Rearden
                       setProfileData={setProfileData}
                     />
                   )
@@ -59,7 +58,6 @@ const ProfileList = () => {
               loader={<Asset spinner />}
               hasMore={!!profileList.next}
               endMessage={"You have viewed all teammates"}
-              // scrollableTarget="scrollableDiv"
               // function in `next` by John Rearden
               next={async () => {
                 try {
