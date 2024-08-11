@@ -263,6 +263,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [fix InfiniteScroll not triggering – worked](https://stackoverflow.com/a/74509225)
 - [alternative fix to InfiniteScroll not triggering – worked](https://stackoverflow.com/a/76741176)
 - [Bootstrap tabs](https://react-bootstrap-v4.netlify.app/components/tabs/)
+- [`flex` properyies](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 
 ### Text
 
