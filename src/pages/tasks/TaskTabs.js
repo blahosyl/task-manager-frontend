@@ -5,8 +5,11 @@ import { Col, Row, Tab, Tabs } from "react-bootstrap";
 import ProfileList from "../profiles/ProfileList";
 import TaskKanban from "./TaskKanban";
 
-function TaskTabs() {
-  const list = false;
+function TaskTabs(props) {
+  const {
+    list
+  } = props;
+  
   const TaskComponent = list ? TaskList : TaskKanban
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -33,7 +36,7 @@ function TaskTabs() {
             />
           </Tab>
           <Tab eventKey="All" title="All">
-            <TaskList message="No results found. Adjust the search keyword." />
+            <TaskComponent message="No results found. Adjust the search keyword." />
           </Tab>
         </Tabs>
       </Col>

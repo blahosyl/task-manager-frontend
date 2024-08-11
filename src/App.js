@@ -16,7 +16,6 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import NotFound from "./components/NotFound";
 import TaskEditForm from "./pages/tasks/TaskEditForm";
-import TaskKanban from "./pages/tasks/TaskKanban";
 import Footer from "./components/Footer";
 import Landing from "./pages/landing/Landing";
 import TaskTabs from "./pages/tasks/TaskTabs";
@@ -41,14 +40,14 @@ function App() {
             exact
             path="/kanban"
             render={() => (
-              <TaskKanban message="No results found. Adjust the search keyword." />
+              <TaskTabs message="No results found. Adjust the search keyword." />
             )}
           />
           <Route
             exact
             path="/tabs"
             render={() => (
-              <TaskTabs message="No results found. Adjust the search keyword." />
+              <TaskTabs list message="No results found. Adjust the search keyword." />
             )}
           />
           <Route
