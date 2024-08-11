@@ -79,7 +79,7 @@ function App() {
             path="/tasks/:id/edit"
             render={() => <TaskEditForm />}
           />
-          <Route exact path="/team" render={() => <ProfileList />} />
+          <Route exact path="/team" render={() => <ProfileList full />} />
           <Route exact path="/profiles/:id" render={() => <ProfileDetail />} />
           <Route
             exact

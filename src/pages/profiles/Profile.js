@@ -8,7 +8,8 @@ import Avatar from "../../components/Avatar";
  */
 const Profile = (props) => {
   const { profile, imageSize = 55 } = props;
-  const { id, image, owner, firstname, lastname } = profile;
+  const { id, image, owner, firstname, lastname, role, pronouns } = profile;
+  const { full } = props;
 
   return (
     // whole unit of profile pic + name is clickable
@@ -31,6 +32,11 @@ const Profile = (props) => {
               ? lastname
               : owner}
           </strong>
+          {full && pronouns && (" (")}
+          {full && pronouns && (pronouns)}
+          {full && pronouns && (")")}
+          {full && role && (" ")}
+          {full && role && (role)}
         </div>
       </div>
     </Link>

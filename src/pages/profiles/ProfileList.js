@@ -17,7 +17,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 /**
  * Render the list of profiles from most to least recently updated
  */
-const ProfileList = () => {
+const ProfileList = (props) => {
+  const { full } = props;
   const { profileList } = useProfileData();
   // `setProfileData` by John Rearden
   const setProfileData = useSetProfileData();
@@ -49,6 +50,7 @@ const ProfileList = () => {
                     <Profile
                       key={profile.id}
                       profile={profile}
+                      full={full}
                       // `setProfileData` by John Rearden
                       setProfileData={setProfileData}
                     />
