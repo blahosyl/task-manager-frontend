@@ -51,7 +51,7 @@ function TaskKanban({ message, filter = "" }) {
   }, [filter, query, pathname, currentUser]);
 
   return (
-    <Row>
+    <Row className="mt-3">
       <Col>
         <Row>
           <Col className="col-12 col-md-8">
