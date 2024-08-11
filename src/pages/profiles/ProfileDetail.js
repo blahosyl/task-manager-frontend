@@ -151,6 +151,7 @@ function ProfileDetail() {
               title={`
                 Watched by
                 ${shortname}
+                (${profile?.watched_count})
               `}
             >
               <TaskList
@@ -163,6 +164,7 @@ function ProfileDetail() {
               title={`
                 Created by
                 ${shortname}
+                (${profile?.owned_count})
               `}            
             >
               <TaskList
