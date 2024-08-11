@@ -17,17 +17,14 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Image } from "react-bootstrap";
+import { Image, Tab, Tabs } from "react-bootstrap";
 
-import InfiniteScroll from "react-infinite-scroll-component";
-import Task from "../tasks/Task";
-import { fetchMoreData } from "../../utils/utils";
-import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import TaskList from "../tasks/TaskList";
 
 function ProfileDetail() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profileTasks, setProfileTasks] = useState({ results: [] });
+  // const [profileTasks, setProfileTasks] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
@@ -38,23 +35,30 @@ function ProfileDetail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profileTasks }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/tasks/?owner__profile=${id}`),
-          ]);
+        const [{ data: pageProfile }] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          // axiosReq.get(`/tasks/?owner__profile=${id}`),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setHasLoaded(true);
-        setProfileTasks(profileTasks);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
   }, [id, setProfileData]);
+
+  const shortname =
+    currentUser?.username === profile?.owner
+      ? "me"
+      : profile?.firstname
+      ? profile?.firstname
+      : profile?.lastname
+      ? profile?.lastname
+      : profile?.owner;
 
   const mainProfile = (
     <>
@@ -125,41 +129,53 @@ function ProfileDetail() {
   const mainProfileTasks = (
     <>
       <hr />
-      <p className="text-center">
-        {profile?.tasks_count} tasks assigned to{" "}
-        {/* render "me" if logged-in user is viewing their own profile,
-        else render firstname if available, elif lastname, else username */}
-        {currentUser?.username === profile?.owner
-          ? "me"
-          : profile?.firstname
-          ? profile?.firstname
-          : profile?.lastname
-          ? profile?.lastname
-          : profile?.owner}
-      </p>
-      <hr />
-      {profileTasks.results.length ? (
-        <InfiniteScroll
-          children={profileTasks.results.map((task) => (
-            <Task key={task.id} {...task} setTasks={setProfileTasks} />
-          ))}
-          dataLength={profileTasks.results.length}
-          loader={<Asset spinner />}
-          hasMore={!!profileTasks.next}
-          next={() => fetchMoreData(profileTasks, setProfileTasks)}
-        />
-      ) : (
-        <Asset
-          src={NoResults}
-          message={`There are no tasks assigned to ${
-            profile?.firstname
-              ? profile?.firstname
-              : profile?.lastname
-              ? profile?.lastname
-              : profile?.owner
-          }.`}
-        />
-      )}
+      <Row className="h-100">
+        <Col className="py-2 p-0 p-lg-2">
+          <h4 className="text-center mb-3">Tasks</h4>
+          <Tabs defaultActiveKey="assigned" id="profile-task-tabs">
+            <Tab
+              eventKey="assigned"
+              title={`
+                Assigned to
+                ${shortname}
+                (${profile?.tasks_count})
+              `}
+            >
+              <TaskList
+                message="No results found. Adjust the search keyword assign a task to yourself."
+                filter={`assignee__profile=${profile?.id}&ordering=-updated_at&`}
+              />
+            </Tab>
+            <Tab 
+              eventKey="watched" 
+              title={`
+                Watched by
+                ${shortname}
+              `}
+            >
+              <TaskList
+                message="No results found. Adjust the search keyword or watch a task."
+                filter={`watched__owner__profile=${profile?.id}&ordering=-watchers__created_at&`}
+              />
+            </Tab>
+            <Tab 
+              eventKey="created" 
+              title={`
+                Created by
+                ${shortname}
+              `}            
+            >
+              <TaskList
+                message="No results found. Adjust the search keyword or create a task."
+                filter={`owner__profile=${profile?.id}&ordering=-created_at&`}
+              />
+            </Tab>
+          </Tabs>
+        </Col>
+        {/* <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <ProfileList />
+      </Col> */}
+      </Row>
     </>
   );
 
