@@ -3,6 +3,7 @@ https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 
 .KanbanContainer{
     display: flex;
     flex-wrap: nowrap;
+    justify-content: center;
     overflow-x: auto;
     /* smooth "overflow scrolling" on iOS */
     -webkit-overflow-scrolling: touch;
@@ -10,8 +11,24 @@ https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 
 
 .KanbanColumn {
     flex: 0 0 auto;
+    max-width: 280px;
     padding: 1rem;
     margin: 0.5rem;
     border: 2px solid var(--light-gray);
     background-color: var(--white);
+}
+
+/* tablets & larger */
+@media screen and (min-width: 768px) {
+    .KanbanColumn {
+        max-width: 360px;
+    }
+}
+
+
+/* laptops & larger */
+@media screen and (min-width: 768px) {
+    .KanbanColumn {
+        max-width: 32%;
+    }
 }
