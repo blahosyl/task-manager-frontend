@@ -138,7 +138,7 @@ function ProfileDetail() {
               title={`
                 Assigned to
                 ${shortname}
-                (${profile?.tasks_count})
+                (${profile?.assigned_count})
               `}
             >
               <TaskList
