@@ -57,7 +57,11 @@ const ProfileList = () => {
               dataLength={profileList.results.length}
               loader={<Asset spinner />}
               hasMore={!!profileList.next}
-              endMessage={"You have viewed all teammates"}
+              endMessage={
+                <span className="small">
+                  That's it! You have viewed all teammates
+                </span>
+              }
               // function in `next` by John Rearden
               next={async () => {
                 try {
