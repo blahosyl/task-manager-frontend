@@ -86,7 +86,12 @@ instead, the `CardImage` is displayed conditionally only if there is an image.
 
 ### Navigation bar
 
-On small screen sizes, the Navbar includes an extra link to the [profile list page](#profile-list).
+- Kaban & List
+- Moved + with other Logged-In links
+- only expand NavBar on large screens and above
+- show short name in navbar
+
+On medium and smaller screen sizes, the Navbar includes an extra link to the [profile list page](#profile-list).
 
 ### Teammates component
 
