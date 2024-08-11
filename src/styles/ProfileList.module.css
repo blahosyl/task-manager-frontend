@@ -1,4 +1,4 @@
 .Container {
-    overflow: hidden; /* Hide any overflow beyond the content's size */
-    height: 100vh; /* Set the height equal to the viewport height to limit scrolling */
+    overflow: scroll; /* Make container scrollable */
+    height: 100vh; /* Set the height equal to the viewport height */
 }

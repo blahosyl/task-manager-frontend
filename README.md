@@ -236,9 +236,11 @@ This project was developed on the basis of the [Moments](https://github.com/Code
 
 Back End based on[DRF-API](https://github.com/Code-Institute-Solutions/drf-api) by [Code Institute](https://github.com/Code-Institute-Solutions/).
 
-I have also consulted the project [Tick It](https://github.com/Code-Institute-Submissions/ci_pp5_tick_it_react) by [Jamie King](https://github.com/jkingportfolio) and implemented the Task deletion confirmation modal based on it.
+I have also consulted the project [Tick It](https://github.com/Code-Institute-Submissions/ci_pp5_tick_it_react) by [Jamie King](https://github.com/jkingportfolio) and implemented the [Task deletion confirmation modal](https://github.com/blahosyl/task-manager-frontend/issues/17) based on it.
 
 Spencer Barriball kindly provided a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5MBDG/p1723141476108919?thread_ts=1723121474.717569&cid=C02MTH5MBDG) to get rid of the [non-breaking warning](https://github.com/blahosyl/task-manager-frontend/issues/83) in the Profile Edit Form, which is also present in the [Moments](https://github.com/Code-Institute-Solutions/moments0) walkthrough project by [Code Institute](https://github.com/Code-Institute-Solutions/).
+
+Tutor John Rearden was kind enough to keep working on [making infinite scroll work for Profiles](https://github.com/blahosyl/task-manager-frontend/issues/66), which we could not solve in the tutoring session, and came up with a [solution](https://github.com/johnrearden/task-manager-frontend/commit/ec8e98e9cdbad1159501fc5b92dc2f23cb7975a4#diff-0c6bbc781d2ac66b877546123b753fb2f69957838aea8419d7c2bc46740d6aea): using a custom API call instead of using `fetchMoreData().`
 
 ### Related advice
 
