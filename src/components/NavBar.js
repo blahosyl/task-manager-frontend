@@ -46,7 +46,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/kanban"
       >
-        <i class="fa-solid fa-table-columns"></i>Kanban
+        <i className="fa-solid fa-table-columns"></i>Kanban
       </NavLink>
       <NavLink
         exact
