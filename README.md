@@ -8,16 +8,6 @@
 
 ### Structure
 
-#### Data models
-
-##### Profile model
-
-##### Task model
-
-Tasks should remain intact even when their creator (owner) or assignee are deleted (e.g., when a team memeber leaves an organization). In this case, the respective fields for the deleted user are set to `null`. Accordingly, the `owner` and `assignee` fields are allowed to be `null`.
-
-##### Watch model
-
 #### React component structure
 
 `TaskTabs` uses `ProfileList` and `TaskList` directly when the `list` prop is passed. `TaskList` uses `Task`.
