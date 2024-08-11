@@ -171,6 +171,9 @@ The watch button is an eye icon and a toolip instruction is show when hovering o
 
 #### Profile list
 
+This is shown in the sidebar of certain Task views, and as a full-page version uner `/team`. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user.
+The full profile list also shows the pronouns and role if these are filled in.
+
 #### Profile detail page
 
 This page shows a user's profile information and [tasks assigned to them](#task-list).
