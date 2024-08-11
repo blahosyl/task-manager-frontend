@@ -31,32 +31,30 @@ const NavBar = () => {
     }
   };
 
-  const addTaskIcon = (
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/tasks/create"
-    >
-      <i className="fa-solid fa-plus"></i>New task
-    </NavLink>
-  );
   const loggedInIcons = (
     <>
       <NavLink
-        exact
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/watched"
+        to="/tasks/create"
       >
-        <i className="fa-solid fa-eye"></i>Watched
+        <i className="fa-solid fa-plus"></i>Add
       </NavLink>
       <NavLink
         exact
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/assigned"
+        to="/kanban"
       >
-        <i className="fa-solid fa-list-check"></i>Assigned to me
+        <i class="fa-solid fa-table-columns"></i>Kanban
+      </NavLink>
+      <NavLink
+        exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/tabs"
+      >
+        <i className="fa-solid fa-list-check"></i>List
       </NavLink>
       <NavLink
         exact
@@ -65,7 +63,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/team"
       >
-        <i className="fa-solid fa-users-line"></i>Teammates
+        <i className="fa-solid fa-users-line"></i>Team
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
@@ -80,7 +78,7 @@ const NavBar = () => {
             // show first name, last name or both if available
             // otherwise, show username
             currentUser?.profile_firstname
-              ? currentUser?.profile_firstname + " " + currentUser?.profile_lastname
+              ? currentUser?.profile_firstname
               : currentUser?.profile_lastname
               ? currentUser?.profile_lastname
               : currentUser?.username
@@ -114,7 +112,7 @@ const NavBar = () => {
     <Navbar
       expanded={expanded}
       className={styles.NavBar}
-      expand="md"
+      expand="lg"
       fixed="top"
     >
       {" "}
@@ -125,9 +123,6 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
 
-        {/* show addTaskIcon if a user is logged in */}
-        {currentUser && addTaskIcon}
-
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
@@ -135,15 +130,6 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink
-              exact
-              className={`${styles.NavLink} d-md-none d-lg-block`}
-              activeClassName={styles.Active}
-              to="/"
-            >
-              <i className="fa-solid fa-house"></i>Home
-            </NavLink>
-
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
