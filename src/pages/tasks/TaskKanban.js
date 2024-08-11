@@ -99,6 +99,11 @@ function TaskKanban({ message, filter = "" }) {
                       dataLength={tasks.results.length}
                       loader={<Asset spinner />}
                       hasMore={!!tasks.next}
+                      endMessage={
+                        <p className="text-center">
+                          That's it! You have viewed all tasks to do
+                        </p>
+                      }
                       next={() => fetchMoreData(tasks, setTasks)}
                     />
                   </div>
@@ -120,6 +125,11 @@ function TaskKanban({ message, filter = "" }) {
                       dataLength={tasks.results.length}
                       loader={<Asset spinner />}
                       hasMore={!!tasks.next}
+                      endMessage={
+                        <p className="text-center">
+                          That's it! You have viewed all tasks in progress
+                        </p>
+                      }
                       next={() => fetchMoreData(tasks, setTasks)}
                     />
                   </div>
@@ -141,6 +151,11 @@ function TaskKanban({ message, filter = "" }) {
                       dataLength={tasks.results.length}
                       loader={<Asset spinner />}
                       hasMore={!!tasks.next}
+                      endMessage={
+                        <p className="text-center">
+                          That's it! You have viewed all completed tasks
+                        </p>
+                      }
                       next={() => fetchMoreData(tasks, setTasks)}
                     />
                   </div>

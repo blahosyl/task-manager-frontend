@@ -74,6 +74,11 @@ function TaskList({ message, filter = "" }) {
                 dataLength={tasks.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!tasks.next}
+                endMessage={
+                  <p className="text-center">
+                    That's it! You have viewed all tasks that match the criteria
+                  </p>
+                }
                 next={() => fetchMoreData(tasks, setTasks)}
               />
             ) : (
