@@ -189,10 +189,10 @@ const Task = (props) => {
                   : "no status defined"}
               </span>
             } 
-            {/* Show priority in a human readable format.
+            {/* Show priority in a human readable format on large screens.
             Even though status` is a str, === only works if this is
             explicitely specified, and == produces a warning*/}
-            <span className={`mt-1`}>
+            <span className={`mt-1 d-none d-lg-inline`}>
               {priority === String("LOW")
                 ? "Low Priority"
                 : priority === String("MED")
