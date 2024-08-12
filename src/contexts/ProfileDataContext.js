@@ -8,7 +8,7 @@ const SetProfileDataContext = createContext();
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
-export const ProfileDataProvider = ({ children }) => {
+export const ProfileDataProvider = ({ children, filter, query }) => {
   const [profileData, setProfileData] = useState({
     // used in ProfileDetail.js
     pageProfile: { results: [] },
@@ -18,11 +18,12 @@ export const ProfileDataProvider = ({ children }) => {
 
   const currentUser = useCurrentUser();
 
+
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-          "/profiles/?ordering=-updated_at"
+          `/profiles/?${filter}search=${query}`
         );
         setProfileData((prevState) => ({
           ...prevState,
@@ -34,7 +35,7 @@ export const ProfileDataProvider = ({ children }) => {
     };
 
     handleMount();
-  }, [currentUser]);
+  }, [currentUser, filter, query]);
 
   return (
     <ProfileDataContext.Provider value={profileData}>
