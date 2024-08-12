@@ -20,7 +20,6 @@ import styles from "../../styles/Task.module.css";
 import appStyles from "../../App.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { ListGroupItem } from "react-bootstrap";
-import TaskList from "./TaskList";
 
 const Task = (props) => {
   const {
