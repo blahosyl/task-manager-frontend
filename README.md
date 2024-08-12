@@ -270,6 +270,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [Bootstrap tabs](https://react-bootstrap-v4.netlify.app/components/tabs/)
 - [`flex` properyies](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 - [conditional tags in React JSX](https://stackoverflow.com/a/33471928)
+- [prop drilling](https://stackoverflow.com/questions/67734236/understanding-how-we-can-avoid-passing-props-through-many-levels-of-component-hi)
 
 ### Text
 
