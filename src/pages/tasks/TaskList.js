@@ -18,7 +18,7 @@ import NoResults from "../../assets/no-results.png";
 // import ProfileList from "../profiles/ProfileList";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function TaskList({ message, filter = "" }) {
+function TaskList({ message, filter = "" , taskList}) {
   const [tasks, setTasks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -69,7 +69,11 @@ function TaskList({ message, filter = "" }) {
             {tasks.results.length ? (
               <InfiniteScroll
                 children={tasks.results.map((task) => (
-                  <Task key={task.id} {...task} setTasks={setTasks} />
+                  <Task 
+                    key={task.id} {...task} 
+                    setTasks={setTasks} 
+                    taskList={taskList}
+                  />
                 ))}
                 dataLength={tasks.results.length}
                 loader={<Asset spinner />}

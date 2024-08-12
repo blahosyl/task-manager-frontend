@@ -46,6 +46,7 @@ const Task = (props) => {
     watched_id,
     watchers_count,
     taskDetail,
+    taskList,
     setTasks,
   } = props;
 

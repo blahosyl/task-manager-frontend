@@ -47,7 +47,7 @@ function App() {
             exact
             path="/tabs"
             render={() => (
-              <TaskTabs list message="No results found. Adjust the search keyword." />
+              <TaskTabs taskList message="No results found. Adjust the search keyword." />
             )}
           />
           <Route

@@ -14,9 +14,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function TaskTabs(props) {
   const {
-    list
+    taskList
   } = props;
-  const TaskComponent = list ? TaskList : TaskKanban
+  const TaskComponent = taskList ? TaskList : TaskKanban
   
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -57,6 +57,7 @@ function TaskTabs(props) {
             `}
           >
             <TaskComponent
+              taskList={taskList}
               message="No results found. Adjust the search keyword assign a task to yourself."
               filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
             />
@@ -69,6 +70,7 @@ function TaskTabs(props) {
             `}
           >
             <TaskComponent
+              taskList={taskList}
               message="No results found. Adjust the search keyword or watch a task."
               filter={`watched__owner__profile=${profile_id}&ordering=-watchers__created_at&`}
             />
@@ -81,6 +83,7 @@ function TaskTabs(props) {
             `}
           >
             <TaskComponent
+              taskList={taskList}
               message="No results found. Adjust the search keyword or create a task."
               filter={`owner__profile=${profile_id}&ordering=-created_at&`}
             />
@@ -91,11 +94,14 @@ function TaskTabs(props) {
               All tasks
             `}
           >
-            <TaskComponent message="No results found. Adjust the search keyword." />
+            <TaskComponent 
+              taskList={taskList}
+              message="No results found. Adjust the search keyword." 
+            />
           </Tab>
         </Tabs>
       </Col>
-      {list && (<Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+      {taskList && (<Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <ProfileList />
       </Col>)}
     </Row>

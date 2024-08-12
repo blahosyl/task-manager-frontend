@@ -20,7 +20,7 @@ import NoResults from "../../assets/no-results.png";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function TaskKanban({ message, filter = "" }) {
+function TaskKanban({ message, filter = "", taskList }) {
   const [tasks, setTasks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -93,7 +93,11 @@ function TaskKanban({ message, filter = "" }) {
                       children={tasks.results.map(
                         (task) =>
                           task.status === "TO-DO" && (
-                            <Task key={task.id} {...task} setTasks={setTasks} />
+                            <Task 
+                              key={task.id} {...task} 
+                              setTasks={setTasks} 
+                              taskList={taskList}
+                            />
                           )
                       )}
                       dataLength={tasks.results.length}
@@ -119,7 +123,11 @@ function TaskKanban({ message, filter = "" }) {
                       children={tasks.results.map(
                         (task) =>
                           task.status === "IN-PROGRESS" && (
-                            <Task key={task.id} {...task} setTasks={setTasks} />
+                            <Task 
+                              key={task.id} {...task} 
+                              setTasks={setTasks} 
+                              taskList={taskList}
+                            />
                           )
                       )}
                       dataLength={tasks.results.length}
@@ -145,7 +153,11 @@ function TaskKanban({ message, filter = "" }) {
                       children={tasks.results.map(
                         (task) =>
                           task.status === "DONE" && (
-                            <Task key={task.id} {...task} setTasks={setTasks} />
+                            <Task 
+                              key={task.id} {...task} 
+                              setTasks={setTasks} 
+                              taskList={taskList}
+                            />
                           )
                       )}
                       dataLength={tasks.results.length}
