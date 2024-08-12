@@ -126,7 +126,7 @@ const Task = (props) => {
           ${
             priority === String("LOW")
               ? styles.DarkLowBg
-              : priority === String("MED")
+              : priority === String("MEDIUM")
               ? styles.DarkMedBg
               : priority === String("HIGH")
               ? styles.DarkHighBg
@@ -148,7 +148,7 @@ const Task = (props) => {
                   ${
                     priority === String("LOW")
                       ? styles.DarkLowBg
-                      : priority === String("MED")
+                      : priority === String("MEDIUM")
                       ? styles.DarkMedBg
                       : priority === String("HIGH")
                       ? styles.DarkHighBg
@@ -195,7 +195,7 @@ const Task = (props) => {
             <span className={`mt-1 d-none d-lg-inline`}>
               {priority === String("LOW")
                 ? "Low Priority"
-                : priority === String("MED")
+                : priority === String("MEDIUM")
                 ? "Med Priority"
                 : priority === String("HIGH")
                 ? "High Priority"
@@ -212,7 +212,7 @@ const Task = (props) => {
               ${
                 priority === String("LOW")
                   ? styles.DarkLowBg
-                  : priority === String("MED")
+                  : priority === String("MEDIUM")
                   ? styles.DarkMedBg
                   : priority === String("HIGH")
                   ? styles.DarkHighBg
@@ -264,7 +264,7 @@ const Task = (props) => {
                   ${
                     priority === String("LOW")
                       ? styles.DarkLowText
-                      : priority === String("MED")
+                      : priority === String("MEDIUM")
                       ? styles.DarkMedText
                       : priority === String("HIGH")
                       ? styles.DarkHighText
@@ -305,7 +305,7 @@ const Task = (props) => {
                 ${
                   priority === String("LOW")
                     ? styles.EyeLow
-                    : priority === String("MED")
+                    : priority === String("MEDIUM")
                     ? styles.EyeMed
                     : priority === String("HIGH")
                     ? styles.Eye
@@ -338,7 +338,7 @@ const Task = (props) => {
                 ${
                   priority === String("LOW")
                     ? styles.LightLowBg
-                    : priority === String("MED")
+                    : priority === String("MEDIUM")
                     ? styles.LightMedBg
                     : priority === String("HIGH")
                     ? styles.LightHighBg
@@ -375,7 +375,7 @@ const Task = (props) => {
                     ${
                       priority === String("LOW")
                         ? styles.EyeLow
-                        : priority === String("MED")
+                        : priority === String("MEDIUM")
                         ? styles.EyeMed
                         : priority === String("HIGH")
                         ? styles.Eye
@@ -401,7 +401,7 @@ const Task = (props) => {
                     ${
                       priority === String("LOW")
                         ? styles.EyeOutlineLow
-                        : priority === String("MED")
+                        : priority === String("MEDIUM")
                         ? styles.EyeOutlineMed
                         : priority === String("HIGH")
                         ? styles.EyeOutline
