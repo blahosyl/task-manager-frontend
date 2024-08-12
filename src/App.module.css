@@ -1,20 +1,35 @@
 :root {
   /* color variables */
   /* high priority */
+  /* orange  */
   --very-dark-high: #531D04;
   --dark-high: #D7410F;
   --med-high: #FD7E14;
   --light-high: #f7ddcf;
    /* med priority */
-  --very-dark-med: #08374F;
+   /* blue */
+  /* --very-dark-med: #08374F;
   --dark-med: #0F6895;
   --med-med: #20A6E9;
-  --light-med: #BFE6F7;
+  --light-med: #BFE6F7; */
+  /* magenta */
+  /* --very-dark-med: #550634;
+  --dark-med: #CD0E7E;
+  --light-med: #FACCE7; */
+  /* maroon */
+  --very-dark-med: #530E0E;
+  --dark-med: #992319;
+  --light-med: #FBEDE5;
   /* low priority */
-  --very-dark-low: #084f37;
-  --dark-low: #1b871d;
-  --med-low: #7ef075;
-  --light-low: #ceedcc;
+  /* green  */
+  /* --very-dark-low: #084f37; */
+  /* --med-low: #7ef075; */
+  /* --dark-low: #1b871d; */
+  /* --light-low: #ceedcc; */
+  /* teal */
+   --very-dark-low: #07565A;
+  --dark-low: #0A8385;
+  --light-low: #D1FAF3;
   /* neutrals */
   --light-neutral: #F9FAFC;
   --white: #FFFFFF;
