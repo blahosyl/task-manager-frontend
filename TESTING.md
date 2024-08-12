@@ -1,6 +1,127 @@
-### Expected errors in the Console
+# Testing the Task Manager
+
+Back to  `README.md`(README.md)
+
+## Table of Contents
+
+## Testing User Stories
+
+## Code validation
+
+### HTML validation
+
+#### Home page validation
+
+### JavaScript validation
+
+#### `Task.js`
+
+## Manual feature testing
+
+### Tasks manual testing
+
+### Profiles manual testing
+
+### Watchers manual testing
+
+### Authentication manual testing
+
+#### Signin page
+
+#### Signout page
+
+#### Signup page
+
+## Accessibility testing
+
+### Lighthouse
+
+### Color
+
+In addition to Lighthouse, color contrasts were also tested with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker). This was especially important given that tasks have multiple color schemes conditionally rendered depending on their priority.
+
+Where contrast did not meet at least AA standard, the colors were changed.
+
+#### High specifications
+
+|color name  |HEX code|
+|---   |--- |
+|very-dark-high|#531D04|
+|dark-high|#D7410F|
+<!-- |med-orange|#FD7E14| -->
+|light-high|#f7ddcf|
+
+### Medium theme specifications
+
+|color name  |HEX code|
+|---   |--- |
+|very-dark-med|#530E0E|
+|dark-med|#992319|
+<!-- |med-blue|#20A6E9| -->
+|light-med|#FBEDE5|
+
+### Low theme
+
+|color name  |HEX code|
+|---   |--- |
+|very-dark-low|#07565A|
+|dark-low|#0A8385|
+<!-- |med-green|#7ef075| -->
+|light-low|#D1FAF3|
+
+### Neutral color specifications
+
+|color name  |HEX code|
+|---   |--- |
+|light-neutral|#F9FAFC|
+|white|#FFFFFF|
+|light-gray|#dadadf|
+|gray |#242a3d|
+
+#### High theme contrast check
+
+| color 1 |color 2 |contrast | [WCAG AA/AAA](https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/) |Comment|
+|---   |---  |:---:  |:---:| ---|
+|very-dark-high  |white          |13.58:1  |AAA| |
+|very-dark-high  |light-high  |10.48:1  |AAA| |
+<!-- |very-dark-high 	|med-orange 	|5.28:1 	|AA| Only used for large text| -->
+|very-dark-high  |light-neutral  |13:01:1  |AAA| |
+|dark-high     |white          |4.51:1  |AA | Only used for large text|
+|dark-high     |light-high  |3.48:1  |AA|Only used for icon|
+
+#### Medium theme contrast check
+
+| color 1 |color 2 |contrast | [WCAG AA/AAA](https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/) |Comment|
+|---   |---  |:---:  |:---:| ---|
+|very-dark-med  |white          |14.61:1  |AAA| |
+|very-dark-med  |light-med  |12.76:1  |AAA| |
+<!-- |very-dark-med 	|med-blue 	|4.6:1 	|AAA|Only used for large text| -->
+<!-- |very-dark-med  |light-neutral  |12.04:1  |AAA| | -->
+|dark-med     |white          |8.04:1  |AAA | Only used for large text|
+|dark-med     |light-med  |7.03:1  |AAA|Only used for icon|
+
+#### Low theme contrast check
+
+| color 1 |color 2 |contrast | [WCAG AA/AAA](https://ialabs.ie/what-is-the-difference-between-wcag-a-aa-and-aaa/) |Comment|
+|---   |---  |:---:  |:---:| ---|
+|very-dark-low  |white          |8.44:1  |AAA| |
+|very-dark-low  |light-low  |7.5:1  |AAA| |
+<!-- |very-dark-low 	|med-green 	|6.68:1 	|AAA|Only used for large text| -->
+<!-- |very-dark-low  |light-neutral  |9.2:1  |AAA| | -->
+|dark-low     |white          |4.56:1  |AA | Only used for large text|
+|dark-low     |light-low  |4.06   :1  |AA|Only used for icon|
+
+## Automated testing
+
+## Bugs
+
+### Known bugs
+
+### Solved bugs
+
+#### Expected errors in the Console
 
 - 3 401 (unauthorized) errors on mount/refresh
 - 401 when visiting the Signin or Signup pages
 - 400 errors when sending incorrect form data
-a 401 (unauthorized) error when refreshing the access token
+- a 401 (unauthorized) error when refreshing the access token

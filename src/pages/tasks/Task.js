@@ -304,11 +304,11 @@ const Task = (props) => {
                 // set title color depending on task priority
                 ${
                   priority === String("LOW")
-                    ? styles.EyeLow
+                    ? styles.VeryDarkLowText
                     : priority === String("MEDIUM")
-                    ? styles.EyeMed
+                    ? styles.VeryDarkMedText
                     : priority === String("HIGH")
-                    ? styles.Eye
+                    ? styles.VeryDarkHighText
                     : {}
                 }`}
                 >
