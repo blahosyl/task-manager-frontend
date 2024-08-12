@@ -20,6 +20,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Asset from "../../components/Asset";
 import Image from "react-bootstrap/Image";
+import { fetchMoreData } from "../../utils/utils";
 
 /** Used for the TaskCreateForm and TaskEditForm */
 function TaskForm(props) {
@@ -27,7 +28,6 @@ function TaskForm(props) {
 
   // redirect logged out users
   useRedirect("loggedOut");
-
   const [errors, setErrors] = useState({});
   const [profiles, setProfiles] = useState({});
 
@@ -46,7 +46,27 @@ function TaskForm(props) {
 
   useEffect(() => {
     fetchProfiles();
-  }, []);
+    const nextProfiles = async () => {
+      try {
+        const { data } = await axiosReq.get(profiles.next);
+        setProfiles((prev) => ({
+          ...prev,
+          profiles: {
+            next: data.next,
+            results: [...prev.profiles.results, ...data.results],
+          },
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    // if the `profiles` object's `next` prop is not empty, 
+    // fetch the next page of profiles
+    // profiles.next && fetchMoreData(profiles, setProfiles)
+  }, [profiles.next]);
+
+  console.log('profiles', profiles)
+  console.log('profiles.next', profiles.next)
 
   const [taskData, setTaskData] = useState({
     title: "",
