@@ -326,10 +326,18 @@ const Task = (props) => {
                 }
               `}
       >
+        
         <Col className={`${styles.DateContainer}`}>
-          <span className={`mr-2`}>Due date:</span>
-          <span>{due_date ? dayjs(due_date).format('ddd | D MMM YYYY') : "not defined"}</span>
+        {taskDetail && <span className={`mr-2`}>Due:</span>}
+          <span>{due_date 
+            ? taskDetail
+              ? dayjs(due_date).format('ddd | D MMM YYYY') 
+              : dayjs(due_date).format('D MMM') 
+            : "not defined"
+            }
+          </span>
         </Col>
+
         {/* watch/unwatch functionality & watcher count */}
         <Col className={styles.EyeContainer}>
           {watched_id ? (
