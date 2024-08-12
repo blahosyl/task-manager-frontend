@@ -18,10 +18,16 @@ import { axiosReq } from "../../api/axiosDefaults";
  * Render the list of profiles from most to least recently updated
  */
 const ProfileList = (props) => {
+  // render full-page Profile List
   const { full } = props;
+
+  // get data from ProfielDataContext
   const { profileList } = useProfileData();
-  // `setProfileData` by John Rearden
+
+  // constant by John Rearden
   const setProfileData = useSetProfileData();
+
+  // get current user from CurrentUserContext
   const currentUser = useCurrentUser();
 
   return (

@@ -42,9 +42,25 @@ function TaskForm(props) {
     }
   };
 
+  const nextProfiles = async () => {
+    try {
+      const { data } = await axiosReq.get(profiles.next);
+      setProfiles((prev) => ({
+        ...prev,
+        profiles: {
+          next: data.next,
+          results: [...prev.profiles, ...data],
+        },
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
     fetchProfiles();
-  }, []);
+    nextProfiles();
+  }, [nextProfiles]);
 
   const [taskData, setTaskData] = useState({
     title: "",
