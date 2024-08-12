@@ -100,7 +100,7 @@ function TaskKanban({ message, filter = "" }) {
                       loader={<Asset spinner />}
                       hasMore={!!tasks.next}
                       endMessage={
-                        <p className="text-center">
+                        <p className="text-center text-muted">
                           That's it! You have viewed all tasks to do
                         </p>
                       }
@@ -126,7 +126,7 @@ function TaskKanban({ message, filter = "" }) {
                       loader={<Asset spinner />}
                       hasMore={!!tasks.next}
                       endMessage={
-                        <p className="text-center">
+                        <p className="text-center text-muted">
                           That's it! You have viewed all tasks in progress
                         </p>
                       }
@@ -152,7 +152,7 @@ function TaskKanban({ message, filter = "" }) {
                       loader={<Asset spinner />}
                       hasMore={!!tasks.next}
                       endMessage={
-                        <p className="text-center">
+                        <p className="text-center text-muted">
                           That's it! You have viewed all completed tasks
                         </p>
                       }

@@ -75,7 +75,7 @@ function TaskList({ message, filter = "" }) {
                 loader={<Asset spinner />}
                 hasMore={!!tasks.next}
                 endMessage={
-                  <p className="text-center">
+                  <p className="text-center text-muted">
                     That's it! You have viewed all tasks that match the criteria
                   </p>
                 }

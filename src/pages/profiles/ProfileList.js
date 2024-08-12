@@ -66,7 +66,7 @@ const ProfileList = (props) => {
               loader={<Asset spinner />}
               hasMore={!!profileList.next}
               endMessage={
-                <span className="small">
+                <span className="text-muted">
                   That's it! You have viewed all teammates
                 </span>
               }
