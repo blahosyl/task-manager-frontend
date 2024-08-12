@@ -272,7 +272,9 @@ const Task = (props) => {
                 {title}
               </Card.Title>
             )}
-            {excerpt && <Card.Subtitle>{excerpt}</Card.Subtitle>}
+
+            {/* only show excerpt in TaskList and TaskDetail view */}
+            {excerpt && (taskList || taskDetail) && <Card.Subtitle>{excerpt}</Card.Subtitle>}
 
           {/* show fire symbols if task is overdue */}
           {dayjs() > dayjs(due_date) && (
