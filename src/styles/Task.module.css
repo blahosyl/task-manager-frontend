@@ -124,15 +124,18 @@
 
   .LightHighBg {
     background-color: var(--light-high);
+    color: var(--very-dark-high);
   }
 
 
   .LightMedBg {
     background-color: var(--light-med);
+    color: var(--very-dark-med);
   }
 
   .LightLowBg {
     background-color: var(--light-low);
+    color: var(--very-dark-light);
   }
 
   /* watch/unwatch icon priority colors */
