@@ -20,6 +20,7 @@ import styles from "../../styles/Task.module.css";
 import appStyles from "../../App.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { ListGroupItem } from "react-bootstrap";
+import TaskList from "./TaskList";
 
 const Task = (props) => {
   const {
@@ -273,13 +274,27 @@ const Task = (props) => {
             )}
             {excerpt && <Card.Subtitle>{excerpt}</Card.Subtitle>}
 
+          {/* show fire symbols if task is overdue */}
+          {dayjs() > dayjs(due_date) && (
+            <Row className="mt-3 justify-content-center">
+              {(dayjs().diff(due_date, "weeks")) > 2
+              ? <span className="h3">🔥🔥🔥🔥</span>
+              : (dayjs().diff(due_date, "weeks")) > 1
+              ? <span className="h3">🔥🔥🔥</span>
+              : (dayjs().diff(due_date, "weeks")) > 0
+              ? <span className="h3">🔥🔥</span>
+              : <span className="h3">🔥</span> 
+              }
+            </Row>
+          )}
+
             {/* render link to Task Detail page in TaskList */}
             {!taskDetail && (
               <Row>
                 <Link
                   to={`/tasks/${id}/`}
                   className={`
-                mt-4
+                mt-2
                 stretched-link
                 ${styles.DetailLink}
                 // set title color depending on task priority
@@ -297,6 +312,7 @@ const Task = (props) => {
                 </Link>
               </Row>
             )}
+
           </Col>
         </Row>
       </Card.Body>
