@@ -25,7 +25,9 @@ import Image from "react-bootstrap/Image";
 function TaskForm(props) {
   const { editForm } = props;
 
+  // redirect logged out users
   useRedirect("loggedOut");
+
   const [errors, setErrors] = useState({});
   const [profiles, setProfiles] = useState({});
 
@@ -42,25 +44,9 @@ function TaskForm(props) {
     }
   };
 
-  const nextProfiles = async () => {
-    try {
-      const { data } = await axiosReq.get(profiles.next);
-      setProfiles((prev) => ({
-        ...prev,
-        profiles: {
-          next: data.next,
-          results: [...prev.profiles, ...data],
-        },
-      }));
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   useEffect(() => {
     fetchProfiles();
-    nextProfiles();
-  }, [nextProfiles]);
+  }, []);
 
   const [taskData, setTaskData] = useState({
     title: "",
