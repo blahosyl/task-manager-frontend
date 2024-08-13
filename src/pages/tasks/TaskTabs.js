@@ -11,8 +11,12 @@ import ProfileList from "../profiles/ProfileList";
 
 import TaskKanban from "./TaskKanban";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function TaskTabs(props) {
+  // redirect logged-out users
+  useRedirect("loggedOut");
+
   const {
     taskList
   } = props;

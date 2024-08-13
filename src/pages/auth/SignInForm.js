@@ -22,6 +22,8 @@ import { setTokenTimestamp } from "../../utils/utils";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
+  
+  // redirect logged-in users
   useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
