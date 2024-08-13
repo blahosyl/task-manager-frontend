@@ -9,25 +9,11 @@
   --med-high: #FD7E14;
   --light-high: #f7ddcf;
    /* med priority */
-   /* blue */
-  /* --very-dark-med: #08374F;
-  --dark-med: #0F6895;
-  --med-med: #20A6E9;
-  --light-med: #BFE6F7; */
-  /* magenta */
-  /* --very-dark-med: #550634;
-  --dark-med: #CD0E7E;
-  --light-med: #FACCE7; */
   /* maroon */
   --very-dark-med: #530E0E;
   --dark-med: #992319;
-  --light-med: #FBEDE5;
+  --light-med: #F4D8C8;
   /* low priority */
-  /* green  */
-  /* --very-dark-low: #084f37; */
-  /* --med-low: #7ef075; */
-  /* --dark-low: #1b871d; */
-  /* --light-low: #ceedcc; */
   /* teal */
    --very-dark-low: #07565A;
   --dark-low: #0A8385;
@@ -42,13 +28,14 @@
   --brown-gray: #dfdada;
   --cream-gray: #888888;
   --light-cream: #f1f1f1;
+  --very-light-warm:#FBEDE5;
 
   /* app colors */
   --icon-color: #ced2d3;
   --link-color: --med-gray;
   --navicon-active: #F36A20;
   --link-hover: var(--dark-low);/* also used for icon hover */
-  --background: var(--light-med);
+  --background: var(--very-light-warm);
 }
 
 .App {
