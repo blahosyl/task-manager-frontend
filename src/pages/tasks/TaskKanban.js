@@ -34,7 +34,7 @@ function TaskKanban({ message, filter = "", taskList }) {
       try {
         const { data } = await axiosReq.get(`/tasks/?${filter}search=${query}`);
         setTasks(data);
-        setHasLoaded(true);
+        setHasLoaded(true);// causes findDOMNode error in Strict Mode
       } catch (err) {
         console.log(err);
       }
