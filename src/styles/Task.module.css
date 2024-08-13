@@ -11,6 +11,10 @@
 
   .CardTitle {
     text-align: center;
+    font-weight: bold;
+  }
+
+  .LargeTitle {
     font-size: xx-large;
   }
 

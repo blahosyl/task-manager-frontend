@@ -253,13 +253,14 @@ const Task = (props) => {
           </Modal>
         </Row>
       </Card.Header>
-      <Card.Body>
+      <Card.Body className="py-1">
         <Row>
           <Col>
             {title && (
               <Card.Title
                 className={`my-3 
                   ${styles.CardTitle}
+                  ${taskDetail && styles.LargeTitle}
                   // set title color depending on task priority
                   ${
                     priority === String("LOW")
