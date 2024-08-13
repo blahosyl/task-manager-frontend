@@ -138,7 +138,8 @@ function ProfileDetail() {
               title={`
                 Assigned to
                 ${shortname}
-                (${profile?.assigned_count})
+                ${profile ? ("(" + profile.assigned_count) + ")": ""}
+
               `}
             >
               <TaskList
@@ -151,7 +152,8 @@ function ProfileDetail() {
               title={`
                 Watched by
                 ${shortname}
-                (${profile?.watched_count})
+                ${profile ? ("(" + profile.watched_count) + ")": ""}
+
               `}
             >
               <TaskList
@@ -164,7 +166,8 @@ function ProfileDetail() {
               title={`
                 Created by
                 ${shortname}
-                (${profile?.owned_count})
+                ${profile ? ("(" + profile.owned_count) + ")": ""}
+
               `}            
             >
               <TaskList

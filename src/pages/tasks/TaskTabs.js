@@ -53,7 +53,7 @@ function TaskTabs(props) {
             eventKey="assigned" 
             title={`
               Assigned to me
-              (${profile?.assigned_count})
+              ${profile ? ("(" + profile.assigned_count) + ")": ""}
             `}
           >
             <TaskComponent
@@ -66,7 +66,7 @@ function TaskTabs(props) {
             eventKey="Watched by me" 
             title={`
               Watched by me
-              (${profile?.watched_count})
+              ${profile ? ("(" + profile.watched_count) + ")": ""}
             `}
           >
             <TaskComponent
@@ -79,7 +79,7 @@ function TaskTabs(props) {
             eventKey="Created by me" 
             title={`
               Created by me
-              (${profile?.owned_count})
+              ${profile ? ("(" + profile.owned_count) + ")": ""}
             `}
           >
             <TaskComponent
