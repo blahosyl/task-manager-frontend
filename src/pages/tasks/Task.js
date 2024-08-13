@@ -354,7 +354,7 @@ const Task = (props) => {
             ? taskDetail
               ? dayjs(due_date).format('ddd | D MMM YYYY') 
               : dayjs(due_date).format('D MMM') 
-            : "not defined"
+            : ""
             }
           </span>
         </Col>

@@ -10,8 +10,8 @@
 
 #### React component structure
 
-`TaskTabs` uses `ProfileList` and `TaskList` directly when the `list` prop is passed. `TaskList` uses `Task`.
-Otherwise, `TaskTabs` uses `TaskKanban`, which uses `TaskList`, which uses `Task`
+`TaskTabs` uses `ProfileList` and `TaskList` directly when the `taskList` prop is passed. `TaskList` uses `Task`.
+Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
 
 #### Access management structure
 
