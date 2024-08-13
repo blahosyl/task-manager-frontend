@@ -19,6 +19,7 @@ import TaskEditForm from "./pages/tasks/TaskEditForm";
 import Footer from "./components/Footer";
 import Landing from "./pages/landing/Landing";
 import TaskTabs from "./pages/tasks/TaskTabs";
+import TaskKanban from "./pages/tasks/TaskKanban";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -36,7 +37,7 @@ function App() {
               <TaskList message="No results found. Adjust the search keyword." />
             )}
           />
-           <Route
+          <Route
             exact
             path="/kanban"
             render={() => (
@@ -45,9 +46,19 @@ function App() {
           />
           <Route
             exact
+            path="/kanban-test"
+            render={() => (
+              <TaskKanban message="No results found. Adjust the search keyword." />
+            )}
+          />
+          <Route
+            exact
             path="/tabs"
             render={() => (
-              <TaskTabs taskList message="No results found. Adjust the search keyword." />
+              <TaskTabs
+                taskList
+                message="No results found. Adjust the search keyword."
+              />
             )}
           />
           <Route
@@ -74,11 +85,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/tasks/create" render={() => <TaskCreateForm />} />
           <Route exact path="/tasks/:id" render={() => <TaskDetail />} />
-          <Route
-            exact
-            path="/tasks/:id/edit"
-            render={() => <TaskEditForm />}
-          />
+          <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />
           <Route exact path="/team" render={() => <ProfileList full />} />
           <Route exact path="/profiles/:id" render={() => <ProfileDetail />} />
           <Route
