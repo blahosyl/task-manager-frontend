@@ -1,5 +1,7 @@
 :root {
   /* color variables */
+
+  /* task priority colors */
   /* high priority */
   /* orange  */
   --very-dark-high: #531D04;
@@ -30,17 +32,30 @@
    --very-dark-low: #07565A;
   --dark-low: #0A8385;
   --light-low: #D1FAF3;
+
   /* neutrals */
   --light-neutral: #F9FAFC;
   --white: #FFFFFF;
   --gray: #242a3d;
-  --light-gray: #dadadf;
+  --med-gray: #555555;
+  --light-gray: #dadfdf;
+  --brown-gray: #dfdada;
+  --cream-gray: #888888;
+  --light-cream: #f1f1f1;
+
+  /* app colors */
+  --icon-color: #ced2d3;
+  --link-color: --med-gray;
+  --navicon-active: #F36A20;
+  --link-hover: var(--dark-low);/* also used for icon hover */
+  --background: var(--light-med);
 }
 
 .App {
   font-family: "DM Sans", sans-serif;
-  background-color: #f8f8f8;
+  background-color: var(--background);
   min-height: 100vh;
+  color: var(--very-dark-high);
 }
 
 .Main {
@@ -48,7 +63,7 @@
 }
 
 .Content {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 10px;
   border-radius: 2px;
   border: 1px solid var(--light-gray);
@@ -71,16 +86,17 @@
 }
 
 a {
-  color: #555555;
+  color: var(--link-color);
   transition: color ease-in-out 0.3s;
 }
 
 a:hover {
   text-decoration: none;
+  color: var(--link-hover)
 }
 
 a:hover i {
-  color: #2142b2;
+  color: var(--link-hover);
   transition: color ease-in-out 0.3s;
 }
 
@@ -89,7 +105,7 @@ input[type="file"] {
 }
 
 i {
-  color: #cfced3;
+  color: var(--icon-color);
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;
@@ -98,7 +114,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #2142b2;
+  color: var(--link-hover);
 }
 
 figure {
@@ -111,13 +127,13 @@ figure {
   width: 5px;
 }
 *::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--light-cream);
 }
 *::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--cream-gray);
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--med-gray);
 }
 
 /* rounded corners on bigger objects */
