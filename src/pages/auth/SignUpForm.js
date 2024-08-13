@@ -73,7 +73,7 @@ const SignUpForm = () => {
         `}>
           <h1 className={styles.Header}>sign up</h1>
 
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="text-center">
             <Form.Group controlId="username">
               <Form.Label className="d-none">username</Form.Label>
               <Form.Control

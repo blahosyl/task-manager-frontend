@@ -14,13 +14,13 @@
   background: url("../assets/orange-swirl.jpg") no-repeat center center/cover;
 
 }
-
+  /* username & password fields */
   .Input {
-    background: #ffffff;
-    border: 1px solid #f0f1f9;
+    background: var(--white);
+    border: 1px solid var(--light-gray);
     box-sizing: border-box;
-    border-radius: 2px;
-    color: #7177a1;
+    border-radius: 10px;
+    color: var(--dark-low) !important;
     text-align: center;
     padding: 10px;
   }
@@ -44,7 +44,7 @@
   }
 
   .Link span {
-    color: #ff9254;
+    color: var(--navicon-active);
   }
 
   .Container {
