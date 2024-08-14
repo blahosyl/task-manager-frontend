@@ -15,10 +15,17 @@ import styles from "../../styles/TaskList.module.css";
 import Task from "./Task";
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
-// import ProfileList from "../profiles/ProfileList";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
-function TaskList({ message, filter = "" , taskList, changedWatch, setChangedWatch}) {
+function TaskList({
+  message,
+  filter = "",
+  taskList,
+  changedWatch,
+  setChangedWatch,
+}) {
+  // Get the task list
   const [tasks, setTasks] = useState({ results: [] });
 
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -28,6 +35,7 @@ function TaskList({ message, filter = "" , taskList, changedWatch, setChangedWat
   const [query, setQuery] = useState("");
 
   const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -51,9 +59,35 @@ function TaskList({ message, filter = "" , taskList, changedWatch, setChangedWat
     };
   }, [filter, query, pathname, currentUser, changedWatch, setChangedWatch]);
 
+
+  // use the ProfileDataContext
+  const setProfileData = useSetProfileData();
+
+  /** Fetch the Profile data of the currentUser, 
+  * so that assigned_count,  watched_count & owned count are updated
+  * when the logged-in user watches.unwatches a task */
+  useEffect(() => {
+
+    const fetchProfileData = async () => {
+      try {
+        const [{ data: pageProfile }] = await Promise.all([
+          axiosReq.get(`/profiles/${profile_id}/`),
+        ]);
+        setProfileData((prevState) => ({
+          ...prevState,
+          pageProfile: { results: [pageProfile] },
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+      fetchProfileData();
+    }, [profile_id, changedWatch, setProfileData]);
+
+
   return (
     <Row className="h-100 mt-3">
-      <Col >
+      <Col>
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -72,9 +106,10 @@ function TaskList({ message, filter = "" , taskList, changedWatch, setChangedWat
             {tasks.results.length ? (
               <InfiniteScroll
                 children={tasks.results.map((task) => (
-                  <Task 
-                    key={task.id} {...task} 
-                    setTasks={setTasks} 
+                  <Task
+                    key={task.id}
+                    {...task}
+                    setTasks={setTasks}
                     taskList={taskList}
                     changedWatch={changedWatch}
                     setChangedWatch={setChangedWatch}
