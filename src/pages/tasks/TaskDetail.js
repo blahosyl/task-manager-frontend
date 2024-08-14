@@ -14,6 +14,7 @@ import NotFound from "../../components/NotFound";
 function TaskDetail() {
     const { id } = useParams();
     const [task, setTask] = useState({ results: [] });
+    const [hasLoaded, setHasLoaded] = useState(false);
 
     useEffect(() => {
         const handleMount = async () => {
@@ -22,17 +23,19 @@ function TaskDetail() {
               axiosReq.get(`/tasks/${id}`),
             ]);
             setTask({ results: [task] });
+            setHasLoaded(true);
             console.log(task);
+            console.log('hasLoaded', hasLoaded)
           } catch (err) {
             console.log(err);
           }
         };
     
         handleMount();
-      }, [id]);
+      }, [id, hasLoaded, setHasLoaded]);
 
   return (
-    task.title
+    hasLoaded 
     ? <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           <Task {...task.results[0]} setTasks={setTask} taskDetail/>
@@ -44,7 +47,7 @@ function TaskDetail() {
           <ProfileList />
         </Col>
       </Row>
-    : <NotFound />
+      : <NotFound />
   );
 }
 

@@ -74,7 +74,11 @@ While this is also present in the Moments sample project, it is not good UX, whi
 
 One of my attempts at a solution was to put all of the rendering in TaskDetail into a conditional clause checking if `task` exists, otherwise render the NotFound page. This failed to work. Similarly, checking for `task.id` failed.
 
-I theorized that this is because these 2 variables are defined in the component, and must exist so that the app knows which task the user wants to see. However, `task.title` is empty if the task has been deleted, and it must not be empty for any existing tasks, since it's a compulsory field. Setting this as the condition for rendering the TaskDetail page received the desired result.
+I theorized that this is because these 2 variables are defined in the component, and must exist so that the app knows which task the user wants to see. However, `task.title` is empty if the task has been deleted, and it must not be empty for any existing tasks, since it's a compulsory field. Setting this as the condition for rendering the TaskDetail page received the desired result for the deleted pages.
+
+However, this change also caused TaskDetail pages for **existing tasks** to show a "Not Found" page (I suspect because the rendering conditional kicked in before the data were received from the API.
+
+Instead, I used the `setLoaded` logic from `TaskList` and implemented in in `TaskDetail` as well.
 
 ## Project Management | Agile Methodologies
 
