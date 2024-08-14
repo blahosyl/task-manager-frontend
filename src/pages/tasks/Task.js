@@ -77,8 +77,8 @@ const Task = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/tasks/${id}/`);
-      // redirect to home page after deleting a task
-      history.push(`/`);
+      // redirect to TaskList or TaskKanban (home) page after deleting a task
+      taskList ? history.push('/list') : history.push(`/`);
     } catch (err) {
       console.log(err);
       setShowDeleteModal(false);
