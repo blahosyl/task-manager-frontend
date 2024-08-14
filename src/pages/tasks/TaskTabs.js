@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TaskList from "./TaskList";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
@@ -21,6 +21,7 @@ function TaskTabs(props) {
     taskList
   } = props;
 
+  const [tasks, setTasks] = useState({ results: [] });
 
 
   // set whether to render tasks in a list or Kanban format
@@ -35,6 +36,7 @@ function TaskTabs(props) {
   const [profile] = pageProfile.results;
 
   useEffect(() => {
+    console.log("component rendered")
     const fetchData = async () => {
       try {
         const [{ data: pageProfile }] = await Promise.all([
@@ -50,7 +52,7 @@ function TaskTabs(props) {
       }
     };
     fetchData();
-  }, [id, setProfileData]);
+  }, [id, setProfileData,taskList]);
   
 
   return (
@@ -68,6 +70,8 @@ function TaskTabs(props) {
               taskList={taskList}
               message="No results found. Adjust the search keyword assign a task to yourself."
               filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
+              tasks={tasks}
+              setTasks={setTasks}
             />
           </Tab>
           <Tab 
@@ -81,6 +85,8 @@ function TaskTabs(props) {
               taskList={taskList}
               message="No results found. Adjust the search keyword or watch a task."
               filter={`watched__owner__profile=${profile_id}&ordering=-watchers__created_at&`}
+              tasks={tasks}
+              setTasks={setTasks}
             />
           </Tab>
           <Tab 
@@ -94,6 +100,8 @@ function TaskTabs(props) {
               taskList={taskList}
               message="No results found. Adjust the search keyword or create a task."
               filter={`owner__profile=${profile_id}&ordering=-created_at&`}
+              tasks={tasks}
+              setTasks={setTasks}
             />
           </Tab>
           <Tab 
@@ -104,7 +112,9 @@ function TaskTabs(props) {
           >
             <TaskComponent 
               taskList={taskList}
-              message="No results found. Adjust the search keyword." 
+              message="No results found. Adjust the search keyword."
+              tasks={tasks}
+              setTasks={setTasks}
             />
           </Tab>
         </Tabs>

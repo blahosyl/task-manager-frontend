@@ -77,6 +77,12 @@ const Task = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/tasks/${id}/`);
+      // update the list of tasks after deletion
+      // setTasks block suggested by tutor Roman
+      setTasks((prevTasks) => ({
+        ...prevTasks,
+        results: prevTasks.results.filter((task) => task.id !== id)
+      }))
       // redirect to TaskList or TaskKanban (home) page after deleting a task
       taskList ? history.push('/list') : history.push(`/`);
     } catch (err) {
@@ -266,8 +272,9 @@ const Task = (props) => {
               </Button>
               <Button 
                 variant="danger" 
-                onClick={() => {
-                  handleDelete();
+                // adding `async` suggested by tutor Roman
+                onClick={ async() => {
+                   await handleDelete();
                   taskDeleteSuccessMsg();
                 }}>
                 Delete

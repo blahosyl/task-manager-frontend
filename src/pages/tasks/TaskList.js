@@ -18,9 +18,19 @@ import NoResults from "../../assets/no-results.png";
 // import ProfileList from "../profiles/ProfileList";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function TaskList({ message, filter = "" , taskList}) {
-  const [tasks, setTasks] = useState({ results: [] });
+function TaskList(props) {
+
+  const {
+    taskList,
+    message,
+    filter,
+    tasks,
+    setTasks
+  } = props;
+
+
   const [hasLoaded, setHasLoaded] = useState(false);
+
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
@@ -46,7 +56,7 @@ function TaskList({ message, filter = "" , taskList}) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser]);
+  }, [filter, query, pathname, currentUser, setTasks]);
 
   return (
     <Row className="h-100 mt-3">
