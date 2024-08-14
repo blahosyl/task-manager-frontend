@@ -53,6 +53,7 @@ const Task = (props) => {
     taskDetail,
     taskList,
     setTasks,
+    setChangedWatch,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -109,6 +110,7 @@ const Task = (props) => {
             : task;
         }),
       }));
+      setChangedWatch(true);
     } catch (err) {
       console.log(err);
     }
@@ -129,6 +131,7 @@ const Task = (props) => {
             : task;
         }),
       }));
+      setChangedWatch(true);
     } catch (err) {
       console.log(err);
     }

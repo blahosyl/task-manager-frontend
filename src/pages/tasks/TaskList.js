@@ -23,6 +23,8 @@ function TaskList({ message, filter = "" , taskList}) {
 
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  const [changedWatch, setChangedWatch] = useState(false);
+
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
@@ -48,7 +50,7 @@ function TaskList({ message, filter = "" , taskList}) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser]);
+  }, [filter, query, pathname, currentUser, changedWatch]);
 
   return (
     <Row className="h-100 mt-3">
@@ -75,6 +77,8 @@ function TaskList({ message, filter = "" , taskList}) {
                     key={task.id} {...task} 
                     setTasks={setTasks} 
                     taskList={taskList}
+                    changedWatch={changedWatch}
+                    setChangedWatch={setChangedWatch}
                   />
                 ))}
                 dataLength={tasks.results.length}
