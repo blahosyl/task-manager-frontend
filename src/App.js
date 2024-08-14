@@ -37,22 +37,13 @@ function App() {
               currentUser ? <TaskTabs /> : <Landing />
             )}
           />
-
-          <Route
-            exact
-            path="/kanban"
-            render={() => (
-              <TaskTabs message="No results found. Adjust the search keyword." />
-            )}
-          />
     
           <Route
             exact
-            path="/tabs"
+            path="/list"
             render={() => (
               <TaskTabs
                 taskList
-                message="No results found. Adjust the search keyword."
               />
             )}
           />
