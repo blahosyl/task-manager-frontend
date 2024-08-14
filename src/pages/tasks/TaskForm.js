@@ -169,19 +169,41 @@ function TaskForm(props) {
     }
   };
 
-  const notify = () => {
-    toast("Default Notification !")};
+  // feedback messages for user CRUD
+  const taskCreateSuccessMsg = () => {
+    toast.success("You have successfully created a task 🎉")
+  };
+
+  const taskCreateCancelMsg = () => {
+    toast.success("You chose not to create a new task 👍")
+  };
+
+  const taskEditSuccessMsg = () => {
+    toast.success("You have successfully edited the task 🎉")
+  };
+
+  const taskEditCancelMsg = () => {
+    toast.success("You chose not to edit the task 👍")
+  };
 
   const buttons = (
     <div className="my-2 mx-auto text-center">
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
+        onClick={() => {
+          history.goBack(); 
+          editForm ? taskEditCancelMsg() : taskCreateCancelMsg();
+        }
+      }
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
-        onClick={notify}
+      <Button 
+        className={`${btnStyles.Button} ${btnStyles.Blue}`} 
+        type="submit"
+        onClick={() => {
+          editForm ? taskEditSuccessMsg() : taskCreateSuccessMsg()
+        }}
       >
         {/* change button text depending on whether creating or editing task */}
         {editForm ? "save" : "create"}
