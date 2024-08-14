@@ -20,7 +20,7 @@ import NoResults from "../../assets/no-results.png";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function TaskKanban({ message, filter = "", taskList }) {
+function TaskKanban({ message, filter = "", taskList, changedWatch, setChangedWatch }) {
   const [tasks, setTasks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -41,6 +41,7 @@ function TaskKanban({ message, filter = "", taskList }) {
     };
 
     setHasLoaded(false);
+    setChangedWatch(false);
     const timer = setTimeout(() => {
       fetchTasks();
     }, 1000);
@@ -48,7 +49,7 @@ function TaskKanban({ message, filter = "", taskList }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser]);
+  }, [filter, query, pathname, currentUser, changedWatch, setChangedWatch]);
 
   return (
     <Row className="mt-3">
@@ -97,6 +98,8 @@ function TaskKanban({ message, filter = "", taskList }) {
                               key={task.id} {...task} 
                               setTasks={setTasks} 
                               taskList={taskList}
+                              changedWatch={changedWatch}
+                              setChangedWatch={setChangedWatch}
                             />
                           )
                       )}
@@ -127,6 +130,8 @@ function TaskKanban({ message, filter = "", taskList }) {
                               key={task.id} {...task} 
                               setTasks={setTasks} 
                               taskList={taskList}
+                              changedWatch={changedWatch}
+                            setChangedWatch={setChangedWatch}
                             />
                           )
                       )}
@@ -157,6 +162,8 @@ function TaskKanban({ message, filter = "", taskList }) {
                               key={task.id} {...task} 
                               setTasks={setTasks} 
                               taskList={taskList}
+                              changedWatch={changedWatch}
+                              setChangedWatch={setChangedWatch}
                             />
                           )
                       )}
