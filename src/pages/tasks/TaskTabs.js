@@ -20,6 +20,8 @@ function TaskTabs(props) {
   const {
     taskList
   } = props;
+
+  // render tasks in a list or Kanban format
   const TaskComponent = taskList ? TaskList : TaskKanban
   
   const currentUser = useCurrentUser();
