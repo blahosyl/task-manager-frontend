@@ -14,6 +14,10 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
+// notification messages
+import { toast } from 'react-toastify';  
+import "react-toastify/dist/ReactToastify.css";
+
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -52,6 +56,15 @@ const UsernameForm = () => {
     }
   };
 
+  // feedback messages for user CRUD
+  const usernameEditSuccessMsg = () => {
+    toast.success("You have successfully changed your username 🎉")
+  };
+    
+  const usernameEditCancelMsg = () => {
+    toast.success("You chose not to change your username 👍")
+  };
+
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
@@ -74,13 +87,19 @@ const UsernameForm = () => {
             ))}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
+              onClick={() => {
+                history.goBack();
+                usernameEditCancelMsg();
+              }}
             >
               cancel
             </Button>
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               type="submit"
+              onClick={() => {
+                usernameEditSuccessMsg();
+              }}
             >
               save
             </Button>
