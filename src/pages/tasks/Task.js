@@ -11,6 +11,10 @@ import ListGroup from "react-bootstrap/ListGroup";
 // date formatting
 import dayjs from "dayjs";
 
+// notification messages
+import { toast } from 'react-toastify';  
+import "react-toastify/dist/ReactToastify.css";
+
 import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -55,6 +59,16 @@ const Task = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  // feedback messages for user CRUD
+   
+  const taskDeleteSuccessMsg = () => {
+    toast.success("You have successfully deleted the task 🎉")
+  };
+
+  const taskDeleteCancelMsg = () => {
+    toast.success("You chose not to delete the task 👍")
+  }; 
 
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
@@ -243,11 +257,19 @@ const Task = (props) => {
             <Modal.Footer>
               <Button
                 variant="secondary"
-                onClick={() => setShowDeleteModal(false)}
+                onClick={() => {
+                  setShowDeleteModal(false);
+                  taskDeleteCancelMsg();
+                }}
               >
                 Cancel
               </Button>
-              <Button variant="danger" onClick={handleDelete}>
+              <Button 
+                variant="danger" 
+                onClick={() => {
+                  handleDelete();
+                  taskDeleteSuccessMsg();
+                }}>
                 Delete
               </Button>
             </Modal.Footer>
