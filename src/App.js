@@ -19,6 +19,8 @@ import Footer from "./components/Footer";
 import Landing from "./pages/landing/Landing";
 import TaskTabs from "./pages/tasks/TaskTabs";
 import { ToastContainer } from "react-toastify";
+import TaskKanban from "./pages/tasks/TaskKanban";
+import TaskList from "./pages/tasks/TaskList";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -33,32 +35,29 @@ function App() {
           <Route
             exact
             path="/"
-            render={() => (
-              currentUser ? <TaskTabs /> : <Landing />
-            )}
+            render={() => (currentUser ? <TaskTabs /> : <Landing />)}
           />
-    
-          <Route
-            exact
-            path="/list"
-            render={() => (
-              <TaskTabs
-                taskList
-              />
-            )}
-          />
-         
+
+          <Route exact path="/kanban" render={() => <TaskKanban />} />
+          <Route exact path="/list-alone" render={() => <TaskList taskList />} />
+
+          <Route exact path="/list" render={() => <TaskTabs taskList />} />
+
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/tasks/create" render={() => <TaskCreateForm />} />
           <Route exact path="/tasks/:id" render={() => <TaskDetail />} />
           <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />
-          <Route exact path="/team" render={() => (
-            currentUser ? <ProfileList full /> : <SignInForm />
-          )} />
-          <Route exact path="/profiles/:id" render={() => (
-            currentUser ? <ProfileDetail /> : <SignInForm />
-          )} />
+          <Route
+            exact
+            path="/team"
+            render={() => (currentUser ? <ProfileList full /> : <SignInForm />)}
+          />
+          <Route
+            exact
+            path="/profiles/:id"
+            render={() => (currentUser ? <ProfileDetail /> : <SignInForm />)}
+          />
           <Route
             exact
             path="/profiles/:id/edit"
