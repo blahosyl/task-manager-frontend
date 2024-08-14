@@ -122,7 +122,6 @@ function TaskTabs(props) {
               message="No results found. Adjust the search keyword."
               tasks={tasks}
               setTasks={setTasks}
-              changedWatch={changedWatch}
               setChangedWatch={setChangedWatch}
             />
           </Tab>

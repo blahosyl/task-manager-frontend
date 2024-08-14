@@ -32,20 +32,30 @@ function ProfileDetail() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
-    // track if the watched status of a task has changed
-    const [changedWatch, setChangedWatch] = useState(false);
+  // track if the watched status of a task has changed
+  const [changedWatch, setChangedWatch] = useState(false);
 
+  const [tasks, setTasks] = useState({ results: [] });
+
+  // Fetch the user's Profile data, refetch when profile id, data or the user's
+  // watched tasks change
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
-          // axiosReq.get(`/tasks/?owner__profile=${id}`),
-        ]);
+        const [{ data: pageProfile }, { data: tasks }] = 
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/tasks/`),
+
+            // axiosReq.get(`/tasks/?assignee__profile=${id}`),
+            // axiosReq.get(`/tasks/?watched__owner__profile=${id}`),
+            // axiosReq.get(`/tasks/?owner__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setTasks(tasks);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -53,7 +63,7 @@ function ProfileDetail() {
     };
     fetchData();
     setChangedWatch(false);
-  }, [id, setProfileData, changedWatch]);
+  }, [id, setProfileData, changedWatch, tasks]);
 
   const shortname =
     currentUser?.username === profile?.owner
@@ -149,7 +159,12 @@ function ProfileDetail() {
               <TaskList
                 message="No results found. Adjust the search keyword assign a task to yourself."
                 filter={`assignee__profile=${profile?.id}&ordering=-updated_at&`}
+                tasks={tasks}
+                setTasks={setTasks}
+                changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
+
+
               />
             </Tab>
             <Tab 
@@ -164,7 +179,11 @@ function ProfileDetail() {
               <TaskList
                 message="No results found. Adjust the search keyword or watch a task."
                 filter={`watched__owner__profile=${profile?.id}&ordering=-watchers__created_at&`}
+                tasks={tasks}
+                setTasks={setTasks}
+                changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
+
               />
             </Tab>
             <Tab 
@@ -179,7 +198,11 @@ function ProfileDetail() {
               <TaskList
                 message="No results found. Adjust the search keyword or create a task."
                 filter={`owner__profile=${profile?.id}&ordering=-created_at&`}
+                tasks={tasks}
+                setTasks={setTasks}
+                changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
+
               />
             </Tab>
           </Tabs>
