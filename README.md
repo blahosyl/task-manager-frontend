@@ -64,6 +64,18 @@ I also decided not to use a placeholder image for tasks that do not have an imag
 as this would create an unnecessary distraction without adding information or a positive UX experience.
 instead, the `CardImage` is displayed conditionally only if there is an image.
 
+##### No empty task card for deleted tasks
+
+When manually entering URL of a deleted task into the browser address bar, an empty task card was shown.
+
+![Empty task card shown for deleted tasks](/documentation-assets/readme-assets/empty-task-card.png)
+
+While this is also present in the Moments sample project, it is not good UX, which is why I decided to [change it](https://github.com/blahosyl/task-manager-frontend/issues/129) for the present app.
+
+One of my attempts at a solution was to put all of the rendering in TaskDetail into a conditional clause checking if `task` exists, otherwise render the NotFound page. This failed to work. Similarly, checking for `task.id` failed.
+
+I theorized that this is because these 2 variables are defined in the component, and must exist so that the app knows which task the user wants to see. However, `task.title` is empty if the task has been deleted, and it must not be empty for any existing tasks, since it's a compulsory field. Setting this as the condition for rendering the TaskDetail page received the desired result.
+
 ## Project Management | Agile Methodologies
 
 ### Themes, Epics, Stories & Tasks

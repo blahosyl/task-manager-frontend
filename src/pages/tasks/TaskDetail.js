@@ -9,6 +9,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 // import appStyles from "../../App.module.css";
 import Task from "./Task";
 import ProfileList from "../profiles/ProfileList";
+import NotFound from "../../components/NotFound";
 
 function TaskDetail() {
     const { id } = useParams();
@@ -31,17 +32,19 @@ function TaskDetail() {
       }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <Task {...task.results[0]} setTasks={setTask} taskDetail/>
-        {/* <Container className={appStyles.Content}>
-          Comments
-        </Container> */}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <ProfileList />
-      </Col>
-    </Row>
+    task.title
+    ? <Row className="h-100">
+        <Col className="py-2 p-0 p-lg-2" lg={8}>
+          <Task {...task.results[0]} setTasks={setTask} taskDetail/>
+          {/* <Container className={appStyles.Content}>
+            Comments
+          </Container> */}
+        </Col>
+        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+          <ProfileList />
+        </Col>
+      </Row>
+    : <NotFound />
   );
 }
 
