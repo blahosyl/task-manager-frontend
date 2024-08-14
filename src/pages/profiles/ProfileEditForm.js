@@ -15,6 +15,10 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
+// notification messages
+import { toast } from 'react-toastify';  
+import "react-toastify/dist/ReactToastify.css";
+
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -110,6 +114,15 @@ const ProfileEditForm = () => {
     }
   };
 
+    // feedback messages for user CRUD
+    const profileEditSuccessMsg = () => {
+      toast.success("You have successfully edited your profile 🎉")
+    };
+  
+    const profileEditCancelMsg = () => {
+      toast.success("You chose not to edit your profile 👍")
+    };
+
   const textFields = (
     <>
       <Form.Group>
@@ -190,11 +203,20 @@ const ProfileEditForm = () => {
       ))}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
+        onClick={() => {
+          history.goBack();
+          profileEditCancelMsg();
+        }}
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button 
+        className={`${btnStyles.Button} ${btnStyles.Blue}`} 
+        type="submit"
+        onClick={() => {
+          profileEditSuccessMsg();
+        }}
+      >
         save
       </Button>
     </>
