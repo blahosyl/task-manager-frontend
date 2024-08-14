@@ -291,6 +291,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [`dayjs` `now`](https://day.js.org/docs/en/parse/now)
 - [comparing dates](https://www.freecodecamp.org/news/javascript-date-time-dayjs/#howtocomparedatesindayjs)
 - [Unicode for fire emoji](https://www.webfx.com/tools/emoji-cheat-sheet/)
+- [Error: React Hook "useEffect" cannot be called inside a callback](https://stackoverflow.com/a/71900086)
 
 ### Text
 

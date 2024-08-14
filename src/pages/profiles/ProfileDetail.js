@@ -24,13 +24,16 @@ import TaskList from "../tasks/TaskList";
 
 function ProfileDetail() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  // const [profileTasks, setProfileTasks] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+
+    // track if the watched status of a task has changed
+    const [changedWatch, setChangedWatch] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +52,8 @@ function ProfileDetail() {
       }
     };
     fetchData();
-  }, [id, setProfileData]);
+    setChangedWatch(false);
+  }, [id, setProfileData, changedWatch]);
 
   const shortname =
     currentUser?.username === profile?.owner
@@ -145,6 +149,7 @@ function ProfileDetail() {
               <TaskList
                 message="No results found. Adjust the search keyword assign a task to yourself."
                 filter={`assignee__profile=${profile?.id}&ordering=-updated_at&`}
+                setChangedWatch={setChangedWatch}
               />
             </Tab>
             <Tab 
@@ -159,6 +164,7 @@ function ProfileDetail() {
               <TaskList
                 message="No results found. Adjust the search keyword or watch a task."
                 filter={`watched__owner__profile=${profile?.id}&ordering=-watchers__created_at&`}
+                setChangedWatch={setChangedWatch}
               />
             </Tab>
             <Tab 
@@ -173,6 +179,7 @@ function ProfileDetail() {
               <TaskList
                 message="No results found. Adjust the search keyword or create a task."
                 filter={`owner__profile=${profile?.id}&ordering=-created_at&`}
+                setChangedWatch={setChangedWatch}
               />
             </Tab>
           </Tabs>
