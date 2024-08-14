@@ -18,6 +18,7 @@ import TaskEditForm from "./pages/tasks/TaskEditForm";
 import Footer from "./components/Footer";
 import Landing from "./pages/landing/Landing";
 import TaskTabs from "./pages/tasks/TaskTabs";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -26,6 +27,7 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
+      <ToastContainer />
       <Container className={styles.Main}>
         <Switch>
           <Route

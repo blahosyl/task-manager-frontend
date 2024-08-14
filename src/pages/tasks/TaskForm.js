@@ -18,6 +18,9 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+import { toast } from 'react-toastify';  
+import "react-toastify/dist/ReactToastify.css";
+
 import Asset from "../../components/Asset";
 import Image from "react-bootstrap/Image";
 
@@ -166,6 +169,9 @@ function TaskForm(props) {
     }
   };
 
+  const notify = () => {
+    toast("Default Notification !")};
+
   const buttons = (
     <div className="my-2 mx-auto text-center">
       <Button
@@ -174,7 +180,9 @@ function TaskForm(props) {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
+        onClick={notify}
+      >
         {/* change button text depending on whether creating or editing task */}
         {editForm ? "save" : "create"}
       </Button>
