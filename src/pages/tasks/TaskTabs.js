@@ -23,6 +23,8 @@ function TaskTabs(props) {
 
   const [tasks, setTasks] = useState({ results: [] });
 
+  // track if the watched status of a task has changed
+  const [changedWatch, setChangedWatch] = useState(false);
 
   // set whether to render tasks in a list or Kanban format
   const TaskComponent = taskList ? TaskList : TaskKanban
@@ -53,7 +55,6 @@ function TaskTabs(props) {
     };
     fetchData();
   }, [id, setProfileData,taskList]);
-  
 
   return (
     <Row className="h-100">
@@ -72,6 +73,8 @@ function TaskTabs(props) {
               filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
               tasks={tasks}
               setTasks={setTasks}
+              changedWatch={changedWatch}
+              setChangedWatch={setChangedWatch}
             />
           </Tab>
           <Tab 
@@ -87,6 +90,8 @@ function TaskTabs(props) {
               filter={`watched__owner__profile=${profile_id}&ordering=-watchers__created_at&`}
               tasks={tasks}
               setTasks={setTasks}
+              changedWatch={changedWatch}
+              setChangedWatch={setChangedWatch}
             />
           </Tab>
           <Tab 
@@ -102,6 +107,8 @@ function TaskTabs(props) {
               filter={`owner__profile=${profile_id}&ordering=-created_at&`}
               tasks={tasks}
               setTasks={setTasks}
+              changedWatch={changedWatch}
+              setChangedWatch={setChangedWatch}
             />
           </Tab>
           <Tab 
@@ -115,6 +122,8 @@ function TaskTabs(props) {
               message="No results found. Adjust the search keyword."
               tasks={tasks}
               setTasks={setTasks}
+              changedWatch={changedWatch}
+              setChangedWatch={setChangedWatch}
             />
           </Tab>
         </Tabs>

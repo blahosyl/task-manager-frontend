@@ -18,12 +18,10 @@ import NoResults from "../../assets/no-results.png";
 // import ProfileList from "../profiles/ProfileList";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function TaskList({ message, filter = "" , taskList}) {
+function TaskList({ message, filter = "" , taskList, changedWatch, setChangedWatch}) {
   const [tasks, setTasks] = useState({ results: [] });
 
   const [hasLoaded, setHasLoaded] = useState(false);
-
-  const [changedWatch, setChangedWatch] = useState(false);
 
   const { pathname } = useLocation();
 
@@ -43,6 +41,7 @@ function TaskList({ message, filter = "" , taskList}) {
     };
 
     setHasLoaded(false);
+    setChangedWatch(false);
     const timer = setTimeout(() => {
       fetchTasks();
     }, 1000);
@@ -50,7 +49,7 @@ function TaskList({ message, filter = "" , taskList}) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser, changedWatch]);
+  }, [filter, query, pathname, currentUser, changedWatch, setChangedWatch]);
 
   return (
     <Row className="h-100 mt-3">
