@@ -20,7 +20,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Asset from "../../components/Asset";
 import Image from "react-bootstrap/Image";
-import { fetchMoreData } from "../../utils/utils";
+import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 
 /** Used for the TaskCreateForm and TaskEditForm */
 function TaskForm(props) {
@@ -29,44 +29,47 @@ function TaskForm(props) {
   // redirect logged out users
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
-  const [profiles, setProfiles] = useState({});
 
+  // get the currentUser form CurrentUserContext
   const currentUser = useCurrentUser();
 
-  /** fetch all profiles from API
-    {logic based on handleMount in CurrentUserContext) */
-  const fetchProfiles = async () => {
-    try {
-      const { data } = await axiosReq.get(`/profiles/`);
-      setProfiles(data.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // get profile data from ProfileDataContext
+  const { profileList } = useProfileData();
+  // constant by John Rearden
+  const setProfileList = useSetProfileData();
 
+  // the array of profiles (initially 10)
+  const profiles = profileList.results
+  // the link to the next page of profiles
+  const nextProfilesLink = profileList.next
+
+  console.log('profileList', profileList)
+  console.log('profiles', profiles)
+  console.log('nextProfilesLink', nextProfilesLink)
+
+  /** Fetch all profiles (beyond the pagination of 10)
+   * This is used for the assignee dropdown select form
+   */
   useEffect(() => {
-    fetchProfiles();
+    // this is based on the function by John Rearden in the `next` prop of
+    //  `InfiniteScroll` in `ProfileList` 
     const nextProfiles = async () => {
       try {
-        const { data } = await axiosReq.get(profiles.next);
-        setProfiles((prev) => ({
+        const { data } = await axiosReq.get(nextProfilesLink);
+        setProfileList((prev) => ({
           ...prev,
-          profiles: {
+          profileList: {
             next: data.next,
-            results: [...prev.profiles.results, ...data.results],
+            results: [...prev.profileList.results, ...data.results],
           },
         }));
       } catch (err) {
         console.log(err);
       }
     }
-    // if the `profiles` object's `next` prop is not empty, 
-    // fetch the next page of profiles
-    // profiles.next && fetchMoreData(profiles, setProfiles)
-  }, [profiles.next]);
+    nextProfilesLink && nextProfiles();
+  }, [profileList, nextProfilesLink, setProfileList]);
 
-  console.log('profiles', profiles)
-  console.log('profiles.next', profiles.next)
 
   const [taskData, setTaskData] = useState({
     title: "",
@@ -186,6 +189,7 @@ function TaskForm(props) {
     }
   };
 
+
   const buttons = (
     <div className="my-2 mx-auto text-center">
       <Button
@@ -299,7 +303,7 @@ function TaskForm(props) {
                 <option value="">none</option>
                 {/* if profies are retrieved */}
                 {/* conditional added at the suggestion of tutor Oisin */}
-                {profiles.length && (
+                {profiles?.length && (
                   <>
                     {profiles.map((profile) => {
                       return (
