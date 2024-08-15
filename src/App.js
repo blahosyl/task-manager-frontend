@@ -19,8 +19,6 @@ import Footer from "./components/Footer";
 import Landing from "./pages/landing/Landing";
 import TaskTabs from "./pages/tasks/TaskTabs";
 import { ToastContainer } from "react-toastify";
-import TaskKanban from "./pages/tasks/TaskKanban";
-import TaskList from "./pages/tasks/TaskList";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -37,9 +35,6 @@ function App() {
             path="/"
             render={() => (currentUser ? <TaskTabs /> : <Landing />)}
           />
-
-          <Route exact path="/kanban" render={() => <TaskKanban />} />
-          <Route exact path="/list-alone" render={() => <TaskList taskList />} />
 
           <Route exact path="/list" render={() => <TaskTabs taskList />} />
 
