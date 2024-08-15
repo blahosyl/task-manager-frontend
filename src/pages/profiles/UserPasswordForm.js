@@ -11,6 +11,10 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+// feedback messages for user CRUD
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -52,6 +56,15 @@ const UserPasswordForm = () => {
     }
   };
 
+  // feedback messages for user CRUD
+  const passwordEditSuccessMsg = () => {
+    toast.success("You have successfully changed your password 🎉");
+  };
+
+  const passwordEditCancelMsg = () => {
+    toast.success("You chose not to change your password 👍");
+  };
+
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
@@ -89,13 +102,19 @@ const UserPasswordForm = () => {
             ))}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
+              onClick={() => {
+                history.goBack();
+                passwordEditCancelMsg();
+              }}
             >
               cancel
             </Button>
             <Button
               type="submit"
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              onClick={() => {
+                passwordEditSuccessMsg();
+              }}
             >
               save
             </Button>
