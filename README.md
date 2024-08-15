@@ -76,9 +76,13 @@ One of my attempts at a solution was to put all of the rendering in TaskDetail i
 
 I theorized that this is because these 2 variables are defined in the component, and must exist so that the app knows which task the user wants to see. However, `task.title` is empty if the task has been deleted, and it must not be empty for any existing tasks, since it's a compulsory field. Setting this as the condition for rendering the TaskDetail page received the desired result for the deleted pages.
 
-However, this change also caused TaskDetail pages for **existing tasks** to show a "Not Found" page (I suspect because the rendering conditional kicked in before the data were received from the API.
+However, this change also caused TaskDetail pages for **existing tasks** to show a "Not Found" page (I suspect because the rendering conditional kicked in before the data were received from the API).
 
 Instead, I used the `setLoaded` logic from `TaskList` and implemented in in `TaskDetail` as well.
+
+##### Explicit confirmation after user CRUD actions
+
+I added confirmation notifications after a user successfully completes a CRUD operation, or presses the Cancel button on a CRUD form ([#29](https://github.com/blahosyl/task-manager-frontend/issues/29)). At the suggestion of my mentor, I used the `toastify` package, as it comes with push-style notifications out of the box.
 
 ## Project Management | Agile Methodologies
 
