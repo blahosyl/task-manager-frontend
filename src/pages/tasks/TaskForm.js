@@ -17,9 +17,13 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import {
+  useProfileData,
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
 
 // notification messages
-import { toast } from 'react-toastify';  
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Asset from "../../components/Asset";
@@ -33,24 +37,47 @@ function TaskForm(props) {
   useRedirect("loggedOut");
 
   const [errors, setErrors] = useState({});
-  const [profiles, setProfiles] = useState({});
 
+  // get the currentUser form CurrentUserContext
   const currentUser = useCurrentUser();
 
-  /** fetch all profiles from API
-    {logic based on handleMount in CurrentUserContext) */
-  const fetchProfiles = async () => {
-    try {
-      const { data } = await axiosReq.get(`/profiles/`);
-      setProfiles(data.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // get profile data from ProfileDataContext
+  const { profileList } = useProfileData();
+  // constant by John Rearden
+  const setProfileList = useSetProfileData();
+
+  // the array of profiles (initially 10)
+  const profiles = profileList.results;
+  // the link to the next page of profiles
+  const nextProfilesLink = profileList.next;
+
+  console.log("profileList", profileList);
+  console.log("profiles", profiles);
+  console.log("nextProfilesLink", nextProfilesLink);
+
+  /** Fetch all profiles (beyond the pagination of 10)
+   * This is used for the assignee dropdown select form
+   */
 
   useEffect(() => {
-    fetchProfiles();
-  }, []);
+    // nextProfiles is based on the function by John Rearden in the `next` prop of
+    //  `InfiniteScroll` in `ProfileList`
+    const nextProfiles = async () => {
+      try {
+        const { data } = await axiosReq.get(nextProfilesLink);
+        setProfileList((prev) => ({
+          ...prev,
+          profileList: {
+            next: data.next,
+            results: [...prev.profileList.results, ...data.results],
+          },
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    nextProfilesLink && nextProfiles();
+  }, [profileList, nextProfilesLink, setProfileList]);
 
   const [taskData, setTaskData] = useState({
     title: "",
@@ -172,19 +199,19 @@ function TaskForm(props) {
 
   // feedback messages for user CRUD
   const taskCreateSuccessMsg = () => {
-    toast.success("You have successfully created a task 🎉")
+    toast.success("You have successfully created a task 🎉");
   };
 
   const taskCreateCancelMsg = () => {
-    toast.success("You chose not to create a new task 👍")
+    toast.success("You chose not to create a new task 👍");
   };
 
   const taskEditSuccessMsg = () => {
-    toast.success("You have successfully edited the task 🎉")
+    toast.success("You have successfully edited the task 🎉");
   };
 
   const taskEditCancelMsg = () => {
-    toast.success("You chose not to edit the task 👍")
+    toast.success("You chose not to edit the task 👍");
   };
 
   const buttons = (
@@ -192,18 +219,17 @@ function TaskForm(props) {
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => {
-          history.goBack(); 
+          history.goBack();
           editForm ? taskEditCancelMsg() : taskCreateCancelMsg();
-        }
-      }
+        }}
       >
         cancel
       </Button>
-      <Button 
-        className={`${btnStyles.Button} ${btnStyles.Blue}`} 
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
         type="submit"
         onClick={() => {
-          editForm ? taskEditSuccessMsg() : taskCreateSuccessMsg()
+          editForm ? taskEditSuccessMsg() : taskCreateSuccessMsg();
         }}
       >
         {/* change button text depending on whether creating or editing task */}
