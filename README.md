@@ -236,7 +236,10 @@ For all other users, only filled-in fields and the [conditially rendered name](#
 ### Tools used
 
 - [diffchecker.com](https://www.diffchecker.com/): comparing code
+- [ES7+ React/Reduc/React-Native snippets extension for VS Code](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets): quickly insert code snippets
+- [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
+- [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
 
 ## Deployment
 
