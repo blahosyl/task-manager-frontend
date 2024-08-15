@@ -9,7 +9,6 @@ import {
 import { Col, Row, Tab, Tabs } from "react-bootstrap";
 import ProfileList from "../profiles/ProfileList";
 
-import TaskKanban from "./TaskKanban";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
@@ -25,9 +24,6 @@ function TaskTabs(props) {
 
   // track if the watched status of a task has changed
   const [changedWatch, setChangedWatch] = useState(false);
-
-  // set whether to render tasks in a list or Kanban format
-  const TaskComponent = taskList ? TaskList : TaskKanban
   
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -67,7 +63,7 @@ function TaskTabs(props) {
               ${profile ? ("(" + profile.assigned_count) + ")": ""}
             `}
           >
-            <TaskComponent
+            <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword assign a task to yourself."
               filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
@@ -84,7 +80,7 @@ function TaskTabs(props) {
               ${profile ? ("(" + profile.watched_count) + ")": ""}
             `}
           >
-            <TaskComponent
+            <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword or watch a task."
               filter={`watched__owner__profile=${profile_id}&ordering=-watchers__created_at&`}
@@ -101,7 +97,7 @@ function TaskTabs(props) {
               ${profile ? ("(" + profile.owned_count) + ")": ""}
             `}
           >
-            <TaskComponent
+            <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword or create a task."
               filter={`owner__profile=${profile_id}&ordering=-created_at&`}
@@ -117,7 +113,7 @@ function TaskTabs(props) {
               All tasks
             `}
           >
-            <TaskComponent 
+            <TaskList 
               taskList={taskList}
               message="No results found. Adjust the search keyword."
               tasks={tasks}
