@@ -161,7 +161,7 @@ function ProfileDetail() {
                 filter={`assignee__profile=${profile?.id}&ordering=-updated_at&`}
                 tasks={tasks}
                 setTasks={setTasks}
-                changedWatch={changedWatch}
+                // changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
 
 
@@ -200,7 +200,7 @@ function ProfileDetail() {
                 filter={`owner__profile=${profile?.id}&ordering=-created_at&`}
                 tasks={tasks}
                 setTasks={setTasks}
-                changedWatch={changedWatch}
+                // changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
 
               />
