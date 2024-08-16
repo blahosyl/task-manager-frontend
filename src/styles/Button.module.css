@@ -56,3 +56,16 @@
     background-color: var(--light-low);
     color: var(--very-dark-low);
   }
+
+  .Danger,
+  .DangerOutline:hover {
+    background-color: var(--dark-high) !important;
+    color: var(--white) !important;
+  }
+
+  .DangerOutline,
+  .Danger:hover {
+    border: 1px solid var(--dark-high);
+    background-color: var(--white);
+    color: var(--dark-high);
+  }

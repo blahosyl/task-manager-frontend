@@ -22,7 +22,7 @@ import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Task.module.css";
-// import btnStyles from "../../styles/Button.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { ListGroupItem } from "react-bootstrap";
 
@@ -258,14 +258,15 @@ const Task = (props) => {
             show={showDeleteModal}
             onHide={() => setShowDeleteModal(false)}
             centered={true}
+            className={`${appStyles.Rounded}`}
           >
             <Modal.Header closeButton>
-              <Modal.Title>Confirm Deletetion</Modal.Title>
+              <Modal.Title>Confirm Deletion</Modal.Title>
             </Modal.Header>
             <Modal.Body>Are you sure you want to delete this task?</Modal.Body>
             <Modal.Footer>
               <Button
-                variant="secondary"
+                className={`${btnStyles.Button} ${btnStyles.DangerOutline}`}
                 onClick={() => {
                   setShowDeleteModal(false);
                   taskDeleteCancelMsg();
@@ -274,7 +275,7 @@ const Task = (props) => {
                 Cancel
               </Button>
               <Button 
-                variant="danger" 
+                className={`${btnStyles.Button} ${btnStyles.Danger}`}
                 // adding `async` suggested by tutor Roman
                 onClick={ async() => {
                    await handleDelete();
