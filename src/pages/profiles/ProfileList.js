@@ -37,6 +37,7 @@ const ProfileList = (props) => {
         className={`
           ${appStyles.Content}          
           ${styles.Container}
+          ${appStyles.Rounded}
         `} 
       >
         {/* if profiles are loaded, render them using the Profile component */}
