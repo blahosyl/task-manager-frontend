@@ -37,21 +37,19 @@ function ProfileDetail() {
 
   const [tasks, setTasks] = useState({ results: [] });
 
-  // Fetch the user's Profile data, refetch when profile id, data or the user's
-  // watched tasks change
+  /** Fetch the user's Profile data, refetch when profile id, data or the user's
+  watched tasks change (watched tasks counts are fetched from profile, not task)*/
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: tasks }] = 
+        const [{ data: pageProfile }] = 
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/tasks/`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
-        setTasks(tasks);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -59,7 +57,7 @@ function ProfileDetail() {
     };
     fetchData();
     setChangedWatch(false);
-  }, [id, setProfileData, changedWatch, tasks]);
+  }, [id, setProfileData, changedWatch]);
 
   const shortname =
     currentUser?.username === profile?.owner
