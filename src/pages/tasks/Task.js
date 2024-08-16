@@ -86,6 +86,7 @@ const Task = (props) => {
       }))
       // redirect to TaskList or TaskKanban (home) page after deleting a task
       taskList ? history.push('/list') : history.push(`/`);
+      setChangedWatch(true);
     } catch (err) {
       console.log(err);
       setShowDeleteModal(false);
