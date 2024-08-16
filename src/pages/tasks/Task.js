@@ -382,12 +382,17 @@ const Task = (props) => {
       >
         
         <Col className={`${styles.DateContainer}`}>
-        {taskDetail && <span className={`mr-2`}>Due:</span>}
+        <span className={`mr-2`}>
+          {(taskDetail || taskList) && "Due"} 
+          {taskDetail && " date"}
+          {(taskDetail || taskList) && ":"} 
+        </span>
           <span>{due_date 
             ? taskDetail
               ? dayjs(due_date).format('ddd | D MMM YYYY') 
               : dayjs(due_date).format('D MMM') 
-            : ""
+            : 
+            (taskDetail || taskList) ? "not specified" : ""
             }
           </span>
         </Col>
