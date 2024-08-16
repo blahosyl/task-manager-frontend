@@ -58,8 +58,8 @@ function TaskDetail() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Task {...task.results[0]} setTasks={setTask} taskDetail />
-        <Container className={appStyles.Content}>
-          {currentUser ? (
+        <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
+          {currentUser && (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -67,26 +67,31 @@ function TaskDetail() {
               setTask={setTask}
               setComments={setComments}
             />
-          ) : comments.results.length ? (
-            "Comments"
-          ) : null}
+          ) 
+        }
+          {comments.results.length 
+            ? <h5 className="ml-3">{comments.results.length} comments</h5>
+            : null
+          }
 
           {comments.results.length ? (
-            <InfiniteScroll
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  setTask={setTask}
-                  setComments={setComments}
-                  priority={task.priority}
-                />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            />
+            <>
+              <InfiniteScroll
+                children={comments.results.map((comment) => (
+                  <Comment
+                    key={comment.id}
+                    {...comment}
+                    setTask={setTask}
+                    setComments={setComments}
+                    priority={task.priority}
+                  />
+                ))}
+                dataLength={comments.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!comments.next}
+                next={() => fetchMoreData(comments, setComments)}
+              />
+            </>
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (

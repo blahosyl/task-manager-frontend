@@ -6,7 +6,6 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
 
 import styles from "../../styles/Comment.module.css";
-import taskStyles from "../../styles/Task.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -22,7 +21,6 @@ const Comment = (props) => {
     id,
     setTask,
     setComments,
-    priority,
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
@@ -51,6 +49,7 @@ const Comment = (props) => {
   return (
     <>
       <hr />
+      
       <Media>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar 
@@ -60,15 +59,6 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={`
             ${styles.Owner}
-            ${
-              priority === String("LOW")
-                ? taskStyles.VeryDarkLowText
-                : priority === String("MEDIUM")
-                ? taskStyles.VeryDarkMedText
-                : priority === String("HIGH")
-                ? taskStyles.VeryDarkHighText
-                : {}
-              }
           `}>
           {
             // show first name, last name or both if available

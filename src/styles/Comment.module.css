@@ -1,6 +1,7 @@
 .Owner {
     font-weight: bold;
     margin-right: 8px;
+    color: var(--very-dark-low);
   }
   
   .Date {
