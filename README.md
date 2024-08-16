@@ -299,6 +299,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [comparing dates](https://www.freecodecamp.org/news/javascript-date-time-dayjs/#howtocomparedatesindayjs)
 - [Unicode for fire emoji](https://www.webfx.com/tools/emoji-cheat-sheet/)
 - [Error: React Hook "useEffect" cannot be called inside a callback](https://stackoverflow.com/a/71900086)
+- [Bootstrap vertical alignment](https://getbootstrap.com/docs/4.6/utilities/vertical-align/)
 
 ### Text
 
@@ -309,7 +310,9 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [orange-swirl](https://unsplash.com/photos/an-abstract-red-and-orange-background-with-curves-K-DwbsTXliY) by [LiZhang](https://unsplash.com/@sunx) ([Unspash](https://unsplash.com/))
 - [silhouette](https://unsplash.com/photos/silhouette-photography-of-woman-0-eT-ApZmUw) by [Tem Rysh](https://unsplash.com/@tem_rysh) ([Unspash](https://unsplash.com/))
 - [door](https://unsplash.com/photos/orange-room-with-open-door-DIewyzpUbRc) by [Natalia Y.](https://unsplash.com/@foxfox) ([Unspash](https://unsplash.com/))
-- [logo & favicon] created by me, changed colors with [onlinepngtools.com](https://onlinepngtools.com/change-png-color), converted to favicon with [favicon.io/](https://favicon.io/favicon-converter/).
+- [logo](/src/assets/logo.jpg) & [favicon](public/favicon-16x16.png) created by me, changed colors with [onlinepngtools.com](https://onlinepngtools.com/change-png-color), converted to favicon with [favicon.io/](https://favicon.io/favicon-converter/)
+- [lightbulb](https://unsplash.com/photos/lighted-orange-cfl-bylb-HfVfXJjktWw) by [Izumi](https://unsplash.com/@itsaizumi) ([Unspash](https://unsplash.com/))
+- [no-results](/src/assets/no-results.png) & [upload](/src/assets/upload.png) taken from the Moments walkthrough project, colors changed with [onlinepngtools.com](https://onlinepngtools.com/change-png-color)
 
 ### Readmes
 
