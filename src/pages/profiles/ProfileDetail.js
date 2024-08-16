@@ -46,10 +46,6 @@ function ProfileDetail() {
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/tasks/`),
-
-            // axiosReq.get(`/tasks/?assignee__profile=${id}`),
-            // axiosReq.get(`/tasks/?watched__owner__profile=${id}`),
-            // axiosReq.get(`/tasks/?owner__profile=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
@@ -207,9 +203,6 @@ function ProfileDetail() {
             </Tab>
           </Tabs>
         </Col>
-        {/* <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <ProfileList />
-      </Col> */}
       </Row>
     </>
   );
