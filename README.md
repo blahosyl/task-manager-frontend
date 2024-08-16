@@ -139,7 +139,7 @@ It displays the first and/or last name of the user if these are filled in. Other
 
 The Profile ID is sent to the API. Since a profile is automatically created whenever a user is created, profile ID and user ID should be the same.
 
-#### Task list
+#### Task list page
 
 The task list features a more compact version of the task cards, with only the following information shown:
 
@@ -162,14 +162,47 @@ The Color scheme of the card changes based on the priority of the task:
 - high
 - no priority
 
-##### Filtering
+##### Filtering with tabs
 
-##### Searching
+Filtering is implemented with a tabbed structure on the [Task list](#task-list-page), [Kanban](#kanban-board) and [Profile Detail](#profile-detail-page) pages.
+
+On the [Task list](#task-list-page) and [Kanban](#kanban-board), 4 columns are shown:
+
+- tasks assigned to the logged-in user
+- tasks watched by the logged-in user
+- tasks created (owned) by the logged-in user
+- all tasks
+
+On the [Profile](#profile-detail-page) page, the list shown depends on the user whose Profile page is viewed:
+
+- tasks assigned to the viewed user
+- tasks watched by the viewed user
+- tasks created (owned) by the viewed user
+
+Each filtered column also shows how many tasks are in each one. Whenever a task is changed in one column (re-assigned, watched/unwatched or deleted), the change is reflected in all columns without having to reload the page.
+
+##### Searching tasks
+
+A search bar appears on the [Task list](#task-list-page), [Kanban](#kanban-board) and [Profile Detail](#profile-detail-page) pages. It returns tasks specific to the viewed [tab](#filtering-with-tabs) as the user types, without having to press a button.
+
+Fields searched are:
+
+- title
+- excerpt
+- description
+- assignee
+- owner
 
 #### Kanban board
 
 I also implemented a task Kanban board, where tasks are automatically sorted based on their status.
 Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for this view.
+
+This page has the information and layout that a user is likely to want to see, which is why it is the starting page for logged-in users.
+
+Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`
+
+The conditional color scheme and stretched link functionalities work just like on the [Task List page](#task-list-page).
 
 #### Task detail page
 
@@ -201,7 +234,7 @@ The full profile list also shows the pronouns and role if these are filled in.
 
 #### Profile detail page
 
-This page shows a user's profile information and [tasks assigned to them](#task-list).
+This page shows a user's profile information and [tasks assigned to them](#task-list-page).
 
 For logged-in users, this shows all profile fields including empty ones.
 In addition, the conditionally rendered user name has the suffix "(me)"
