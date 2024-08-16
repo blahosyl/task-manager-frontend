@@ -162,7 +162,7 @@ const Task = (props) => {
         <Row>
           {/* empty col for balancing header content */}
           <Col className={`col-1 d-none s-d-block`}></Col>
-          <Col>
+          <Col className={`mt-1`}>
             {/* Display assignee image & name or "not assigned" */}
             {assignee ? (
               <Link
@@ -198,8 +198,8 @@ const Task = (props) => {
             )}
           </Col>
 
-          {/* task assignee, status & priority */}
-          <Col className={styles.CardHeaderText}>
+          {/* task status & priority */}
+          <Col className={`${styles.CardHeaderText} d-none d-lg-flex`}>
             {/* Show status in a human readable format on TaskList and Task Detail pages.
             Even though status` is a str, === only works if this is
             explicitely specified, and == produces a warning*/}
