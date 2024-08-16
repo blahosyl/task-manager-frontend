@@ -32,9 +32,9 @@
 
   /* app colors */
   --med-light-orange: #FD9E5E;
-  --icon-color: #ced2d3;
+  --icon-color: var(--med-light-orange);
   --link-color: --med-gray;
-  --navicon-active: #F36A20;
+  --navicon-active: var(--dark-high);
   --link-hover: var(--dark-low);/* also used for icon hover */
   --background: var(--very-light-warm);
 }
