@@ -217,7 +217,7 @@ function TaskForm(props) {
   const buttons = (
     <div className="my-2 mx-auto text-center">
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
         onClick={() => {
           history.goBack();
           editForm ? taskEditCancelMsg() : taskCreateCancelMsg();

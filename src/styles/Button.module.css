@@ -7,8 +7,6 @@
     margin-left: 2px;
     margin-right: 2px;
     min-width: 75px;
-    background-color: var(--dark-low) !important;
-    color: var(--white) !important;
     font-weight: bold;
   }
 
@@ -38,18 +36,23 @@
   .Blue,
   .BlueOutline:hover,
   .Bright:hover {
-    background-color: var(--dark-low);
-    color: var(--white);
+    background-color: var(--dark-low) !important;
+    color: var(--white) !important;
   }
 
+  .BlueOutline:hover{
+    background-color: var(--light-low) !important;
+    color: var(--very-dark-low) !important;
+  }
+  
   .BlueOutline,
   .Blue:hover {
-    /* border: 1px solid #2142b2; */
-    background-color: #ffffff;
-    color: var(--white);
+    border: 1px solid var(--very-dark-low);
+    background-color: var(--white);
+    color: var(--very-dark-low);
   }
 
   .Bright {
-    background-color: #2ed9ff;
-    color: #2142b2;
+    background-color: var(--light-low);
+    color: var(--very-dark-low);
   }

@@ -101,7 +101,7 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
               onClick={() => {
                 history.goBack();
                 passwordEditCancelMsg();
