@@ -44,6 +44,9 @@
   background-color: var(--background);
   min-height: 100vh;
   color: var(--very-dark-high);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .Main {
