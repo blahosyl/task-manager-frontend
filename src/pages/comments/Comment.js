@@ -6,6 +6,7 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
 
 import styles from "../../styles/Comment.module.css";
+import taskStyles from "../../styles/Task.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -14,11 +15,14 @@ const Comment = (props) => {
     profile_id,
     profile_image,
     owner,
+    owner_firstname,
+    owner_lastname,
     updated_at,
     content,
     id,
     setTask,
     setComments,
+    priority,
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
@@ -49,10 +53,38 @@ const Comment = (props) => {
       <hr />
       <Media>
         <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profile_image} />
+          <Avatar 
+            src={profile_image} 
+          />
         </Link>
         <Media.Body className="align-self-center ml-2">
-          <span className={styles.Owner}>{owner}</span>
+          <span className={`
+            ${styles.Owner}
+            ${
+              priority === String("LOW")
+                ? taskStyles.VeryDarkLowText
+                : priority === String("MEDIUM")
+                ? taskStyles.VeryDarkMedText
+                : priority === String("HIGH")
+                ? taskStyles.VeryDarkHighText
+                : {}
+              }
+          `}>
+          {
+            // show first name, last name or both if available
+            // otherwise, show username
+            owner_firstname
+            ? owner_firstname + " " + owner_lastname
+            : owner_lastname
+            ? owner_lastname
+            : owner
+                +
+                // add "me" to the current user's name in the dropdown
+                currentUser?.username === profile_id.owner
+                ? " (me)"
+                : ""
+              }
+          </span>
           <span className={styles.Date}>{updated_at}</span>
           {showEditForm ? (
             <CommentEditForm

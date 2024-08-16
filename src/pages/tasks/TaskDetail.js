@@ -79,6 +79,7 @@ function TaskDetail() {
                   {...comment}
                   setTask={setTask}
                   setComments={setComments}
+                  priority={task.priority}
                 />
               ))}
               dataLength={comments.results.length}
