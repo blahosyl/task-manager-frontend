@@ -156,7 +156,7 @@ function ProfileDetail() {
                 taskList
                 tasks={tasks}
                 setTasks={setTasks}
-                // changedWatch={changedWatch}
+                changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
 
 
@@ -197,7 +197,7 @@ function ProfileDetail() {
                 taskList
                 tasks={tasks}
                 setTasks={setTasks}
-                // changedWatch={changedWatch}
+                changedWatch={changedWatch}
                 setChangedWatch={setChangedWatch}
 
               />

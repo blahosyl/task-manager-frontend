@@ -69,7 +69,7 @@ function TaskTabs(props) {
               filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
               tasks={tasks}
               setTasks={setTasks}
-              // changedWatch={changedWatch}
+              changedWatch={changedWatch}
               setChangedWatch={setChangedWatch}
             />
           </Tab>
@@ -103,7 +103,7 @@ function TaskTabs(props) {
               filter={`owner__profile=${profile_id}&ordering=-created_at&`}
               tasks={tasks}
               setTasks={setTasks}
-              // changedWatch={changedWatch}
+              changedWatch={changedWatch}
               setChangedWatch={setChangedWatch}
             />
           </Tab>
@@ -118,6 +118,7 @@ function TaskTabs(props) {
               message="No results found. Adjust the search keyword."
               tasks={tasks}
               setTasks={setTasks}
+              changedWatch={changedWatch}
               setChangedWatch={setChangedWatch}
             />
           </Tab>
