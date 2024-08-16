@@ -25,8 +25,8 @@ function TaskList({
   message,
   filter = "",
   taskList,
-  changedWatch,
-  setChangedWatch,
+  tabListChanged,
+  setTabListChanged,
 }) {
   // Get the task list
   const [tasks, setTasks] = useState({ results: [] });
@@ -52,7 +52,7 @@ function TaskList({
     };
 
     setHasLoaded(false);
-    setChangedWatch(false);
+    setTabListChanged(false);
     const timer = setTimeout(() => {
       fetchTasks();
     }, 1000);
@@ -60,7 +60,7 @@ function TaskList({
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser, changedWatch, setChangedWatch]);
+  }, [filter, query, pathname, currentUser, tabListChanged, setTabListChanged]);
 
 
   // use the ProfileDataContext
@@ -85,7 +85,7 @@ function TaskList({
       }
     };
       fetchProfileData();
-    }, [profile_id, changedWatch, setProfileData]);
+    }, [profile_id, tabListChanged, setProfileData]);
 
 
   return (
@@ -115,8 +115,8 @@ function TaskList({
                     {...task}
                     setTasks={setTasks}
                     taskList={taskList}
-                    changedWatch={changedWatch}
-                    setChangedWatch={setChangedWatch}
+                    tabListChanged={tabListChanged}
+                    setTabListChanged={setTabListChanged}
                   />
                 ))}
                 dataLength={tasks.results.length}
@@ -192,8 +192,8 @@ function TaskList({
                             key={task.id} {...task} 
                             setTasks={setTasks} 
                             taskList={taskList}
-                            changedWatch={changedWatch}
-                            setChangedWatch={setChangedWatch}
+                            tabListChanged={tabListChanged}
+                            setTabListChanged={setTabListChanged}
                           />
                         )
                     )}
@@ -224,8 +224,8 @@ function TaskList({
                             key={task.id} {...task} 
                             setTasks={setTasks} 
                             taskList={taskList}
-                            changedWatch={changedWatch}
-                          setChangedWatch={setChangedWatch}
+                            tabListChanged={tabListChanged}
+                          setTabListChanged={setTabListChanged}
                           />
                         )
                     )}
@@ -256,8 +256,8 @@ function TaskList({
                             key={task.id} {...task} 
                             setTasks={setTasks} 
                             taskList={taskList}
-                            changedWatch={changedWatch}
-                            setChangedWatch={setChangedWatch}
+                            tabListChanged={tabListChanged}
+                            setTabListChanged={setTabListChanged}
                           />
                         )
                     )}

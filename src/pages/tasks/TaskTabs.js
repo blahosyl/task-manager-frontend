@@ -23,7 +23,7 @@ function TaskTabs(props) {
   const [tasks, setTasks] = useState({ results: [] });
 
   // track if the watched status of a task has changed
-  const [changedWatch, setChangedWatch] = useState(false);
+  const [tabListChanged, setTabListChanged] = useState(false);
   
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -69,8 +69,8 @@ function TaskTabs(props) {
               filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
               tasks={tasks}
               setTasks={setTasks}
-              changedWatch={changedWatch}
-              setChangedWatch={setChangedWatch}
+              tabListChanged={tabListChanged}
+              setTabListChanged={setTabListChanged}
             />
           </Tab>
           <Tab 
@@ -86,8 +86,8 @@ function TaskTabs(props) {
               filter={`watched__owner__profile=${profile_id}&ordering=-watchers__created_at&`}
               tasks={tasks}
               setTasks={setTasks}
-              changedWatch={changedWatch}
-              setChangedWatch={setChangedWatch}
+              tabListChanged={tabListChanged}
+              setTabListChanged={setTabListChanged}
             />
           </Tab>
           <Tab 
@@ -103,8 +103,8 @@ function TaskTabs(props) {
               filter={`owner__profile=${profile_id}&ordering=-created_at&`}
               tasks={tasks}
               setTasks={setTasks}
-              changedWatch={changedWatch}
-              setChangedWatch={setChangedWatch}
+              tabListChanged={tabListChanged}
+              setTabListChanged={setTabListChanged}
             />
           </Tab>
           <Tab 
@@ -118,8 +118,8 @@ function TaskTabs(props) {
               message="No results found. Adjust the search keyword."
               tasks={tasks}
               setTasks={setTasks}
-              changedWatch={changedWatch}
-              setChangedWatch={setChangedWatch}
+              tabListChanged={tabListChanged}
+              setTabListChanged={setTabListChanged}
             />
           </Tab>
         </Tabs>

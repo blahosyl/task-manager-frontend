@@ -53,7 +53,7 @@ const Task = (props) => {
     taskDetail,
     taskList,
     setTasks,
-    setChangedWatch,
+    setTabListChanged,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -86,7 +86,7 @@ const Task = (props) => {
       }))
       // redirect to TaskList or TaskKanban (home) page after deleting a task
       taskList ? history.push('/list') : history.push(`/`);
-      setChangedWatch(true);
+      setTabListChanged(true);
     } catch (err) {
       console.log(err);
       setShowDeleteModal(false);
@@ -111,7 +111,7 @@ const Task = (props) => {
             : task;
         }),
       }));
-      setChangedWatch(true);
+      setTabListChanged(true);
     } catch (err) {
       console.log(err);
     }
@@ -132,7 +132,7 @@ const Task = (props) => {
             : task;
         }),
       }));
-      setChangedWatch(true);
+      setTabListChanged(true);
     } catch (err) {
       console.log(err);
     }

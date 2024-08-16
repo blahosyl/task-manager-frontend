@@ -33,7 +33,7 @@ function ProfileDetail() {
   const is_owner = currentUser?.username === profile?.owner;
 
   // track if the watched status of a task has changed
-  const [changedWatch, setChangedWatch] = useState(false);
+  const [tabListChanged, setTabListChanged] = useState(false);
 
   const [tasks, setTasks] = useState({ results: [] });
 
@@ -56,8 +56,8 @@ function ProfileDetail() {
       }
     };
     fetchData();
-    setChangedWatch(false);
-  }, [id, setProfileData, changedWatch]);
+    setTabListChanged(false);
+  }, [id, setProfileData, tabListChanged]);
 
   const shortname =
     currentUser?.username === profile?.owner
@@ -156,8 +156,8 @@ function ProfileDetail() {
                 taskList
                 tasks={tasks}
                 setTasks={setTasks}
-                changedWatch={changedWatch}
-                setChangedWatch={setChangedWatch}
+                tabListChanged={tabListChanged}
+                setTabListChanged={setTabListChanged}
 
 
               />
@@ -177,8 +177,8 @@ function ProfileDetail() {
                 taskList
                 tasks={tasks}
                 setTasks={setTasks}
-                changedWatch={changedWatch}
-                setChangedWatch={setChangedWatch}
+                tabListChanged={tabListChanged}
+                setTabListChanged={setTabListChanged}
 
               />
             </Tab>
@@ -197,8 +197,8 @@ function ProfileDetail() {
                 taskList
                 tasks={tasks}
                 setTasks={setTasks}
-                changedWatch={changedWatch}
-                setChangedWatch={setChangedWatch}
+                tabListChanged={tabListChanged}
+                setTabListChanged={setTabListChanged}
 
               />
             </Tab>
