@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import appStyles from "../App.module.css";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
@@ -7,7 +8,7 @@ import { useHistory } from "react-router";
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fa-solid fa-ellipsis-vertical"
+    className="fa-solid fa-ellipsis-vertical text-white"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -30,14 +31,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className="fas fa-edit" />
+          <i className={`fas fa-edit ${appStyles.DarkIcon}`} />
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash-alt" />
+          <i className={`fas fa-trash-alt ${appStyles.DarkIcon}`} />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

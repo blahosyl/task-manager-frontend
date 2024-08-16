@@ -45,7 +45,8 @@ const ProfileList = (props) => {
           <>
             <Link className="align-self-center" to={`/team`}>
               <h3>
-                <i className="fa-solid fa-users-line"></i>Teammates
+                <i className={`fa-solid fa-users-line ${appStyles.DarkIcon}`}></i>
+                Teammates
               </h3>
             </Link>
             <InfiniteScroll
