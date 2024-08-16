@@ -469,7 +469,8 @@ const Task = (props) => {
       {taskDetail && (
         <Card.Body>
           <ListGroup variant="flush">
-            {description && <ListGroup.Item>{description}</ListGroup.Item>}
+          {description && <Card.Text className="mb=4 text-center">{description}</Card.Text>}
+
             {updated_at && (
               <ListGroup.Item>Last updated on: {dayjs(updated_at).format('ddd | D MMM YYYY')}</ListGroup.Item>
             )}
