@@ -151,6 +151,8 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 
 #### UX Improvements
 
+put timeout on redirect, so pages don't keep flickering
+
 user/profile cannot be deleted
 
 feedback: toastify messages

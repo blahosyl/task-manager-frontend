@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 export const useRedirect = (userAuthStatus) => {
   const history = useHistory();
 
+  /** Redirect logged-in users to the home page, logged-out users to the signin page */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -21,6 +22,13 @@ export const useRedirect = (userAuthStatus) => {
       }
     };
 
-    handleMount();
+    // wait 4 seconds before redirecting
+    const timer = setTimeout(() => {
+      handleMount();
+    }, 4000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [history, userAuthStatus]);
 };
