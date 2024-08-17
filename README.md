@@ -579,4 +579,22 @@ All text was written by me.
 
 ### Readmes
 
+- [Creating your first README with Kera Cudmore](https://www.youtube.com/watch?v=XbYJ4VlhSnY) by Code Institute
+- [Creating your first README](https://github.com/kera-cudmore/readme-examples) by Kera Cudmore
+- [Bully Book Club](https://github.com/kera-cudmore/Bully-Book-Club) by Kera Cudmore
+- [Bodelschwingher Hof](https://github.com/4n4ru/CI_MS1_BodelschwingherHof/tree/master) by Ana Runje
+- [Travel World](https://github.com/PedroCristo/portfolio_project_1/) by Pedro Cristo
+- [Sourdough Bakes](https://github.com/siobhanlgorman) by Siobhan Gorman
+- [Horizon Photo](https://github.com/Ri-Dearg/horizon-photo/blob/master/README.md#mobile-testing) by Rory Patrick Sheridan
+- [BackeStock](https://github.com/amylour/BakeStock/) by [Amy Richardson](https://github.com/amylour)
+- [American Pizza Order System](https://github.com/useriasminnaamerican_pizza_order_system/) by [Iasmina Pal](https://github.com/useriasminna)
+- [Neverlost](https://github.com/Ri-Dearg/neverlost-thrift) by [Rory Patrick Sheridan](https://github.com/Ri-Dearg)
+- [EastStr](https://github.com/ndsurgenor/east-street) by Nathan Surgenor
+- [League Hub](https://github.com/MikeR94/CI-Project-Portfolio-5) by [MikeE94](https://github.com/MikeR94)
+- [Tick it](https://github.com/jkingportfolio/ci_pp5_tick_it_react) by [Jamie King](https://github.com/jkingportfolio)
+- [The README of my first Code Institute project](https://github.com/blahosyl/academic-publishing)
+- [The README of my second Code Institute project](https://github.com/blahosyl/operator-game)
+- [The README of my third Code Institute project](https://github.com/blahosyl/dinner-party)
+- [The README of my fourth Code Institute project](https://github.com/blahosyl/spicy)
+
 ### Acknowledgements
