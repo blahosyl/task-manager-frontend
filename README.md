@@ -82,9 +82,9 @@ A profile instance is created automatically for each new user.
 The 5th model, Watcher, offers the same functionality not via a form, but by clicking the eye icon on a task.
 
 > [!NOTE]
-> Since a Watchers instance only contains to ForeignKey fields, editing and deletion are effectively the same, since changing either the watcher or the watched task will amount to a different Watchers instance
+> Since a Watcher instance only contains two ForeignKey fields, editing and deletion are effectively the same, since changing either the watcher or the watched task will amount to a different Watcher instance
 
-3 of the API models have full CRUD in the UI: Comment, Task & Watchers.
+3 of the API models have full CRUD in the UI: Comment, Task & Watcher.
 
 Deletion of Profile and User instances is possible in the API, but not in the front end. This has UX reasons, as explained in the section [UX improvements](#ux-improvements).
 
@@ -210,19 +210,113 @@ I added confirmation notifications after a user successfully completes a CRUD op
 
 ### Themes, Epics, Stories & Tasks
 
+The work to be done was divided into the following Themes:
+
+- Access management
+- CRUD
+- View content
+- Site elements
+- UX improvements
+- Setup & deployment
+
+Each theme was then divided into Epics, and Epics into User Stories, as seen here (click [here](https://docs.google.com/spreadsheets/d/1qZQIKNKa_nGfCR9YQQ1UFkeIGvXR_ikOx7Oev0sEVBA/edit?usp=sharing) for the original Sheet):
+
+![Themes, Epics & User Stories](/documentation-assets/user-stories/pp5-user-stories-initial.png)
+
+Each epic was assigned a distinctive color, which was also used for its [label in GitHub Issues](#labels).
+Epics belonging to the same Theme were assigned colors of similar hues.
+This facilitated getting an overview of the work items.
+
+Finally, User Stories were broken down into tasks. These can be seen for each User Story individually in [GitHub Issues](https://github.com/blahosyl/task-manager-frontend/issues) and on the [Project Board](#project-board).
+
+As this was my first project using React, some User Stories have a very detailed task list, both as learning and as documentation/reference.
+Issues that have tasks that were already familiar only have high-level bullet points.
+
+At the suggestion of my mentor, I have added several user stories to improve User Experience to the initial list:
+
+- [UX Access Management](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+access+management%22)
+- [UX Comments](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+comments%22)
+- [UX General](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+general%22)
+- [UX Profiles](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+profiles%22)
+- [UX Tasks](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+tasks%22)
+
+
+Some work items that have initially been classified as Epics have later been reclassified as User Stories – typically these were "meta" items to do with testing and documentation.
+
 ### Estimation
+
+Estimating the time it would take to complete each User Story is notoriously difficult, doubly so with the first project  in a new framework.
+This is why I did not assign sizes to the individual User Stories, instead, I treated them as one unit.
+
+This proved to be the right strategy in retrospect, as inexperience caused me to take disproportionately long on tasks that would be much faster the second time around. On the other side, some other tasks could be completed much faster than estimated. All in all, the lack of relative sizing of individual User Stories did not have an adverse effect on the project.
 
 ### Project Board
 
+The Issues were added to the [Project Board](https://github.com/users/blahosyl/projects/6/views/1) in GitHub Projects.
+
+I have customized the Kanban columns to fit the project needs, and also added swimlanes representing milestones.
+
+The project contains issues from both the FrontEnd and the API repository.
+
+![Project Board](/documentation-assets/readme-assets/pp5-project-board.png)
+
 ### Labels
+
+I have used several categories of labels during the project:
+
+- Priority labels (those starting with `p:`)
+- An `epic` label to enable filtering between Epics and User Stories on the Project Board
+- A label for each epic (those starting with `e:`), to be assigned to the Epic and all its corresponding User Stories(since GitHub Issues does not provide any other way to link these).
+The individual epic labels are color-coded to match the [Google Sheet containing User Stories](https://docs.google.com/spreadsheets/d/1qZQIKNKa_nGfCR9YQQ1UFkeIGvXR_ikOx7Oev0sEVBA/edit?usp=sharing)
+- Other miscellaneous labels such as `bug`, `enhancement`, `mentor`, etc.
+
+These have provided an excellent way to both filter Issues and to maintain an easier visual overview of them.
 
 #### Prioritization: MoSCoW
 
+As the available time for development was only 2.5 weeks (setting the last few days aside for testing and documentation), sorting User Stories into `must have`, `should have`, `could have` and `won't have` was done on the whole group of User Stories rather than on a sprint-by-sprint basis.
+
+I have modified the MoSCoW method slightly in that I split the `won't have` label into two:
+
+- [Issues with the label `wont have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22wont+have%22) are used for issues that will not get done in a give sprint as well as for duplicates or mistaken issues (the latter were closed when identified as such)
+- Issues not completed for the first release of the project but still to be done in further development work are assigned the label [`v2`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+).
+
+The links below show the User Stories excluding "meta" issues such as testing & documentation.
+
+- [User Stories with priority `must have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+must+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen+): 17
+- [User Stories with priority `should have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+should+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen): 32
+- [User Stories with priority `could have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+could+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen+): 22
+
+The statistics on total issues & User Stories excluding "meta" issues can be seen on the **Statistics** tab of the [User Stories Google Sheet](https://docs.google.com/spreadsheets/d/1qZQIKNKa_nGfCR9YQQ1UFkeIGvXR_ikOx7Oev0sEVBA/edit?usp=sharing).
+
+Epics that had User Stories of various levels of prioritization received all applicable labels. As the User Stories in the Epic were completed, the labels of completed User Stories were removed from the Epic.
+
 #### Timeboxing
+
+The available development time for the project was 3 weeks and 3 days. Accordingly, work items were divided into 4 milestones:
+
+1. [API, auth, start page & task list](https://github.com/blahosyl/task-manager-frontend/milestone/1)
+2. [CRUD & basic views](https://github.com/blahosyl/task-manager-frontend/milestone/2)
+3. [UX & styling](https://github.com/blahosyl/task-manager-frontend/milestone/3)
+4. [Testing & documentation](https://github.com/blahosyl/task-manager-frontend/milestone/4)
+
+The first 3 milestones were assigned the User Stories discussed so far, while the last milestone was planned for "meta" tasks like testing and documentation.
+
+Each milestone was assigned to a sprint around 5 days in length.
+
+However, as tends to happen in real life, different sprints had different velocities, which is reflected in the uneven number of User Stories completed in each sprint.
 
 #### Sprint planning
 
+At the beginning of every sprint, I reviewed the Issues assigned to the current milestone and decided the order in which they are to be implemented, in a more fine-grained way than the existing prioritization labels.
+
+I also defined tasks for the highest priority items, with tasks definitions for lower-priority items following as soon as it became plausible that I can finish them that sprint.
+
+Whenever I have received updated information about prioritization or implementation from my mentor or the Code Institute community, I would also make appropriate changes in prioritization during sprints.
+
 #### Sprint retroactives
+
+At the end of every sprint, I reviewed the items that were not completed, and either reassigned them to the next sprint, or to [version 2 of the project](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Av2).
 
 ## Features
 
