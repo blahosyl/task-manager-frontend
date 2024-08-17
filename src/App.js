@@ -46,7 +46,8 @@ function App() {
           <Route
             exact
             path="/team"
-            render={() => (currentUser ? <ProfileList full /> : <SignInForm />)}
+            // render={() => (currentUser ? <ProfileList full /> : <SignInForm />)}
+            render={() => (<ProfileList full /> )}
           />
           <Route
             exact

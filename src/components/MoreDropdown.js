@@ -4,11 +4,26 @@ import appStyles from "../App.module.css";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
+// light icon for dark background
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fa-solid fa-ellipsis-vertical text-white"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  />
+));
+
+// dark icon for light background
+// The forwardRef is important!!
+// Dropdown needs access to the DOM node in order to position the Menu
+const ThreeDotsDark = React.forwardRef(({ onClick }, ref) => (
+  <i
+    className={`fa-solid fa-ellipsis-vertical ${appStyles.DarkIcon}`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -49,7 +64,7 @@ export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+      <Dropdown.Toggle as={ThreeDotsDark} />
       <Dropdown.Menu>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
