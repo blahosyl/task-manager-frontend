@@ -29,7 +29,7 @@ function Landing() {
             ${appStyles.Rounded} 
             p-4 `}
         >
-          <h1 className={signupStyles.Header}>Welcome!</h1>
+          <h1 className={`${signupStyles.Header} mb-4`}>On Fire 🔥</h1>
 
           <p>Some days, you're on fire and ticking off your to-do items
           like nobody's business 💪
