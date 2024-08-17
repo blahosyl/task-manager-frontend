@@ -84,7 +84,8 @@ function TaskList({
         console.log(err);
       }
     };
-      fetchProfileData();
+      // if the currentUser_id is not empty, fetch the profile data
+      currentUser_id && fetchProfileData();
     }, [currentUser_id, tabListChanged, setProfileData]);
 
 
