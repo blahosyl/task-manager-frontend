@@ -65,11 +65,28 @@ balance between putting as many links on a page as possible and not overcrowding
 
 ### Skeleton
 
-#### Home page wireframes
+According to the mobile-first principle of design, I only made wireframes for mobile views before the start of development.
 
-#### Task list wireframes
+As suggested by my mentor, I have made wireframes for the following pages:
 
-#### Task detail wireframes
+#### Landing page wireframe
+
+![Landing page wireframe](/documentation-assets/readme-assets/wireframes/start-wireframe.png)
+
+#### Task Kanban wireframe
+
+This wireframe also features an expaneded navigation menu.
+
+To improve on UX, [filtering](#filtering-with-tabs) was later implemented using tabs rather than a dropdown selector.
+
+![Task Kanban page wireframe](/documentation-assets/readme-assets/wireframes/tasks-kanban-wireframe.png)
+
+#### Task create/edit wireframe
+
+A number of elements on this wireframe were implemented using other UI elements than shown below.
+To make the UI more uniform, the fields of create/edit forms of the app ended up either being text fields or dropdowns (with the exception of the date and upload fields).
+
+![Task Kanban page wireframe](/documentation-assets/readme-assets/wireframes/create-edit-task-wireframe.png)
 
 ### Surface
 
@@ -401,7 +418,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 
 ### Text
 
-All text was written by me. 
+All text was written by me.
 
 ### Media
 
