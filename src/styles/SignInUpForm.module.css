@@ -1,5 +1,6 @@
 .Row {
     height: calc(100vh - 81px);
+    border-radius: 20px;
   }
 
 .Door {

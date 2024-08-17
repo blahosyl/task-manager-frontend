@@ -52,6 +52,7 @@ const SignUpForm = () => {
     <Row className={`
       ${styles.Row}
       ${styles.Silhouette}
+      p-md-4
     `}>
       <Col className="mb-auto mr-auto py-2 p-md-2" md={6} lg={4}>
       <Container className={`

@@ -22,7 +22,7 @@ function Landing() {
         justify-content-center
     `}
     >
-      <Col className="my-auto py-2 p-md-2" md={6}>
+      <Col className="my-auto py-2 p-md-2" md={8} lg={6}>
         <Container
           className={`
             ${appStyles.Content} 

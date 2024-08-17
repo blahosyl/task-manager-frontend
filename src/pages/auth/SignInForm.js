@@ -61,6 +61,7 @@ function SignInForm() {
     <Row className={`
       ${styles.Row}
       ${styles.Door}
+      p-md-4
     `}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`
