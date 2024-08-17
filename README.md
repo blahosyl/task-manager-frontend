@@ -49,7 +49,21 @@ Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
 
 #### Access management structure
 
-#### CRUD
+#### CRUD in the FrontEnd
+
+The assessment criteria for the MVP require at least TWO forms, with validation, that allow users to create and edit resources in the Back-End API".
+
+The present version of the app contains 3 such forms: Comment, Task and User. A profile instance is created automatically for each new user.
+
+2 of the API models have full CRUD in the UI: Comment & Task.
+Deletion of Profile and User instances is possible in the API, but not in the front end. This has UX reasons, as explained in the section [UX improvements](#ux-improvements).
+
+|Model |Create |Read | Update | Delete |
+|--- |:---:|:---:|:---:|:---:|
+|Comment |`CommentCreateForm`|`TaskDetail` > `Comment`|`CommentEditForm`|`TaskDetail` > `Comment`|
+|Profile |created automatically with User|`ProfileDetail`<br> > `Profile`|`ProfileEditForm`|N/A|
+|Task |`TaskCreateForm`<br> > `TaskForm`|`TaskDetail`<br> > `Task`|`TaskEditForm`<br> > `TaskForm`|`Task`|
+|User |`SignInForm`|`ProfileDetail`<br> > `Profile`|`UsernameForm`<br>`UserPasswordForm`|N/A|
 
 #### UI information design
 
@@ -154,6 +168,8 @@ Instead, I used the `setLoaded` logic from `TaskList` and implemented in in `Tas
 ##### Explicit confirmation after user CRUD actions
 
 I added confirmation notifications after a user successfully completes a CRUD operation, or presses the Cancel button on a CRUD form ([#29](https://github.com/blahosyl/task-manager-frontend/issues/29)). At the suggestion of my mentor, I used the `toastify` package, as it comes with push-style notifications out of the box.
+
+##### No deletion of Users or Profiles
 
 ## Project Management | Agile Methodologies
 
