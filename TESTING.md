@@ -53,7 +53,6 @@ Where contrast did not meet at least AA standard, the colors were changed.
 |---   |--- |
 |very-dark-high|#531D04|
 |dark-high|#D7410F|
-<!-- |med-orange|#FD7E14| -->
 |light-high|#f7ddcf|
 
 ### Medium theme specifications
@@ -62,7 +61,6 @@ Where contrast did not meet at least AA standard, the colors were changed.
 |---   |--- |
 |very-dark-med|#530E0E|
 |dark-med|#992319|
-<!-- |med-blue|#20A6E9| -->
 |light-med|#FBEDE5|
 
 ### Low theme
@@ -71,7 +69,6 @@ Where contrast did not meet at least AA standard, the colors were changed.
 |---   |--- |
 |very-dark-low|#07565A|
 |dark-low|#0A8385|
-<!-- |med-green|#7ef075| -->
 |light-low|#D1FAF3|
 
 ### Neutral color specifications
@@ -120,9 +117,15 @@ Where contrast did not meet at least AA standard, the colors were changed.
 
 ## Bugs
 
+All bugs are tracked in [GitHub Issues](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Abug).
+
 ### Known bugs
 
+Known bugs are listed in [GitHub Issues](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Abug+is%3Aopen).
+
 ### Solved bugs
+
+Solved bugs are listed in [GitHub Issues](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Abug+is%3Aclosed).
 
 #### Expected errors in the Console
 
