@@ -4,11 +4,15 @@
 
 ### Strategy
 
+The name of the app evokes the polarity of situations and emotions that occur during every projec.
+The positive end of the specturm is when we's breezing through tasks, colloquially referred to as "You're on fire!"
+At the other end, there's the feeling that everything else is on fire, and we're paralyzed by indecision as to which one to put out first – or we're desperately trying to convince ourselves that "this is fine!", as immortalized by the widely memeified [Gunshow webcomic](https://en.wikipedia.org/wiki/Gunshow_(webcomic)#%22This_is_fine%22).
+
 ### Scope
 
 ### Structure
 
-#### React component structure
+#### Components
 
 `TaskTabs` uses `ProfileList` and `TaskList` directly when the `taskList` prop is passed. `TaskList` uses `Task`.
 Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
@@ -18,6 +22,12 @@ Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
 #### CRUD
 
 #### UI information design
+
+importance: left to right & top to bottom
+
+intuitive navigation
+
+balance between putting as many links on a page as possible and not overcrowding the page: anitcipating user needs regarding what they are most likely to do next from any given page
 
 ##### Navigation bar design
 
@@ -35,13 +45,27 @@ Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
 
 #### Visual design
 
+##### Color palette
+
 ##### Logo
 
-##### Minimalism
+#### Images
 
-##### Color schemes
+#### Emojis & gifs
+
+##### Typography
 
 #### UX Improvements
+
+feedback: toastify messages
+
+conditional rendering
+
+use of color for visual effect as well as conveying information
+
+deleted task page
+
+not found page: interesting graphic instead of just a plain message
 
 ##### Conditionally rendered names
 
@@ -250,6 +274,12 @@ For all other users, only filled-in fields and the [conditially rendered name](#
 
 ### Code features
 
+custom hooks
+
+conditional rendering
+
+additional libraries
+
 #### Regular testing
 
 #### Adequate commenting
@@ -272,6 +302,7 @@ For all other users, only filled-in fields and the [conditially rendered name](#
 
 - [diffchecker.com](https://www.diffchecker.com/): comparing code
 - [ES7+ React/Reduc/React-Native snippets extension for VS Code](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets): quickly insert code snippets
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
@@ -341,7 +372,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 
 ### Media
 
-#### Images
+#### Image credits
 
 - [orange-swirl](https://unsplash.com/photos/an-abstract-red-and-orange-background-with-curves-K-DwbsTXliY) by [LiZhang](https://unsplash.com/@sunx) ([Unspash](https://unsplash.com/))
 - [silhouette](https://unsplash.com/photos/silhouette-photography-of-woman-0-eT-ApZmUw) by [Tem Rysh](https://unsplash.com/@tem_rysh) ([Unspash](https://unsplash.com/))
@@ -349,6 +380,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [logo](/src/assets/logo.jpg) & [favicon](public/favicon-16x16.png) created by me, changed colors with [onlinepngtools.com](https://onlinepngtools.com/change-png-color), converted to favicon with [favicon.io/](https://favicon.io/favicon-converter/)
 - [lightbulb](https://unsplash.com/photos/lighted-orange-cfl-bylb-HfVfXJjktWw) by [Izumi](https://unsplash.com/@itsaizumi) ([Unspash](https://unsplash.com/))
 - [no-results](/src/assets/no-results.png) & [upload](/src/assets/upload.png) taken from the Moments walkthrough project, colors changed with [onlinepngtools.com](https://onlinepngtools.com/change-png-color)
+- ["this is fine" gif](/src/assets/this-is-fine.gif) from [customemoji.com](https://www.customemoji.com/custom-emoji/this-is-fine-fire)
 
 ### Readmes
 

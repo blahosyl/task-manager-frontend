@@ -12,11 +12,18 @@ Back to  `README.md`(README.md)
 
 #### Home page validation
 
-### JavaScript validation
+### JavaScript/JSX validation
+
+[EsLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) was used throughout development to validate the code.
+No errors or warnings are present in the project.
 
 #### `Task.js`
 
 ## Manual feature testing
+
+### Landing page
+
+### Comments
 
 ### Tasks manual testing
 
@@ -27,8 +34,6 @@ Back to  `README.md`(README.md)
 ### Authentication manual testing
 
 #### Signin page
-
-#### Signout page
 
 #### Signup page
 
