@@ -240,7 +240,6 @@ At the suggestion of my mentor, I have added several user stories to improve Use
 - [UX Profiles](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+profiles%22)
 - [UX Tasks](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+tasks%22)
 
-
 Some work items that have initially been classified as Epics have later been reclassified as User Stories – typically these were "meta" items to do with testing and documentation.
 
 ### Estimation
