@@ -76,9 +76,16 @@ The project implemented signup, signin and signout functionalities by using Alla
 
 The assessment criteria for the MVP require at least TWO forms, with validation, that allow users to create and edit resources in the Back-End API".
 
-The present version of the app contains 3 such forms: Comment, Task and User. A profile instance is created automatically for each new user.
+The present version of the app contains 3 such forms: Comment, Task and User.
+A profile instance is created automatically for each new user.
 
-2 of the API models have full CRUD in the UI: Comment & Task.
+The 5th model, Watcher, offers the same functionality not via a form, but by clicking the eye icon on a task.
+
+> [!NOTE]
+> Since a Watchers instance only contains to ForeignKey fields, editing and deletion are effectively the same, since changing either the watcher or the watched task will amount to a different Watchers instance
+
+3 of the API models have full CRUD in the UI: Comment, Task & Watchers.
+
 Deletion of Profile and User instances is possible in the API, but not in the front end. This has UX reasons, as explained in the section [UX improvements](#ux-improvements).
 
 Users can only access CRUD on their own resources, not on those of other users.
@@ -89,6 +96,7 @@ Users can only access CRUD on their own resources, not on those of other users.
 |Profile |created automatically with User|`ProfileDetail` > `Profile`|`ProfileEditForm`|N/A|
 |Task |`TaskCreateForm` > `TaskForm`|`TaskDetail` > `Task`|`TaskEditForm` > `TaskForm`|`Task`|
 |User |`SignInForm`|`ProfileDetail` > `Profile`|`UsernameForm` & `UserPasswordForm`|N/A|
+|Watcher |`TaskList` & `TaskDetail` & `ProfileDetail` > `Task`|`TaskList` & `TaskDetail` & `ProfileDetail` > `Task`|`TaskList` & `TaskDetail` & `ProfileDetail` > `Task`|`TaskList` & `TaskDetail` & `ProfileDetail` > `Task`|
 
 #### UI information design
 
@@ -142,6 +150,8 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 ##### Typography
 
 #### UX Improvements
+
+user/profile cannot be deleted
 
 feedback: toastify messages
 
