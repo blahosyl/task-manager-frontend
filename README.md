@@ -598,3 +598,10 @@ All text was written by me.
 - [The README of my fourth Code Institute project](https://github.com/blahosyl/spicy)
 
 ### Acknowledgements
+
+I would like to express my gratitude to my mentor, [Marcel Mulders](https://www.123helpmestudy.com/) for his incredibly useful and understanding support throughout the project.
+Issues raised by him or discussed with him can be found [here](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Amentor) (see the individual ticket descriptions for the details of his contribution).
+
+I am also grateful to the Code Institute tutoring team, in particular, to John, Oisin, Rebecca, Roman, Roo and Thomas for their help. The details of their contributions can be found [here](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3Atutoring).
+
+I would also like to thank Peter Litauszki for photo and video editing help.
