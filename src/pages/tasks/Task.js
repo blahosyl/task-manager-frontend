@@ -202,7 +202,7 @@ const Task = (props) => {
           <Col className={`${styles.CardHeaderText} d-none d-lg-flex`}>
             {/* Show status in a human readable format on TaskList and Task Detail pages.
             Even though status` is a str, === only works if this is
-            explicitely specified, and == produces a warning*/}
+            explicitly specified, and == produces a warning*/}
             {(taskList || taskDetail) && 
               <span className={`mb-1`}>
                 {status === String("TO-DO")
@@ -216,7 +216,7 @@ const Task = (props) => {
             } 
             {/* Show priority in a human readable format on large screens.
             Even though status` is a str, === only works if this is
-            explicitely specified, and == produces a warning*/}
+            explicitly specified, and == produces a warning*/}
             <span className={`mt-1 d-none d-lg-inline`}>
               {priority === String("LOW")
                 ? "Low Priority"
