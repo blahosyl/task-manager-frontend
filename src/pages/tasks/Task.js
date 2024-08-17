@@ -312,7 +312,10 @@ const Task = (props) => {
             )}
 
             {/* only show excerpt in TaskList and TaskDetail view */}
-            {excerpt && (taskList || taskDetail) && <Card.Subtitle>{excerpt}</Card.Subtitle>}
+            {excerpt && (taskList || taskDetail) && <Card.Subtitle 
+              className="text-center mb-2">
+              {excerpt}
+            </Card.Subtitle>}
 
           {/* show fire symbols if task is overdue */}
           {dayjs() > dayjs(due_date) && (
@@ -334,19 +337,19 @@ const Task = (props) => {
                 <Link
                   to={`/tasks/${id}/`}
                   className={`
-                mt-2
-                stretched-link
-                ${styles.DetailLink}
-                // set title color depending on task priority
-                ${
-                  priority === String("LOW")
-                    ? styles.VeryDarkLowText
-                    : priority === String("MEDIUM")
-                    ? styles.VeryDarkMedText
-                    : priority === String("HIGH")
-                    ? styles.VeryDarkHighText
-                    : {}
-                }`}
+                    mt-2
+                    stretched-link
+                    ${styles.DetailLink}
+                    // set title color depending on task priority
+                    ${
+                      priority === String("LOW")
+                        ? styles.VeryDarkLowText
+                        : priority === String("MEDIUM")
+                        ? styles.VeryDarkMedText
+                        : priority === String("HIGH")
+                        ? styles.VeryDarkHighText
+                        : {}
+                    }`}
                 >
                   Click/tap to view task details
                 </Link>
