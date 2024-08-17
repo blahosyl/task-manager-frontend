@@ -358,7 +358,7 @@ additional libraries
 
 This project was developed on the basis of the [Moments](https://github.com/Code-Institute-Solutions/moments0) walkthrough project by [Code Institute](https://github.com/Code-Institute-Solutions/).
 
-Back End based on[DRF-API](https://github.com/Code-Institute-Solutions/drf-api) by [Code Institute](https://github.com/Code-Institute-Solutions/).
+Many features and the overall feel was inspired by [Trello](https://support.atlassian.com/trello/).
 
 I have also consulted the project [Tick It](https://github.com/Code-Institute-Submissions/ci_pp5_tick_it_react) by [Jamie King](https://github.com/jkingportfolio) and implemented the [Task deletion confirmation modal](https://github.com/blahosyl/task-manager-frontend/issues/17) based on it.
 
@@ -400,6 +400,8 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [always push footer to the bottom](https://stackoverflow.com/a/66565163)
 
 ### Text
+
+All text was written by me. 
 
 ### Media
 
