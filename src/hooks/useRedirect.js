@@ -22,10 +22,10 @@ export const useRedirect = (userAuthStatus) => {
       }
     };
 
-    // wait 4 seconds before redirecting
+    // wait 2 seconds before redirecting
     const timer = setTimeout(() => {
       handleMount();
-    }, 4000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
