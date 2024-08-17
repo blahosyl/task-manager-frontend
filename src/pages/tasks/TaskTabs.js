@@ -26,9 +26,9 @@ function TaskTabs(props) {
   const [tabListChanged, setTabListChanged] = useState(false);
   
   const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
+  const currentUser_id = currentUser?.currentUser_id || "";
 
-  const id  = profile_id
+  const id  = currentUser_id
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
@@ -66,7 +66,7 @@ function TaskTabs(props) {
             <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword assign a task to yourself."
-              filter={`assignee__profile=${profile_id}&ordering=-updated_at&`}
+              filter={`assignee__profile=${currentUser_id}&ordering=-updated_at&`}
               tasks={tasks}
               setTasks={setTasks}
               tabListChanged={tabListChanged}
@@ -83,7 +83,7 @@ function TaskTabs(props) {
             <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword or watch a task."
-              filter={`watched__owner__profile=${profile_id}&ordering=-watchers__created_at&`}
+              filter={`watched__owner__profile=${currentUser_id}&ordering=-watchers__created_at&`}
               tasks={tasks}
               setTasks={setTasks}
               tabListChanged={tabListChanged}
@@ -100,7 +100,7 @@ function TaskTabs(props) {
             <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword or create a task."
-              filter={`owner__profile=${profile_id}&ordering=-created_at&`}
+              filter={`owner__profile=${currentUser_id}&ordering=-created_at&`}
               tasks={tasks}
               setTasks={setTasks}
               tabListChanged={tabListChanged}

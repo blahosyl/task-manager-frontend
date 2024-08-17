@@ -38,7 +38,7 @@ function TaskList({
   const [query, setQuery] = useState("");
 
   const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
+  const currentUser_id = currentUser?.currentUser_id || "";
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -74,7 +74,7 @@ function TaskList({
     const fetchProfileData = async () => {
       try {
         const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${profile_id}/`),
+          axiosReq.get(`/profiles/${currentUser_id}/`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
@@ -85,7 +85,7 @@ function TaskList({
       }
     };
       fetchProfileData();
-    }, [profile_id, tabListChanged, setProfileData]);
+    }, [currentUser_id, tabListChanged, setProfileData]);
 
 
   return (
