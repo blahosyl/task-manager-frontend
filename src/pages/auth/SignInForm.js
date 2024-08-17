@@ -119,7 +119,7 @@ function SignInForm() {
             ))}
             <p className="mt-3 mb-0 text-center smaller">
               <small>
-              You need to have thrid-party cookies enabled to sign in.
+              You need to have third-party cookies enabled to sign in.
               </small>
             </p>
           </Form>
