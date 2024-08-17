@@ -4,11 +4,41 @@
 
 ### Strategy
 
-The name of the app evokes the polarity of situations and emotions that occur during every projec.
-The positive end of the specturm is when we's breezing through tasks, colloquially referred to as "You're on fire!"
+#### The polarity of project execution
+
+The name of the app evokes the polarity of situations and emotions that occur during every project.
+The positive end of the spectrum is when we's breezing through tasks, colloquially referred to as "You're on fire!"
 At the other end, there's the feeling that everything else is on fire, and we're paralyzed by indecision as to which one to put out first – or we're desperately trying to convince ourselves that "this is fine!", as immortalized by the widely memeified [Gunshow webcomic](https://en.wikipedia.org/wiki/Gunshow_(webcomic)#%22This_is_fine%22).
 
-### Scope
+Someone's emotional state and general well-being influences their productivity just as much as factors considered more objective, such as their skill level and time commitment.
+
+#### Conservative design of productivity apps
+
+Unfortunately, the polarity described above is seldom taken into account.
+Supporting productivity is mostly thought of as just issue tracking.
+Many productivity apps focus on function rather than design, and have a surprisingly uniform look, often in dark blue and gray.
+
+#### Cumbersome filtering
+
+Filtering relevant tasks often means having to go through complicated menus or dropdowns.
+
+### Scope: holistic productivity
+
+Assisting productivity is more than just tracking tasks. Users should feel content and energized, which supports sustainability and true productivity.
+
+This is why the goal of the app is to fuse function with bold, accessible and upbeat design.
+
+#### Bold colors carrying meaning
+
+The color scheme of the app is reflected in the visual design of the cards containing individual tasks in a fuctional way: each priority status corresponds to a main color scheme from the [palette](#color-palette).
+
+#### Playful indications of overdue tasks
+
+Overdue tasks are indicated by 🔥 emojis (the more overdue the task is, the more 🔥 emojis appear). This conveys important project information while at the same time maintainly a levity to the situation.
+
+#### Easy filtering at a click
+
+The app comes with built-in filters for the most likely use cases. These are accessible at one click from multiple views without having to reload the page.
 
 ### Structure
 
@@ -253,7 +283,7 @@ The watch button is an eye icon and a toolip instruction is show when hovering o
 
 #### Profile list
 
-This is shown in the sidebar of certain Task views, and as a full-page version uner `/team`. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user.
+This is shown in the sidebar of certain Task views, and as a full-page version under `/team`. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user.
 The full profile list also shows the pronouns and role if these are filled in.
 
 #### Profile detail page
@@ -264,7 +294,7 @@ For logged-in users, this shows all profile fields including empty ones.
 In addition, the conditionally rendered user name has the suffix "(me)"
 to indicate the user is viewing their own profile.
 
-For all other users, only filled-in fields and the [conditially rendered name](#conditionally-rendered-names) is shown.
+For all other users, only filled-in fields and the [conditionally rendered name](#conditionally-rendered-names) is shown.
 
 ### Access management
 
@@ -288,7 +318,7 @@ additional libraries
 
 #### Security
 
-`npm audit fix` was run after every time a new package was installed. It is beyond the scope of the currect project to fix all dependency warnings, as these are typically handled by more senior developers or dedicated security engineers.
+`npm audit fix` was run after every time a new package was installed. It is beyond the scope of the correct project to fix all dependency warnings, as these are typically handled by more senior developers or dedicated security engineers.
 
 ## Testing
 
@@ -306,6 +336,7 @@ additional libraries
 - [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
+- [Typos spell checker](https://open-vsx.org/extension/tekumara/typos-vscode)
 
 ## Deployment
 
