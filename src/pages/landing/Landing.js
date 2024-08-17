@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/Landing.module.css";
 import signupStyles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
+import ThisIsFine from "../../assets/this-is-fine.gif";
 
 
 function Landing() {
@@ -25,11 +26,23 @@ function Landing() {
         <Container
           className={`
             ${appStyles.Content} 
-            ${appStyles.LittleRounded} 
+            ${appStyles.Rounded} 
             p-4 `}
         >
           <h1 className={signupStyles.Header}>Welcome!</h1>
-          <p>The cheerful task manager helps you keep track of your tasks, 
+
+          <p>Some days, you're on fire and ticking off your to-do items
+          like nobody's business 💪
+          </p>
+
+          <p>Other days, everything around you seems to be on fire 
+            and you're sitting in the middle of it going "this is fine" 
+            <img alt="" loading="lazy" width="40" 
+            src={ThisIsFine}></img>
+          </p>
+
+          <p>No matter what what the situation is, this cheerful task manager 
+            helps you keep track of your tasks, 
             see how your teammates are getting on, and feel energized in the process!
           </p>
         </Container>
