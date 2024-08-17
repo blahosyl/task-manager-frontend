@@ -49,6 +49,29 @@ Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
 
 #### Access management structure
 
+The project implemented signup, signin and signout functionalities by using Allauth in the [backend](https://github.com/blahosyl/task-manager-api/).
+
+[CRUD](#crud-in-the-frontend) functionalities are only available to logged-in users.
+
+- Pages available to Logged-out Users:
+  - Landing (default)
+  - Signin
+  - Signup
+  - Pages available to Logged-in Users:
+    - Tasks
+      - TaskKanban (default)
+      - TaskList
+      - TaskDetail
+      - TaskCreate
+      - TaskEdit
+      - TaskDelete (implemented with modal on TaskKanban/List/Detail)
+    - Profiles/Users
+      - ProfileList/Teammates
+      - ProfileDetail
+      - ProfileEdit
+      - Username Edit
+      - Password Edit
+
 #### CRUD in the FrontEnd
 
 The assessment criteria for the MVP require at least TWO forms, with validation, that allow users to create and edit resources in the Back-End API".
@@ -58,12 +81,14 @@ The present version of the app contains 3 such forms: Comment, Task and User. A 
 2 of the API models have full CRUD in the UI: Comment & Task.
 Deletion of Profile and User instances is possible in the API, but not in the front end. This has UX reasons, as explained in the section [UX improvements](#ux-improvements).
 
+Users can only access CRUD on their own resources, not on those of other users.
+
 |Model |Create |Read | Update | Delete |
 |--- |:---:|:---:|:---:|:---:|
 |Comment |`CommentCreateForm`|`TaskDetail` > `Comment`|`CommentEditForm`|`TaskDetail` > `Comment`|
-|Profile |created automatically with User|`ProfileDetail`<br> > `Profile`|`ProfileEditForm`|N/A|
-|Task |`TaskCreateForm`<br> > `TaskForm`|`TaskDetail`<br> > `Task`|`TaskEditForm`<br> > `TaskForm`|`Task`|
-|User |`SignInForm`|`ProfileDetail`<br> > `Profile`|`UsernameForm`<br>`UserPasswordForm`|N/A|
+|Profile |created automatically with User|`ProfileDetail` > `Profile`|`ProfileEditForm`|N/A|
+|Task |`TaskCreateForm` > `TaskForm`|`TaskDetail` > `Task`|`TaskEditForm` > `TaskForm`|`Task`|
+|User |`SignInForm`|`ProfileDetail` > `Profile`|`UsernameForm` & `UserPasswordForm`|N/A|
 
 #### UI information design
 
