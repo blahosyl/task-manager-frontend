@@ -62,7 +62,7 @@ function SignInForm() {
       ${styles.Row}
       ${styles.Door}
     `}>
-      <Col className="my-auto p-0 p-md-2" md={6}>
+      <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`
           ${appStyles.Content}
           ${appStyles.Rounded}
@@ -133,15 +133,6 @@ function SignInForm() {
           </Link>
         </Container>
       </Col>
-      {/* <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
-      >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={door}
-        />
-      </Col> */}
     </Row>
   );
 }

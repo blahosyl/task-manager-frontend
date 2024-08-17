@@ -143,15 +143,6 @@ const SignUpForm = () => {
         </Container>
 
       </Col>
-      {/* <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
-      >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={silhouette}
-        />
-      </Col> */}
     </Row>
   );
 };
