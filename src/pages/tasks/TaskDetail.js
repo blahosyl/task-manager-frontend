@@ -22,8 +22,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 
 import { fetchMoreData } from "../../utils/utils";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function TaskDetail() {
+
+  // redirect logged-out users
+  useRedirect("loggedOut");
+
   const { id } = useParams();
   const [task, setTask] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
