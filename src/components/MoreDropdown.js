@@ -24,7 +24,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDotsDark = React.forwardRef(({ onClick }, ref) => (
   <i
-    className={`fa-solid fa-ellipsis-vertical ${appStyles.DarkIcon}`}
+    className={`fa-solid fa-pencil ${appStyles.DarkIcon}`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();

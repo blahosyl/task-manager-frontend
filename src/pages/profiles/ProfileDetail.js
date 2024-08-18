@@ -80,6 +80,8 @@ function ProfileDetail() {
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-center">
+        {/* show edit placeholder if signed in user is owner of the profile */}
+        {currentUser && is_owner && <ProfileEditDropdown id={profile?.id} />}
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -156,10 +158,6 @@ function ProfileDetail() {
               )}
             </Col>
           </Row>
-        </Col>
-        <Col lg={3} className="text-lg-right">
-          {/* show edit placeholder if signed in user is owner of the profile */}
-          {currentUser && is_owner && <ProfileEditDropdown id={profile?.id} />}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
