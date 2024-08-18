@@ -10,7 +10,7 @@ import Image from "react-bootstrap/Image";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-import styles from "../../styles/ProfilePage.module.css";
+import styles from "../../styles/ProfileDetail.module.css";
 import appStyles from "../../App.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
