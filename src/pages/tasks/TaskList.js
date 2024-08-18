@@ -131,7 +131,7 @@ function TaskList({
                 next={() => fetchMoreData(tasks, setTasks)}
               />
             ) : (
-              <Container className={appStyles.Content}>
+              <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
                 <Asset src={NoResults} message={message} />
               </Container>
             )}
@@ -273,13 +273,13 @@ function TaskList({
               </div>
             </>
           ) : (
-            <Container className={appStyles.Content}>
+            <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
               <Asset src={NoResults} message={message} />
             </Container>
           )}
         </>
       ) : (
-        <Container className={appStyles.Content}>
+        <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
           <Asset spinner />
         </Container>
       )}{" "}
