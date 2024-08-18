@@ -1,3 +1,5 @@
+/* navigation bar present on all pages */
+
 .NavBar {
     background-color: var(--white);
     border: 1px solid var(--light-gray);

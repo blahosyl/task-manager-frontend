@@ -1,3 +1,6 @@
+/* profile list container used in the sidebar of Task List & Profile Detail, 
+and as a standalone page */
+
 .Container {
     overflow: scroll; /* Make container scrollable */
     height: 100vh; /* Set the height equal to the viewport height */

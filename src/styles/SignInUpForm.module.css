@@ -1,16 +1,21 @@
+/* pages accessible to not logged-in users: Signin, Signup & Landing */
+
 .Row {
     height: calc(100vh - 81px);
     border-radius: 20px;
   }
 
+/* background image for signin page */
 .Door {
   background: url("../assets/door.jpg") no-repeat center center/cover;
 }
 
+/* background image for signup page */
 .Silhouette {
   background: url("../assets/silhouette.jpg") no-repeat center center/cover;
 }
 
+/* background image for landing page */
 .Swirl {
   background: url("../assets/orange-swirl.jpg") no-repeat center center/cover;
 

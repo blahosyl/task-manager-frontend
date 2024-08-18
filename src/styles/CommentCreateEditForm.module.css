@@ -1,6 +1,8 @@
+/* create & edit comments on the TaskDetail page */
+
 .Form {
     border: none;
-    border-bottom: 2px #00d1ff solid;
+    border-bottom: 2px var(--dark-low) solid;
   }
   
   .Button {

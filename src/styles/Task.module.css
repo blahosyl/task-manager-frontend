@@ -1,6 +1,7 @@
+/* styling for Task component used on all logged-in pages except Profile List */
+
+/* default styling for task (no priority assigned) */
 .Task {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
     margin-bottom: 16px;
   }
 
@@ -55,10 +56,11 @@
   /* contains the due date & watch/unwatch icon*/
   .DateEyeContainer {
     display: flex;
-    justify-items: space-between;
+    justify-content: space-between;
     padding: 0px 0.4rem;
     background-color: var(--light-neutral);
   }
+
   /* full width */
   .DateEyeWide {
     width: 100%;
@@ -70,19 +72,23 @@
     margin: 0px 5%;
   }
 
+  /* contains the due date */
   .DateContainer {
     display: flex;
     justify-content:flex-start;
     align-items: center;
   }
 
+  /* contains the watch/unwatch icon */
   .EyeContainer {
-
     justify-self: flex-end;
     max-width: 5.5rem;
   }
 
-  /* color schemes based on task priority */
+  /* color schemes based on task priority
+  color variables defined in App.module.css */
+
+  /* very dark text */
 
   .VeryDarkHighText {
     color: var(--very-dark-high);
@@ -96,6 +102,8 @@
     color: var(--very-dark-low);
   }
 
+  /* dark text */
+
   .DarkHighText {
     color: var(--dark-high);
   }
@@ -107,6 +115,8 @@
   .DarkLowText {
     color: var(--dark-low);
   }
+
+  /* dark background with white text */
 
   .DarkHighBg {
     background-color: var(--dark-high);
@@ -125,6 +135,8 @@
     color: var(--white);
     font-weight: bold;
   }
+
+    /* light background with very dark text */
 
   .LightHighBg {
     background-color: var(--light-high);

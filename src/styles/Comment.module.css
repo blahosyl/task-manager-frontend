@@ -1,9 +1,13 @@
+/* display comments on the TaskDetail page */
+
+/* the author of the comment */
 .Owner {
     font-weight: bold;
     margin-right: 8px;
     color: var(--very-dark-low);
   }
   
+  /* when the comment was posted */
   .Date {
     font-weight: lighter;
     color: var(--dark-med);
