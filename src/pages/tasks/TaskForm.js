@@ -334,7 +334,7 @@ function TaskForm(props) {
               >
                 {/* profile list retrieved dynamically */}
                 <option value="">none</option>
-                {/* if profies are retrieved */}
+                {/* if profiles are retrieved */}
                 {/* conditional added at the suggestion of tutor Oisin */}
                 {profiles.length && (
                   <>
