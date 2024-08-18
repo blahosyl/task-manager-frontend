@@ -192,6 +192,10 @@
     color: var(--dark-high);
   }
 
+  .AvatarColumn:hover {
+    color: var(--light-low);
+  }
+
   /* very small screens */
   @media screen and (max-width: 374px) {
     .DateContainer {
