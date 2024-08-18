@@ -61,7 +61,7 @@ The project implemented signup, signin and signout functionalities by using Alla
     - Tasks
       - TaskKanban (default)
       - TaskList
-      - TaskDetail
+      - TaskDetail (includes all Comment-related components)
       - TaskCreate
       - TaskEdit
       - TaskDelete (implemented with modal on TaskKanban/List/Detail)
@@ -155,15 +155,11 @@ Elements on background images are positioned with intention, matching the image 
 
 put timeout on redirect, so pages don't keep flickering
 
-user/profile cannot be deleted
-
 feedback: toastify messages
 
 conditional rendering
 
 use of color for visual effect as well as conveying information
-
-deleted task page
 
 not found page: interesting graphic instead of just a plain message
 
@@ -209,6 +205,12 @@ Instead, I used the `setLoaded` logic from `TaskList` and implemented in in `Tas
 I added confirmation notifications after a user successfully completes a CRUD operation, or presses the Cancel button on a CRUD form ([#29](https://github.com/blahosyl/task-manager-frontend/issues/29)). At the suggestion of my mentor, I used the `toastify` package, as it comes with push-style notifications out of the box.
 
 ##### No deletion of Users or Profiles
+
+##### Modal confirming task deletion
+
+Deleting a task can have dire consequences, so I added a modal to confirm that this is what the user really intended.
+
+Comments are not considered as important or time-consuming to create as tasks, so here I opted for convenience over caution, and let users delete comments without double-checking.
 
 ## Project Management | Agile Methodologies
 
