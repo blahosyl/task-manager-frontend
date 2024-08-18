@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-// import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
-
-import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -18,11 +16,10 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
-// import door from "../../assets/door.jpg";
-
+/** Manages user signin */
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
-  
+
   // redirect logged-in users
   useRedirect("loggedIn");
 
@@ -45,7 +42,7 @@ function SignInForm() {
       setTokenTimestamp(data);
       // redirect user
       history.goBack();
-        } catch (err) {
+    } catch (err) {
       setErrors(err.response?.data);
     }
   };
@@ -58,17 +55,21 @@ function SignInForm() {
   };
 
   return (
-    <Row className={`
+    <Row
+      className={`
       ${styles.Row}
       ${styles.Door}
       p-md-4
-    `}>
+    `}
+    >
       <Col className="my-auto py-2 p-md-2" md={6}>
-        <Container className={`
+        <Container
+          className={`
           ${appStyles.Content}
           ${appStyles.Rounded}
           p-4 
-        `}>
+        `}
+        >
           <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit} className="text-center">
             <Form.Group controlId="username">
@@ -119,16 +120,18 @@ function SignInForm() {
             ))}
             <p className="mt-3 mb-0 text-center smaller">
               <small>
-              You need to have third-party cookies enabled to sign in.
+                You need to have third-party cookies enabled to sign in.
               </small>
             </p>
           </Form>
         </Container>
-        <Container className={`
+        <Container
+          className={`
           mt-3 
           ${appStyles.Content}
           ${appStyles.LittleRounded}
-        `}>
+        `}
+        >
           <Link className={styles.Link} to="/signup">
             Don't have an account? <span>Sign up</span>
           </Link>
