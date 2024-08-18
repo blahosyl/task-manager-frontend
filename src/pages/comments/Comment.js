@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Media from "react-bootstrap/Media";
 
 import styles from "../../styles/Comment.module.css";
@@ -31,6 +35,11 @@ const Comment = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  // feedback message for user CRUD
+  const commentDeleteSuccessMsg = () => {
+    toast.success("You have successfully deleted your comment 🎉");
+  };
+
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
@@ -47,6 +56,7 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
+      commentDeleteSuccessMsg();
     } catch (err) {}
   };
 

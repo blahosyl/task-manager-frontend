@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
@@ -44,6 +48,11 @@ function CommentCreateForm(props) {
     }
   };
 
+  // feedback message for user CRUD
+  const commentCreateSuccessMsg = () => {
+    toast.success("You have successfully commented on this task 🎉");
+  };
+
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
@@ -65,6 +74,10 @@ function CommentCreateForm(props) {
         className={`${styles.Button} ${btnStyles.Blue} btn d-block ml-auto`}
         disabled={!content.trim()}
         type="submit"
+        onClick={() => {
+          // comment success message
+          commentCreateSuccessMsg();
+        }}
       >
         comment
       </button>

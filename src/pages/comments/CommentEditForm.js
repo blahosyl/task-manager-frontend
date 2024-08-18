@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 
-import Form from "react-bootstrap/Form";
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { axiosRes } from "../../api/axiosDefaults";
+
+import Form from "react-bootstrap/Form";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -42,6 +47,15 @@ function CommentEditForm(props) {
     }
   };
 
+  // feedback messages for user CRUD
+  const commentEditSuccessMsg = () => {
+    toast.success("You have successfully edited your comment 🎉");
+  };
+  
+  const commentEditCancelMsg = () => {
+    toast.success("You chose not to edit the comment 👍");
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
@@ -56,7 +70,10 @@ function CommentEditForm(props) {
       <div className="text-right">
         <button
           className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
-          onClick={() => setShowEditForm(false)}
+          onClick={() => {
+            setShowEditForm(false);
+            commentEditCancelMsg();
+          }}
           type="button"
         >
           cancel
@@ -65,6 +82,10 @@ function CommentEditForm(props) {
           className={`${btnStyles.Button} ${btnStyles.Blue}`}
           disabled={!content.trim()}
           type="submit"
+          onClick={() => {
+            // comment success message
+            commentEditSuccessMsg();
+          }}
         >
           save
         </button>
