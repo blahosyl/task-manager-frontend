@@ -52,7 +52,7 @@ function TaskTabs(props) {
       }
     };
     fetchData();
-  }, [id, setProfileData,taskList]);
+  }, [id, setProfileData,taskList, tabListChanged]);
 
   return (
     <Row className="h-100">
