@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+/** Collapse navbar when the user clicks outside it */
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
