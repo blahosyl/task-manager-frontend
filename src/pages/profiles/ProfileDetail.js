@@ -76,6 +76,7 @@ function ProfileDetail() {
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.image}
+            alt="Profile image"
           />
         </Col>
         <Col lg={6}>
@@ -95,28 +96,28 @@ function ProfileDetail() {
               {/* show all fields if logged-in user is viewing their own profile */}
               {currentUser?.username === profile?.owner ? (
                 <>
-                  <div>username: {profile?.owner}</div>
-                  <div>First name: {profile?.firstname || "not defined"}</div>
+                  <div><span className="font-italic">username: </span>{profile?.owner}</div>
+                  <div><span className="font-italic">First name: </span>{profile?.firstname || "not defined"}</div>
                   <div className="mb-3">
-                    Last name: {profile?.lastname || "not defined"}
+                    <span className="font-italic">Last name: </span>{profile?.lastname || "not defined"}
                   </div>
-                  <div>Role: {profile?.role || "not defined"}</div>
-                  <div>Pronouns: {profile?.pronouns || "not defined"}</div>
+                  <div><span className="font-italic">Role: </span>{profile?.role || "not defined"}</div>
+                  <div><span className="font-italic">Pronouns: </span>{profile?.pronouns || "not defined"}</div>
                   <div className="my-3">
-                    <h5>About</h5> {profile?.about || "Not filled in"}
+                    <p className="font-italic">About:</p> {profile?.about || "Not filled in"}
                   </div>
                 </>
               ) : (
                 <>
                   {/* for other user's profiels, show role, pronouns & about info 
                   if available */}
-                  {profile?.role && <div>Role: {profile?.role}</div>}
+                  {profile?.role && <div><span className="font-italic">Role: </span>{profile?.role}</div>}
                   {profile?.pronouns && (
-                    <div>Pronouns: {profile?.pronouns}</div>
+                    <div><span className="font-italic">Pronouns: </span>{profile?.pronouns}</div>
                   )}
                   {profile?.about && (
                     <div className="my-3">
-                      <h5>About</h5> {profile?.about || "Not filled in"}
+                      <p className="font-italic">About:</p> {profile?.about || "Not filled in"}
                     </div>
                   )}
                 </>
