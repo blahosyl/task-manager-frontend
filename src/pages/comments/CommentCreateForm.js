@@ -10,6 +10,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+/** Handle creating a new comment for logged-in users */
 function CommentCreateForm(props) {
   const { task, setTask, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");

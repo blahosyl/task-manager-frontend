@@ -6,6 +6,9 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
+/** Handle editing (own) comments for logged-in users
+ * Fetches the existing content of the comment
+ */
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
