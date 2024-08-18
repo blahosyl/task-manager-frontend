@@ -16,7 +16,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
-/** Manages user signin */
+/** Render the signin page (for not logged in users) */
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
 
