@@ -75,7 +75,9 @@ function TaskDetail() {
           )}
           {/* render "comments" header if there are any comments */}
           {comments.results.length ? (
-            <h5 className="ml-3">{comments.results.length} comments</h5>
+            <h5 className="ml-3">
+              {comments.results.length} comment{comments.results.length !== 1 &&"s"}
+            </h5>
           ) : null}
           {/* render task comments if any */}
           {comments.results.length ? (
@@ -96,11 +98,9 @@ function TaskDetail() {
                 next={() => fetchMoreData(comments, setComments)}
               />
             </>
-          ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
-          ) : (
-            <span>No comments... yet</span>
-          )}
+          ) : 
+            <p className="text-center pt-2">No comments (yet)</p>
+        }
         </Container>
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
