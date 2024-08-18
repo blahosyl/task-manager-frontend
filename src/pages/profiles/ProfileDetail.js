@@ -56,7 +56,7 @@ function ProfileDetail() {
       }
     };
     fetchData();
-    setTabListChanged(false);
+    // setTabListChanged(false);
   }, [id, setProfileData, tabListChanged]);
 
   const shortname =

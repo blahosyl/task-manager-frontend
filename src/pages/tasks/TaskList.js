@@ -17,7 +17,6 @@ import Task from "./Task";
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
@@ -38,7 +37,7 @@ function TaskList({
   const [query, setQuery] = useState("");
 
   const currentUser = useCurrentUser();
-  const currentUser_id = currentUser?.currentUser_id || "";
+  // const currentUser_id = currentUser?.currentUser_id || "";
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -60,34 +59,7 @@ function TaskList({
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser, tabListChanged, setTabListChanged]);
-
-
-  // use the ProfileDataContext
-  const setProfileData = useSetProfileData();
-
-  /** Fetch the Profile data of the currentUser, 
-  * so that assigned_count,  watched_count & owned count are updated
-  * when the logged-in user watches.unwatches a task */
-  useEffect(() => {
-
-    const fetchProfileData = async () => {
-      try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${currentUser_id}/`),
-        ]);
-        setProfileData((prevState) => ({
-          ...prevState,
-          pageProfile: { results: [pageProfile] },
-        }));
-      } catch (err) {
-        console.log(err);
-      }
-    };
-      // if the currentUser_id is not empty, fetch the profile data
-      currentUser_id && fetchProfileData();
-    }, [currentUser_id, tabListChanged, setProfileData]);
-
+  }, [filter, query, pathname, currentUser, tabListChanged, setTabListChanged])
 
   return (
     taskList ?
