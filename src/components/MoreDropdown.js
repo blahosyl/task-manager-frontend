@@ -1,10 +1,11 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import appStyles from "../App.module.css";
-import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
-// light icon for dark background
+import appStyles from "../App.module.css";
+import styles from "../styles/MoreDropdown.module.css";
+
+// Light icon for dark background
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -18,7 +19,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-// dark icon for light background
+// Dark icon for light background
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDotsDark = React.forwardRef(({ onClick }, ref) => (
