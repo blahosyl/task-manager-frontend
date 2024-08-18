@@ -7,7 +7,7 @@ import Media from "react-bootstrap/Media";
 import styles from "../../styles/Comment.module.css";
 
 import Avatar from "../../components/Avatar";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { MoreDropdownDark } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -94,7 +94,7 @@ const Comment = (props) => {
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
-          <MoreDropdown
+          <MoreDropdownDark
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
           />
