@@ -3,16 +3,18 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfileList.module.css";
-import Asset from "../../components/Asset";
+
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import Profile from "./Profile";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { axiosReq } from "../../api/axiosDefaults";
+import Profile from "./Profile";
+import Asset from "../../components/Asset";
+
 
 /**
  * Render the list of profiles from most to least recently updated

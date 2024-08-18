@@ -1,10 +1,12 @@
 import React from "react";
-import styles from "../../styles/Profile.module.css";
 import { Link } from "react-router-dom";
+
+import styles from "../../styles/Profile.module.css";
+
 import Avatar from "../../components/Avatar";
 
 /**
- * Renders a clickable list of users with profile pic & name
+ * Renders the profile component with avatar & the user's name
  */
 const Profile = (props) => {
   const { profile, imageSize = 55 } = props;
@@ -14,9 +16,7 @@ const Profile = (props) => {
   return (
     // whole unit of profile pic + name is clickable
     <Link className="align-self-center" to={`/profiles/${id}`}>
-      <div
-        className={`my-3 d-flex align-items-center`}
-      >
+      <div className={`my-3 d-flex align-items-center`}>
         {/* profile pic */}
         <div>
           <Avatar src={image} height={imageSize} />
@@ -32,11 +32,11 @@ const Profile = (props) => {
               ? lastname
               : owner}
           </strong>
-          {full && pronouns && (" (")}
-          {full && pronouns && (pronouns)}
-          {full && pronouns && (")")}
-          {full && role && (" ")}
-          {full && role && (role)}
+          {full && pronouns && " ("}
+          {full && pronouns && pronouns}
+          {full && pronouns && ")"}
+          {full && role && " "}
+          {full && role && role}
         </div>
       </div>
     </Link>

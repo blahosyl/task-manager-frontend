@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -14,13 +21,7 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
-// notification messages
-import { toast } from 'react-toastify';  
-import "react-toastify/dist/ReactToastify.css";
-
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-
+/** Handle logged-in users changing their own username */
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -58,11 +59,11 @@ const UsernameForm = () => {
 
   // feedback messages for user CRUD
   const usernameEditSuccessMsg = () => {
-    toast.success("You have successfully changed your username 🎉")
+    toast.success("You have successfully changed your username 🎉");
   };
-    
+
   const usernameEditCancelMsg = () => {
-    toast.success("You chose not to change your username 👍")
+    toast.success("You chose not to change your username 👍");
   };
 
   return (

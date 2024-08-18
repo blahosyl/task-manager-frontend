@@ -9,19 +9,20 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
-// notification messages
-import { toast } from 'react-toastify';  
-import "react-toastify/dist/ReactToastify.css";
-
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-
+/** Enable users to edit their profile data */
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -40,12 +41,11 @@ const ProfileEditForm = () => {
   const { firstname, lastname, role, pronouns, about, image } = profileData;
 
   const [errors, setErrors] = useState({});
-      
+
   // code suggestion by Spencer Barriball
   const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
-
     // Set isMounted to true when the component mounts
     // code suggestion by Spencer Barriball
     setIsMounted(true);
@@ -57,8 +57,15 @@ const ProfileEditForm = () => {
           const { firstname, lastname, role, pronouns, about, image } = data;
           // conditional suggested by Spencer Barriball
           if (isMounted) {
-            setProfileData({ firstname, lastname, role, pronouns, about, image })
-          };
+            setProfileData({
+              firstname,
+              lastname,
+              role,
+              pronouns,
+              about,
+              image,
+            });
+          }
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -75,7 +82,6 @@ const ProfileEditForm = () => {
     return () => {
       setIsMounted(false);
     };
-
   }, [currentUser, history, id, isMounted]);
 
   const handleChange = (event) => {
@@ -114,14 +120,14 @@ const ProfileEditForm = () => {
     }
   };
 
-    // feedback messages for user CRUD
-    const profileEditSuccessMsg = () => {
-      toast.success("You have successfully edited your profile 🎉")
-    };
-  
-    const profileEditCancelMsg = () => {
-      toast.success("You chose not to edit your profile 👍")
-    };
+  // feedback messages for user CRUD
+  const profileEditSuccessMsg = () => {
+    toast.success("You have successfully edited your profile 🎉");
+  };
+
+  const profileEditCancelMsg = () => {
+    toast.success("You chose not to edit your profile 👍");
+  };
 
   const textFields = (
     <>
@@ -210,8 +216,8 @@ const ProfileEditForm = () => {
       >
         cancel
       </Button>
-      <Button 
-        className={`${btnStyles.Button} ${btnStyles.Blue}`} 
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
         type="submit"
         onClick={() => {
           profileEditSuccessMsg();

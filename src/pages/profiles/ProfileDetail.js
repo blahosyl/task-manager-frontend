@@ -1,32 +1,35 @@
 import React, { useEffect, useState } from "react";
 
+import { useParams } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
+
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
-import Asset from "../../components/Asset";
-
-import styles from "../../styles/ProfilePage.module.css";
-import appStyles from "../../App.module.css";
-
-import ProfileList from "./ProfileList";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import {
-  useProfileData,
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext";
-
 import Image from "react-bootstrap/Image";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
+import styles from "../../styles/ProfilePage.module.css";
+import appStyles from "../../App.module.css";
 
-
-import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import {
+  useProfileData,
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
+import ProfileList from "./ProfileList";
 import TaskList from "../tasks/TaskList";
+import Asset from "../../components/Asset";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
+/** Render the profile detail page for logged-in users
+ * Include profile data & tasks related to profile
+ * (assigned to, watched by or owned/created by)
+ * When the user is viewing their own profile, the tasks in each column refresh
+ * when they watch/unwatch a task
+ * For the logged-in user, the profile/user edit dropdown is available from this page
+ */
 function ProfileDetail() {
   const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -50,10 +53,9 @@ function ProfileDetail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = 
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-          ]);
+        const [{ data: pageProfile }] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -64,7 +66,6 @@ function ProfileDetail() {
       }
     };
     fetchData();
-    // setTabListChanged(false);
   }, [id, setProfileData, tabListChanged]);
 
   const shortname =
@@ -104,28 +105,51 @@ function ProfileDetail() {
               {/* show all fields if logged-in user is viewing their own profile */}
               {currentUser?.username === profile?.owner ? (
                 <>
-                  <div><span className="font-italic">username: </span>{profile?.owner}</div>
-                  <div><span className="font-italic">First name: </span>{profile?.firstname || "not defined"}</div>
-                  <div className="mb-3">
-                    <span className="font-italic">Last name: </span>{profile?.lastname || "not defined"}
+                  <div>
+                    <span className="font-italic">username: </span>
+                    {profile?.owner}
                   </div>
-                  <div><span className="font-italic">Role: </span>{profile?.role || "not defined"}</div>
-                  <div><span className="font-italic">Pronouns: </span>{profile?.pronouns || "not defined"}</div>
+                  <div>
+                    <span className="font-italic">First name: </span>
+                    {profile?.firstname || "not defined"}
+                  </div>
+                  <div className="mb-3">
+                    <span className="font-italic">Last name: </span>
+                    {profile?.lastname || "not defined"}
+                  </div>
+                  <div>
+                    <span className="font-italic">Role: </span>
+                    {profile?.role || "not defined"}
+                  </div>
+                  <div>
+                    <span className="font-italic">Pronouns: </span>
+                    {profile?.pronouns || "not defined"}
+                  </div>
                   <div className="my-3">
-                    <p className="font-italic">About:</p> {profile?.about || "Not filled in"}
+                    <p className="font-italic">About:</p>{" "}
+                    {profile?.about || "Not filled in"}
                   </div>
                 </>
               ) : (
                 <>
-                  {/* for other user's profiels, show role, pronouns & about info 
+                  {/* for other user's profiles, show role, pronouns & about info 
                   if available */}
-                  {profile?.role && <div><span className="font-italic">Role: </span>{profile?.role}</div>}
+                  {profile?.role && (
+                    <div>
+                      <span className="font-italic">Role: </span>
+                      {profile?.role}
+                    </div>
+                  )}
                   {profile?.pronouns && (
-                    <div><span className="font-italic">Pronouns: </span>{profile?.pronouns}</div>
+                    <div>
+                      <span className="font-italic">Pronouns: </span>
+                      {profile?.pronouns}
+                    </div>
                   )}
                   {profile?.about && (
                     <div className="my-3">
-                      <p className="font-italic">About:</p> {profile?.about || "Not filled in"}
+                      <p className="font-italic">About:</p>{" "}
+                      {profile?.about || "Not filled in"}
                     </div>
                   )}
                 </>
@@ -142,7 +166,7 @@ function ProfileDetail() {
     </>
   );
 
-  //   tasks assigned to viewed profile
+  //tasks related to viewed profile
   const mainProfileTasks = (
     <>
       <hr />
@@ -155,7 +179,7 @@ function ProfileDetail() {
               title={`
                 Assigned to
                 ${shortname}
-                ${profile ? ("(" + profile.assigned_count) + ")": ""}
+                ${profile ? "(" + profile.assigned_count + ")" : ""}
 
               `}
             >
@@ -167,16 +191,14 @@ function ProfileDetail() {
                 setTasks={setTasks}
                 tabListChanged={tabListChanged}
                 setTabListChanged={setTabListChanged}
-
-
               />
             </Tab>
-            <Tab 
-              eventKey="watched" 
+            <Tab
+              eventKey="watched"
               title={`
                 Watched by
                 ${shortname}
-                ${profile ? ("(" + profile.watched_count) + ")": ""}
+                ${profile ? "(" + profile.watched_count + ")" : ""}
 
               `}
             >
@@ -188,17 +210,16 @@ function ProfileDetail() {
                 setTasks={setTasks}
                 tabListChanged={tabListChanged}
                 setTabListChanged={setTabListChanged}
-
               />
             </Tab>
-            <Tab 
-              eventKey="created" 
+            <Tab
+              eventKey="created"
               title={`
                 Created by
                 ${shortname}
-                ${profile ? ("(" + profile.owned_count) + ")": ""}
+                ${profile ? "(" + profile.owned_count + ")" : ""}
 
-              `}            
+              `}
             >
               <TaskList
                 message="No results found. Adjust the search keyword or create a task."
@@ -208,7 +229,6 @@ function ProfileDetail() {
                 setTasks={setTasks}
                 tabListChanged={tabListChanged}
                 setTabListChanged={setTabListChanged}
-
               />
             </Tab>
           </Tabs>
@@ -220,7 +240,7 @@ function ProfileDetail() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
+        <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
           {hasLoaded ? (
             <>
               {mainProfile}
