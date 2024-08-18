@@ -6,7 +6,12 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 
-import { Col, Row, Tab, Tabs } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+
+
 import ProfileList from "../profiles/ProfileList";
 
 import { axiosReq } from "../../api/axiosDefaults";

@@ -17,7 +17,12 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Image, Tab, Tabs } from "react-bootstrap";
+
+import Image from "react-bootstrap/Image";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+
+
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import TaskList from "../tasks/TaskList";
@@ -33,12 +38,15 @@ function ProfileDetail() {
   const is_owner = currentUser?.username === profile?.owner;
 
   // track if the watched status of a task has changed
+  // (or if it has been deleted – irrelevant here)
   const [tabListChanged, setTabListChanged] = useState(false);
 
   const [tasks, setTasks] = useState({ results: [] });
 
   /** Fetch the user's Profile data, refetch when profile id, data or the user's
-  watched tasks change (watched tasks counts are fetched from profile, not task)*/
+  watched tasks change (watched tasks counts are fetched from profile, not task)
+  Technically, deleting a task would also trigger this, but this never happens, 
+  as the user is redirected to the home page after deletion*/
   useEffect(() => {
     const fetchData = async () => {
       try {

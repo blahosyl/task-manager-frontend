@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
+
 import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Button from "react-bootstrap/Button";
@@ -7,6 +10,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem";
 
 // date formatting
 import dayjs from "dayjs";
@@ -15,16 +19,12 @@ import dayjs from "dayjs";
 import { toast } from 'react-toastify';  
 import "react-toastify/dist/ReactToastify.css";
 
-import { Link, useHistory } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Task.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import { ListGroupItem } from "react-bootstrap";
 
 const Task = (props) => {
   const {
