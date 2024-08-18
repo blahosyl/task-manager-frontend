@@ -1,47 +1,49 @@
 import React, { useEffect, useState } from "react";
-import TaskList from "./TaskList";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import {
-  useProfileData,
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-
-import ProfileList from "../profiles/ProfileList";
-
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import {
+  useProfileData,
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
 
+import TaskList from "./TaskList";
+import ProfileList from "../profiles/ProfileList";
+
+/** Render task list/Kanban in a filtered tab format:
+ * assigned to/watched by/created by logged-in user
+ * + all tasks
+ * Profile List is rendered next to task list (but not Kanban board)
+ */
 function TaskTabs(props) {
   // redirect logged-out users
   useRedirect("loggedOut");
 
-  const {
-    taskList
-  } = props;
+  const { taskList } = props;
 
   const [tasks, setTasks] = useState({ results: [] });
 
   // track if the watched status of a task has changed or a task has been deleted
   const [tabListChanged, setTabListChanged] = useState(false);
-  
+
   const currentUser = useCurrentUser();
-  console.log('currentUser', currentUser)
+  console.log("currentUser", currentUser);
   const currentUser_id = currentUser?.profile_id || "";
 
-  const id  = currentUser_id
+  const id = currentUser_id;
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
 
-  console.log('pageProfile', pageProfile)
+  console.log("pageProfile", pageProfile);
   useEffect(() => {
-    console.log("component rendered")
+    console.log("component rendered");
     const fetchData = async () => {
       try {
         const [{ data: pageProfile }] = await Promise.all([
@@ -57,17 +59,17 @@ function TaskTabs(props) {
       }
     };
     fetchData();
-  }, [id, setProfileData,taskList, tabListChanged]);
+  }, [id, setProfileData, taskList, tabListChanged]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2">
         <Tabs defaultActiveKey="assigned" id="task-tabs">
-          <Tab 
-            eventKey="assigned" 
+          <Tab
+            eventKey="assigned"
             title={`
               Assigned to me
-              ${profile ? ("(" + profile.assigned_count) + ")": ""}
+              ${profile ? "(" + profile.assigned_count + ")" : ""}
             `}
           >
             <TaskList
@@ -80,11 +82,11 @@ function TaskTabs(props) {
               setTabListChanged={setTabListChanged}
             />
           </Tab>
-          <Tab 
-            eventKey="Watched by me" 
+          <Tab
+            eventKey="Watched by me"
             title={`
               Watched by me
-              ${profile ? ("(" + profile.watched_count) + ")": ""}
+              ${profile ? "(" + profile.watched_count + ")" : ""}
             `}
           >
             <TaskList
@@ -97,11 +99,11 @@ function TaskTabs(props) {
               setTabListChanged={setTabListChanged}
             />
           </Tab>
-          <Tab 
-            eventKey="Created by me" 
+          <Tab
+            eventKey="Created by me"
             title={`
               Created by me
-              ${profile ? ("(" + profile.owned_count) + ")": ""}
+              ${profile ? "(" + profile.owned_count + ")" : ""}
             `}
           >
             <TaskList
@@ -114,13 +116,13 @@ function TaskTabs(props) {
               setTabListChanged={setTabListChanged}
             />
           </Tab>
-          <Tab 
-            eventKey="All" 
+          <Tab
+            eventKey="All"
             title={`
               All tasks
             `}
           >
-            <TaskList 
+            <TaskList
               taskList={taskList}
               message="No results found. Adjust the search keyword."
               tasks={tasks}
@@ -131,9 +133,12 @@ function TaskTabs(props) {
           </Tab>
         </Tabs>
       </Col>
-      {taskList && (<Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <ProfileList />
-      </Col>)}
+      {/* render profile list if task list format is used */}
+      {taskList && (
+        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+          <ProfileList />
+        </Col>
+      )}
     </Row>
   );
 }

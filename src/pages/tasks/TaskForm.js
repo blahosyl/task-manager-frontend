@@ -1,13 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
-import Upload from "../../assets/upload.png";
 
 import styles from "../../styles/TaskCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -22,14 +24,13 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 
-// notification messages
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import Image from "react-bootstrap/Image";
 
-/** Used for the TaskCreateForm and TaskEditForm */
+/** Used for the TaskCreateForm and TaskEditForm
+ * rendering/function depens on  `editForm` prop
+ */
 function TaskForm(props) {
   const { editForm } = props;
 
@@ -51,14 +52,9 @@ function TaskForm(props) {
   // the link to the next page of profiles
   const nextProfilesLink = profileList.next;
 
-  console.log("profileList", profileList);
-  console.log("profiles", profiles);
-  console.log("nextProfilesLink", nextProfilesLink);
-
   /** Fetch all profiles (beyond the pagination of 10)
    * This is used for the assignee dropdown select form
    */
-
   useEffect(() => {
     // nextProfiles is based on the function by John Rearden in the `next` prop of
     //  `InfiniteScroll` in `ProfileList`
@@ -106,6 +102,7 @@ function TaskForm(props) {
 
   const { id } = useParams();
 
+  /** Fetch task data for the EditForm */
   useEffect(() => {
     const handleMount = async () => {
       if (editForm) {
@@ -145,6 +142,7 @@ function TaskForm(props) {
     handleMount();
   }, [history, id, editForm]);
 
+  /** Change image */
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -155,6 +153,7 @@ function TaskForm(props) {
     }
   };
 
+  /** Change task data */
   const handleChange = (event) => {
     setTaskData({
       ...taskData,
@@ -162,6 +161,7 @@ function TaskForm(props) {
     });
   };
 
+  /** Submit task data */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -181,6 +181,7 @@ function TaskForm(props) {
       formData.append("image", imageInput.current.files[0]);
     }
 
+    // different API endpoint for editing & creating
     try {
       if (editForm) {
         await axiosReq.put(`/tasks/${id}/`, formData);
@@ -214,12 +215,14 @@ function TaskForm(props) {
     toast.success("You chose not to edit the task 👍");
   };
 
+  // submit/cancel buttons (appear in different places depending on viewport size)
   const buttons = (
     <div className="my-2 mx-auto text-center">
       <Button
         className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
         onClick={() => {
           history.goBack();
+          // cancel button message depending on edit/create
           editForm ? taskEditCancelMsg() : taskCreateCancelMsg();
         }}
       >
@@ -229,6 +232,7 @@ function TaskForm(props) {
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         type="submit"
         onClick={() => {
+          // submit button message depending on edit/create
           editForm ? taskEditSuccessMsg() : taskCreateSuccessMsg();
         }}
       >
@@ -238,6 +242,7 @@ function TaskForm(props) {
     </div>
   );
 
+  // text fields in the edit/create form
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -341,8 +346,8 @@ function TaskForm(props) {
                     {profiles.map((profile) => {
                       return (
                         <option key={profile.id} value={profile.id}>
-                          {/* show first name, last name or both is available
-                  otherwise, show username */}
+                          {/* show first name, last name or both if available
+                          otherwise, show username */}
                           {profile.firstname
                             ? profile.firstname + " " + profile.lastname
                             : profile.lastname

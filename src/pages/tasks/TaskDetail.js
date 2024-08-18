@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -7,25 +9,20 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import appStyles from "../../App.module.css";
-import Task from "./Task";
-import ProfileList from "../profiles/ProfileList";
-import NotFound from "../../components/NotFound";
-
-import Comment from "../comments/Comment";
-
-import CommentCreateForm from "../comments/CommentCreateForm";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
-import InfiniteScroll from "react-infinite-scroll-component";
-
-import Asset from "../../components/Asset";
-
 import { fetchMoreData } from "../../utils/utils";
 import { useRedirect } from "../../hooks/useRedirect";
 
-function TaskDetail() {
+import Task from "./Task";
+import ProfileList from "../profiles/ProfileList";
+import Comment from "../comments/Comment";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import NotFound from "../../components/NotFound";
+import Asset from "../../components/Asset";
 
+/** Render task detail page with Teammates on the right on large screens */
+function TaskDetail() {
   // redirect logged-out users
   useRedirect("loggedOut");
 
@@ -39,6 +36,7 @@ function TaskDetail() {
 
   const [comments, setComments] = useState({ results: [] });
 
+  /** Get task and comment data */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -62,7 +60,9 @@ function TaskDetail() {
   return hasLoaded ? (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* render task details */}
         <Task {...task.results[0]} setTasks={setTask} taskDetail />
+        {/* render comment create form */}
         <Container className={`${appStyles.Content} ${appStyles.Rounded}`}>
           {currentUser && (
             <CommentCreateForm
@@ -72,13 +72,12 @@ function TaskDetail() {
               setTask={setTask}
               setComments={setComments}
             />
-          ) 
-        }
-          {comments.results.length 
-            ? <h5 className="ml-3">{comments.results.length} comments</h5>
-            : null
-          }
-
+          )}
+          {/* render "comments" header if there are any comments */}
+          {comments.results.length ? (
+            <h5 className="ml-3">{comments.results.length} comments</h5>
+          ) : null}
+          {/* render task comments if any */}
           {comments.results.length ? (
             <>
               <InfiniteScroll
