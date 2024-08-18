@@ -41,11 +41,32 @@ No errors or warnings are present in the project.
 
 ### Lighthouse
 
+The following pages have been tested with Lighthouse emulating both a mobile and a desktop use case:
+
+- landing page
+- signin page
+- signup page
+- task kanban page
+- task list page
+- task detail page
+- task create page
+- task edit page
+- profile list page
+- profile detail page
+
+The accessibility audits uncovered some minor issues with color contrasts and heading precedence. These were all corrected (see the commits of [the corresponding Issue](https://github.com/blahosyl/task-manager-frontend/issues/149)), so that the final accessibility audit result for all pages tested is 100%.
+
+![JavaScript validation error: unknown variable `bootstrap`](documentation-assets/testing-assets/lighthouse/accessibility-100.png)
+
+All accessibility reports can be found in [this folder](documentation-assets/testing-assets/lighthouse/).
+
 ### Color
 
 In addition to Lighthouse, color contrasts were also tested with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker). This was especially important given that tasks have multiple color schemes conditionally rendered depending on their priority.
 
 Where contrast did not meet at least AA standard, the colors were changed.
+
+As pointed out by my mentor, the orange color of the navbar icons does not need to reach high contrast with the background, since it is always accompanied by a corresponding text indicating where the nav link leads.
 
 #### High specifications
 
