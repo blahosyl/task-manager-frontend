@@ -145,6 +145,8 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 
 #### Images
 
+Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing.
+
 #### Emojis & gifs
 
 ##### Typography
