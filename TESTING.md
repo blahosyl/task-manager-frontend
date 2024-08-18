@@ -10,6 +10,14 @@ Back to  `README.md`(README.md)
 
 ### HTML validation
 
+#### Landing page
+
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2Fsignin
+
+#### Landing page
+
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2Fsignin
+
 #### Home page validation
 
 ### JavaScript/JSX validation
