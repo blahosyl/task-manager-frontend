@@ -2,8 +2,6 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import logo from "../assets/logo.jpg";
-import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -11,16 +9,21 @@ import {
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
-// custom components
+
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import logo from "../assets/logo.jpg";
+import styles from "../styles/NavBar.module.css";
+import appStyles from "../App.module.css";
 
+/** Render a responsive navbar that is collapsed on small screens */
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  /** Remove refresh token timestamp when user signs out */
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -31,6 +34,7 @@ const NavBar = () => {
     }
   };
 
+  // icons for logged-in users
   const loggedInIcons = (
     <>
       <NavLink
@@ -89,6 +93,7 @@ const NavBar = () => {
     </>
   );
 
+  // icons for logged-out users
   const loggedOutIcons = (
     <>
       <NavLink
@@ -108,6 +113,7 @@ const NavBar = () => {
     </>
   );
 
+  /** Render the navbar */
   return (
     <Navbar
       expanded={expanded}
@@ -120,6 +126,9 @@ const NavBar = () => {
         <NavLink to="/">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
+            <span className={`text-uppercase ml-2 ${appStyles.AppName}`}>
+              On fire 🔥
+            </span>
           </Navbar.Brand>
         </NavLink>
 

@@ -72,6 +72,11 @@
   object-fit: contain;
 }
 
+.AppName {
+  color: var(--dark-high);
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -81,7 +86,8 @@ a {
   transition: color ease-in-out 0.3s;
 }
 
-a:hover {
+a:hover,
+.AppName:hover {
   text-decoration: none;
   color: var(--link-hover)
 }
