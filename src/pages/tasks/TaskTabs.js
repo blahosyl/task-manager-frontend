@@ -22,10 +22,11 @@ function TaskTabs(props) {
 
   const [tasks, setTasks] = useState({ results: [] });
 
-  // track if the watched status of a task has changed
+  // track if the watched status of a task has changed or a task has been deleted
   const [tabListChanged, setTabListChanged] = useState(false);
   
   const currentUser = useCurrentUser();
+  console.log('currentUser', currentUser)
   const currentUser_id = currentUser?.profile_id || "";
 
   const id  = currentUser_id
@@ -33,6 +34,7 @@ function TaskTabs(props) {
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
 
+  console.log('pageProfile', pageProfile)
   useEffect(() => {
     console.log("component rendered")
     const fetchData = async () => {
