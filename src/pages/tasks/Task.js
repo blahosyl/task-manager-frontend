@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 
+// date formatting
+import dayjs from "dayjs";
+
+// notification messages
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Button from "react-bootstrap/Button";
@@ -12,20 +19,18 @@ import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 
-// date formatting
-import dayjs from "dayjs";
-
-// notification messages
-import { toast } from 'react-toastify';  
-import "react-toastify/dist/ReactToastify.css";
-
-import Avatar from "../../components/Avatar";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Task.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
+import Avatar from "../../components/Avatar";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 
+/** Render the task card on the Kanban board, Task List view, Profile Detail & Task Detail
+ * The information shown depends on the view
+ * The color scheme of the card depends on the priority of the task
+ */
 const Task = (props) => {
   const {
     id,
@@ -58,23 +63,28 @@ const Task = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
   const history = useHistory();
+
+  // the modal confirming deletion
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   // feedback messages for user CRUD
-   
   const taskDeleteSuccessMsg = () => {
-    toast.success("You have successfully deleted the task 🎉")
+    toast.success("You have successfully deleted the task 🎉");
   };
 
   const taskDeleteCancelMsg = () => {
-    toast.success("You chose not to delete the task 👍")
-  }; 
+    toast.success("You chose not to delete the task 👍");
+  };
 
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
   };
 
+  /** Handle task deletion
+   * `setTabListChanged` triggers refresh in `TaskTabs`
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/tasks/${id}/`);
@@ -82,10 +92,10 @@ const Task = (props) => {
       // setTasks block suggested by tutor Roman
       setTasks((prevTasks) => ({
         ...prevTasks,
-        results: prevTasks.results.filter((task) => task.id !== id)
-      }))
+        results: prevTasks.results.filter((task) => task.id !== id),
+      }));
       // redirect to TaskList or TaskKanban (home) page after deleting a task
-      taskList ? history.push('/list') : history.push(`/`);
+      taskList ? history.push("/list") : history.push(`/`);
       setTabListChanged(true);
     } catch (err) {
       console.log(err);
@@ -93,6 +103,9 @@ const Task = (props) => {
     }
   };
 
+  /** Let a user watch a task
+   * `setTabListChanged` triggers refresh in `TaskTabs` & `ProfileDetail`
+   */
   const handleWatch = async () => {
     try {
       // make API request
@@ -117,6 +130,9 @@ const Task = (props) => {
     }
   };
 
+  /** Let a user unwatch a task
+   * `setTabListChanged` triggers refresh in `TaskTabs` & `ProfileDetail`
+   */
   const handleUnwatch = async () => {
     try {
       await axiosRes.delete(`/watchers/${watched_id}/`);
@@ -187,7 +203,7 @@ const Task = (props) => {
                   otherwise, show username */}
                 {currentUser?.username === assignee_username
                   ? "me"
-                  :assignee_firstname
+                  : assignee_firstname
                   ? assignee_firstname + " " + assignee_lastname
                   : assignee_lastname
                   ? assignee_lastname
@@ -203,7 +219,7 @@ const Task = (props) => {
             {/* Show status in a human readable format on TaskList and Task Detail pages.
             Even though status` is a str, === only works if this is
             explicitly specified, and == produces a warning*/}
-            {(taskList || taskDetail) && 
+            {(taskList || taskDetail) && (
               <span className={`mb-1`}>
                 {status === String("TO-DO")
                   ? "To Do"
@@ -213,7 +229,7 @@ const Task = (props) => {
                   ? "Done"
                   : "no status defined"}
               </span>
-            } 
+            )}
             {/* Show priority in a human readable format on large screens.
             Even though status` is a str, === only works if this is
             explicitly specified, and == produces a warning*/}
@@ -275,13 +291,14 @@ const Task = (props) => {
               >
                 Cancel
               </Button>
-              <Button 
+              <Button
                 className={`${btnStyles.Button} ${btnStyles.Danger}`}
                 // adding `async` suggested by tutor Roman
-                onClick={ async() => {
-                   await handleDelete();
+                onClick={async () => {
+                  await handleDelete();
                   taskDeleteSuccessMsg();
-                }}>
+                }}
+              >
                 Delete
               </Button>
             </Modal.Footer>
@@ -312,24 +329,26 @@ const Task = (props) => {
             )}
 
             {/* only show excerpt in TaskList and TaskDetail view */}
-            {excerpt && (taskList || taskDetail) && <Card.Subtitle 
-              className="text-center mb-2">
-              {excerpt}
-            </Card.Subtitle>}
+            {excerpt && (taskList || taskDetail) && (
+              <Card.Subtitle className="text-center mb-2">
+                {excerpt}
+              </Card.Subtitle>
+            )}
 
-          {/* show fire symbols if task is overdue */}
-          {dayjs() > dayjs(due_date) && (
-            <Row className="mt-3 justify-content-center">
-              {(dayjs().diff(due_date, "weeks")) > 2
-              ? <span className="h3">🔥🔥🔥🔥</span>
-              : (dayjs().diff(due_date, "weeks")) > 1
-              ? <span className="h3">🔥🔥🔥</span>
-              : (dayjs().diff(due_date, "weeks")) > 0
-              ? <span className="h3">🔥🔥</span>
-              : <span className="h3">🔥</span> 
-              }
-            </Row>
-          )}
+            {/* show fire symbols if task is overdue */}
+            {dayjs() > dayjs(due_date) && (
+              <Row className="mt-3 justify-content-center">
+                {dayjs().diff(due_date, "weeks") > 2 ? (
+                  <span className="h3">🔥🔥🔥🔥</span>
+                ) : dayjs().diff(due_date, "weeks") > 1 ? (
+                  <span className="h3">🔥🔥🔥</span>
+                ) : dayjs().diff(due_date, "weeks") > 0 ? (
+                  <span className="h3">🔥🔥</span>
+                ) : (
+                  <span className="h3">🔥</span>
+                )}
+              </Row>
+            )}
 
             {/* render link to Task Detail page in TaskList */}
             {!taskDetail && (
@@ -355,7 +374,6 @@ const Task = (props) => {
                 </Link>
               </Row>
             )}
-
           </Col>
         </Row>
       </Card.Body>
@@ -364,14 +382,12 @@ const Task = (props) => {
         className={`
                 ${styles.DateEyeContainer}
                 // make it narrower on TaskDetail page
-                ${taskDetail
-                  ? styles.DateEyeNarrow
-                  : styles.DateEyeContainer
-                }
+                ${taskDetail ? styles.DateEyeNarrow : styles.DateEyeContainer}
                 // only round top on TaskDetail page
-                ${taskDetail
-                  ? appStyles.LittleRounded
-                  : appStyles.LittleRoundedBottom
+                ${
+                  taskDetail
+                    ? appStyles.LittleRounded
+                    : appStyles.LittleRoundedBottom
                 }
                 // set background color depending on task priority
                 ${
@@ -385,20 +401,21 @@ const Task = (props) => {
                 }
               `}
       >
-        
         <Col className={`${styles.DateContainer}`}>
-        <span className={`mr-2`}>
-          {(taskDetail || taskList) && "Due"} 
-          {taskDetail && " date"}
-          {(taskDetail || taskList) && ":"} 
-        </span>
-          <span>{due_date 
-            ? taskDetail
-              ? dayjs(due_date).format('ddd | D MMM YYYY') 
-              : dayjs(due_date).format('D MMM') 
-            : 
-            (taskDetail || taskList) ? "not specified" : ""
-            }
+          <span className={`mr-2`}>
+            {(taskDetail || taskList) && "Due"}
+            {taskDetail && " date"}
+            {(taskDetail || taskList) && ":"}
+          </span>
+          {/* render due date in short or long format depending on view */}
+          <span>
+            {due_date
+              ? taskDetail
+                ? dayjs(due_date).format("ddd | D MMM YYYY")
+                : dayjs(due_date).format("D MMM")
+              : taskDetail || taskList
+              ? "not specified"
+              : ""}
           </span>
         </Col>
 
@@ -474,41 +491,44 @@ const Task = (props) => {
       {taskDetail && (
         <Card.Body>
           <ListGroup variant="flush">
-          {description && <Card.Text className="mb=4 text-center">{description}</Card.Text>}
+            {description && (
+              <Card.Text className="mb=4 text-center">{description}</Card.Text>
+            )}
 
             {updated_at && (
-              <ListGroup.Item>Last updated on: {dayjs(updated_at).format('ddd | D MMM YYYY')}</ListGroup.Item>
+              <ListGroup.Item>
+                Last updated on: {dayjs(updated_at).format("ddd | D MMM YYYY")}
+              </ListGroup.Item>
             )}
             {created_at && (
-              <ListGroup.Item>Created on: {dayjs(created_at).format('ddd | D MMM YYYY')}</ListGroup.Item>
+              <ListGroup.Item>
+                Created on: {dayjs(created_at).format("ddd | D MMM YYYY")}
+              </ListGroup.Item>
             )}
             <ListGroupItem>
               <Row>
-                <Col className={styles.CreatedBy}>Created by:
-                <Link to={`/profiles/${owner_id}`} className={styles.Avatar}>
-                  <Avatar src={owner_image} height={55} />
-                  {/* render "me" if logged-in user is viewing their own profile
+                <Col className={styles.CreatedBy}>
+                  Created by:
+                  <Link to={`/profiles/${owner_id}`} className={styles.Avatar}>
+                    <Avatar src={owner_image} height={55} />
+                    {/* render "me" if logged-in user is viewing their own profile
                   else show first name, last name or both if available
                   otherwise, show username */}
-                  {currentUser?.username === owner
-                    ? "me"
-                    :owner_firstname
-                    ? owner_firstname + " " + owner_lastname
-                    : owner_lastname
-                    ? owner_lastname
-                    : owner
-                  }
-                </Link>
+                    {currentUser?.username === owner
+                      ? "me"
+                      : owner_firstname
+                      ? owner_firstname + " " + owner_lastname
+                      : owner_lastname
+                      ? owner_lastname
+                      : owner}
+                  </Link>
                 </Col>
               </Row>
             </ListGroupItem>
           </ListGroup>
 
-          {image && (
-          <Card.Img src={image} alt={title} />)}
-          <div className={styles.TaskBar}>
-          </div>
-          
+          {image && <Card.Img src={image} alt={title} />}
+          <div className={styles.TaskBar}></div>
         </Card.Body>
       )}
     </Card>
