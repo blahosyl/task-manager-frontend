@@ -561,6 +561,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [Error: React Hook "useEffect" cannot be called inside a callback](https://stackoverflow.com/a/71900086)
 - [Bootstrap vertical alignment](https://getbootstrap.com/docs/4.6/utilities/vertical-align/)
 - [always push footer to the bottom](https://stackoverflow.com/a/66565163)
+- [`timeout` documentation](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 
 ### Text
 
