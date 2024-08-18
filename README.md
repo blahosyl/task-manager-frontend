@@ -208,6 +208,8 @@ I added confirmation notifications after a user successfully completes a CRUD op
 
 ##### Modal confirming task deletion
 
+##### Tooltip for watch/unwatch icon
+
 Deleting a task can have dire consequences, so I added a modal to confirm that this is what the user really intended.
 
 Comments are not considered as important or time-consuming to create as tasks, so here I opted for convenience over caution, and let users delete comments without double-checking.
