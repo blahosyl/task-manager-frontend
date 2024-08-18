@@ -210,12 +210,12 @@ const Task = (props) => {
                   : assignee_username}
               </Link>
             ) : (
-              <span>Not assigned</span>
+              <Col mt-1>Not assigned</Col>
             )}
           </Col>
 
           {/* task status & priority */}
-          <Col className={`${styles.CardHeaderText} d-none d-lg-flex`}>
+          <Col className={`${styles.CardHeaderText} d-flex`}>
             {/* Show status in a human readable format on TaskList and Task Detail pages.
             Even though status` is a str, === only works if this is
             explicitly specified, and == produces a warning*/}
@@ -233,7 +233,13 @@ const Task = (props) => {
             {/* Show priority in a human readable format on large screens.
             Even though status` is a str, === only works if this is
             explicitly specified, and == produces a warning*/}
-            <span className={`mt-1 d-none d-lg-inline`}>
+            <span
+              className={`
+              mt-1 d-none 
+              ${(taskDetail || taskList) && "d-md-inline"}
+              d-lg-inline
+              `}
+            >
               {priority === String("LOW")
                 ? "Low Priority"
                 : priority === String("MEDIUM")
