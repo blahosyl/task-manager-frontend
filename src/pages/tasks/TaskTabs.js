@@ -26,7 +26,7 @@ function TaskTabs(props) {
   const [tabListChanged, setTabListChanged] = useState(false);
   
   const currentUser = useCurrentUser();
-  const currentUser_id = currentUser?.currentUser_id || "";
+  const currentUser_id = currentUser?.profile_id || "";
 
   const id  = currentUser_id
   const setProfileData = useSetProfileData();
