@@ -252,6 +252,13 @@ https://github.com/user-attachments/assets/d581e92f-29d8-405f-b6e7-e616c4f60504
 |**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
 |**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/dcc5587b-28a9-4880-b4af-f1e07c735443
+
+
+
 #### Task List manual testing
 
 |Action				|Expected result	|Result|
@@ -270,6 +277,12 @@ https://github.com/user-attachments/assets/d581e92f-29d8-405f-b6e7-e616c4f60504
 |**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
 |user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/cc0dc324-36bc-48f4-b05a-f2f339043bd4
+
+
 #### Task Detail manual testing
 
 |Action				|Expected result	|Result|
@@ -280,6 +293,13 @@ https://github.com/user-attachments/assets/d581e92f-29d8-405f-b6e7-e616c4f60504
 |user clicks outside edit/delete menu|**pencil** and **trashcan** icons disappear|✅|
 |**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
 |**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/68506a43-cfaa-4a1a-bc0a-559b608be9ba
+
+
 
 #### Task Search manual testing
 
@@ -300,6 +320,12 @@ The contents of Task objects can be searched. Fields searched are:
 |there are tasks matching the search string|only the matching tasks are listed from the active tab|✅|
 |there are no tasks matching the search string|information message appears with "not found" asset|✅|
 |user click on another tab|search bar content & search result fintering is cleared|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/501060e2-661b-4cfa-b382-13980ef286c7
+
 
 #### Task Create Form manual testing
 
