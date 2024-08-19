@@ -144,7 +144,6 @@ This page is only available to logged out users.
 |Signup page loads    |Signup text visible<br>Signin link visible<br>email field visible<br>username field visible<br>password field visible<br>password (again) field visible<br>Signup button visible|✅|
 |Signin link clicked|[Signin page](#signin-page-manual-testing) loads|✅|
 |Signup button clicked<br>any field empty |validation message appears|✅|
-|Signup button clicked<br>email field has no `@`|validation message appears|✅|
 |Signup button clicked<br>password fields don't match<br>OR password does not conform to rules |validation message appears|✅|
 |Signup button clicked<br>username already exists|validation message appears|✅|
 |Signup button clicked<br>all fields filled correctly |user is signed up<br>[Signin page](#signin-page-manual-testing) loads|✅|
@@ -265,8 +264,8 @@ The contents of Task objects can be searched. Fields searched are:
 |page loads|empty task create form visible|✅|
 |title field empty|**create** button disabled<br> instruction text shown below button|✅|
 |title field filled|**create** button enabled<br> instruction text below button disappears|✅|
-|**create** button clicked |new task created<br>confirmation message appears|✅|
 |**cancel** button clicked |new task not created<br>confirmation message appears|✅|
+|**create** button clicked |new task created<br>confirmation message appears|✅|
 
 #### Task Edit Form manual testing
 
@@ -276,14 +275,14 @@ The contents of Task objects can be searched. Fields searched are:
 |title field filled|**save** button enabled<br> instruction text below button not shown|✅|
 |title field content is deleted|**save** button disabled<br> instruction text shown below button|✅|
 |title field filled again|**save** button enabled<br> instruction text below button disappears|✅|
-|**save** button clicked |task data updated<br>confirmation message appears|✅|
 |**cancel** button clicked |task data not updated<br>confirmation message appears|✅|
+|**save** button clicked |task data updated<br>confirmation message appears|✅|
 
 #### Task Deletion manual testing
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
-|**close** button clicked on delete modal |delete modal closes<br>task is not deleted<br>confirmation message appears|✅|
+|**cancel** button clicked on delete modal |delete modal closes<br>task is not deleted<br>confirmation message appears|✅|
 |**delete** button clicked on delete modal|task is deleted<br>user is redirected to Kanban page<br>confirmation message appears|✅|
 
 ### Comments manual testing
@@ -297,8 +296,8 @@ The contents of Task objects can be searched. Fields searched are:
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
 |user clicks outside edit/delete menu|**pencil** and **trashcan** icons disappear|✅|
 |**pencil** icon clicked|comment text filled into comment field<br>**save** & **cancel** buttons appear|✅|
-|save button clicked|comment text updated<br>confirmation message appears|✅|
-|cancel button clicked|comment text not updated<br>confirmation message appears|✅|
+|**cancel** button clicked|comment text not updated<br>confirmation message appears|✅|
+|**save** button clicked|comment text updated<br>confirmation message appears|✅|
 |**trashcan** icon clicked|comment is deleted<br>confirmation message appears|✅|
 
 ### Watchers manual testing
@@ -348,28 +347,28 @@ The watch/unwatch functionality is available in every Task view apart from the T
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |page loads|profile edit form visible, filled with existing data|✅|
-|**save** button clicked |profile data updated<br>confirmation message appears|✅|
 |**cancel** button clicked |profile data not updated<br>confirmation message appears|✅|
+|**save** button clicked |profile data updated<br>confirmation message appears|✅|
 
 #### Username edit manual testing
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |page loads|username edit form visible, filled with existing username|✅|
+|**cancel** button clicked |username not updated<br>confirmation message appears|✅|
 |**save** button clicked & username is not valid|validation message appears|✅|
 |**save** button clicked & username is valid|username updated<br>confirmation message appears|✅|
-|**cancel** button clicked |username not updated<br>confirmation message appears|✅|
 
 #### Password edit manual testing
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |page loads|password edit form visible|✅|
+|**cancel** button clicked|password not updated<br>confirmation message appears|✅|
 |**save** button clicked  & password fields are empty |validation message appears|✅|
 |**save** button clicked  & passwords do not match |validation message appears|✅|
 |**save** button clicked  & passwords are not valid |validation message appears|✅|
 |**save** button clicked  & passwords match and are valid |password updated<br>confirmation message appears|✅|
-|**cancel** button clicked|password not updated<br>confirmation message appears|✅|
 
 ### General features
 
