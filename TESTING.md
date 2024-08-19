@@ -111,6 +111,11 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 |Signup link clicked |[Signup page](#signup-page-manual-testing) loaded|✅|
 |logo and brand name clicked|[landing page](#landing-page-manual-testing) loaded|✅|
 
+*Click to play video*
+
+https://github.com/user-attachments/assets/3e75947f-d47b-4733-8145-a9d32d3e8607
+
+
 #### Navigation bar | mobile manual testing
 
 |Action    |Expected result |Result|
@@ -119,13 +124,25 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 |hamburger icon clicked|nav bar opens|✅|
 |hamburger icon clicked again OR<br>user clicks outside the nav bar |nav bar closes|✅|
 
+*Click to play video*
+
+https://github.com/user-attachments/assets/f7fe5e11-ef0d-4b3f-81e6-7fd65ec1ea61
+
+
 #### Footer manual testing
 
 |Action    |Expected result |Result|
 |---    |---    |:---: |
 |page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
 |GitHub icon clicked | GitHub profile opens in new tab|✅|
-|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
+|LinkedIn icon clicked | LinkedIn profile opens in new tab
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/cd5a5289-0cca-4a91-92df-aa96990ff9d3
+
+
 
 #### Landing page manual testing
 
@@ -134,6 +151,11 @@ This page is only available to logged out users.
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |page loads    |Welcome text visible<br>Signup link visible<br>Signin link visible<br>landing background image visible|✅|
+
+*Click to play video*
+
+![04-landing-page-manual-testing](https://github.com/user-attachments/assets/b05654af-bc00-4b56-bc4f-f6cfc4988239)
+
 
 #### Signup page manual testing
 
