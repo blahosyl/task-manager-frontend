@@ -448,6 +448,11 @@ https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
 |**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
 |user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
 
+*Click to play video*
+
+https://github.com/user-attachments/assets/a6268030-33d8-4acd-9a1e-2b9ec78bcd3f
+
+
 #### Profile edit manual testing
 
 |Action				|Expected result	|Result|
@@ -455,6 +460,12 @@ https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
 |page loads|profile edit form visible, filled with existing data|✅|
 |**cancel** button clicked |profile data not updated<br>confirmation message appears|✅|
 |**save** button clicked |profile data updated<br>confirmation message appears|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/277c6ce4-69aa-473e-bcb2-aa06febc7969
+
 
 #### Username edit manual testing
 
@@ -464,6 +475,12 @@ https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
 |**cancel** button clicked |username not updated<br>confirmation message appears|✅|
 |**save** button clicked & username is not valid|validation message appears|✅|
 |**save** button clicked & username is valid|username updated<br>confirmation message appears|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/0462409f-090d-46f2-a3eb-0fc6802e770d
+
 
 #### Password edit manual testing
 
@@ -475,6 +492,12 @@ https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
 |**save** button clicked  & passwords do not match |validation message appears|✅|
 |**save** button clicked  & passwords are not valid |validation message appears|✅|
 |**save** button clicked  & passwords match and are valid |password updated<br>confirmation message appears|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/6969fd12-531a-4b99-8362-eb87a9c7e15a
+
 
 ### General features
 
@@ -492,6 +515,13 @@ Infinite scroll is used to load the next page of data from the API. It is used f
 |scrolls down within the component| another page of objects is loaded|✅|
 |there are no more objects to load| and end message appears after the list|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/51279d9a-bb54-4bfc-bbf8-08379bf121ca
+
+
+
 #### Notifications manual testing
 
 Notification messages are used to confirm CRUD actions in the following components:
@@ -505,6 +535,10 @@ Notification messages are used to confirm CRUD actions in the following componen
 |notification is triggered   |notification appears in the top right corner|✅|
 |user clicks notification| notification disappears right after click|✅|
 |user does not click notification| notification disappears when the timer bar runs out|✅|
+
+*Click to play video*
+
+https://github.com/user-attachments/assets/29897dbb-e529-49fe-b40f-870f50910770
 
 ## Accessibility testing
 
