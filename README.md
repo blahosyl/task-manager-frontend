@@ -1,3 +1,8 @@
+<!-- Disable warnings about inline HTML -->
+<!-- markdownlint-disable MD033 -->
+<!-- Disable warnings about hard tabs -->
+<!-- markdownlint-disable MD010 -->
+
 # Task Manager
 
 ## UX/UI
@@ -585,6 +590,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [`react-select-async-paginate` documentation](https://www.npmjs.com/package/react-select-async-paginate) (not used)
 - [`react-toastify` documentation](https://fkhadra.github.io/react-toastify/)
 - [Emojipedia](https://emojipedia.org/)
+- [customizing `Markdownlint`](https://github.com/DavidAnson/vscode-markdownlint#configure)
 
 ### Text
 
