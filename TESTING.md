@@ -58,10 +58,6 @@ All screenshots of HTML validation can be found in [this folder](/documentation-
 
 [No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Flist)
 
-#### Task List page validation
-
-[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Flist)
-
 #### Task Detail page validation
 
 The validated page includes comments.
@@ -108,24 +104,57 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 
 This page is only available to logged out users.
 
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads    |Welcome text visible<br>Signup link visible<br>Signin link visible<br>landing background image visible|✅|
+
 ### Authentication manual testing
 
 #### Signin page manual testing
 
 This page is only available to logged out users.
 
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads    |Signin text visible<br>Signup link visible<br>username field visible<br>password field visible<br>Signup link visible<br>signin background image visible|✅|
+|Signup link clicked|[Signup page](#signup-page-manual-testing) loaded|✅|
+|Signin button clicked<br>any field empty |"Please fill in this field"|✅|
+|Signin button clicked<br>both fields filled<br>credentials not correct|"The username and/or password you specified are not correct."|✅|
+|Signin button clicked<br>both fields filled<br>credentials correct|user is signed in<br>[Task Kanban page](#task-kanban-manual-testing) loads<br>[navigation bar icons change](#navigation-bar--desktop-manual-testing--user-logged-in)|✅|
+
 #### Signup page manual testing
 
 This page is only available to logged out users.
 
-#### Navigation bar | desktop manual testing
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|Signup page loads    |Signup text visible<br>Signin link visible<br>email field visible<br>username field visible<br>password field visible<br>password (again) field visible<br>Signup button visible|✅|
+|Signin link clicked|[Signin page](#signin-page-manual-testing) loads|✅|
+|Signup button clicked<br>any field empty |"Please fill in this field"|✅|
+|Signup button clicked<br>email field has no `@`|"Please include an `@`..."|✅|
+|Signup button clicked<br>password fields don't match<br>OR password does not conform to rules |password fields get emptied|✅|
+|Signup button clicked<br>username already exists|"A user with that username already exists"|✅|
+|Signup button clicked<br>all fields filled correctly |user is signed up<br>[Signin page](#signin-page-manual-testing) loads|✅|
+
+#### Navigation bar | desktop manual testing | user not logged in
 
 |Action    |Expected result |Result|
 |---    |---    |:---: |
-|page loads    |hamburger icon not visible|✅|
-|Signin link clicked |[Community page](#signin-page-manual-testing) loaded|✅|
-|Signup link clicked |[Home page](#signup-page-manual-testing) loaded|✅|
+|page loads    |hamburger icon not visible & nav links visible|✅|
+|Signin link clicked |[Signin page](#signin-page-manual-testing) loaded|✅|
+|Signup link clicked |[Signup page](#signup-page-manual-testing) loaded|✅|
 |logo and brand name clicked|[landing page](#landing-page-manual-testing) loaded|✅|
+
+#### Navigation bar | desktop manual testing | user logged in
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |hamburger icon not visible & nav links visible|✅|
+|**plus icon** clicked |[TaskCreate Form](#task-create-form-manual-testing) loaded|✅|
+|**boards icon** clicked |[Task Kanban page](#task-kanban-manual-testing) loaded|✅|
+|**list icon** clicked |[Task list page](#task-list-manual-testing) loaded|✅|
+|**sign out icon** clicked |user is signed out & [navigation bar icons change](#navigation-bar--desktop-manual-testing--user-not-logged-in)|✅|
+|logo and brand name clicked|[Task Kanban page](#task-kanban-manual-testing) loaded|✅|
 
 #### Navigation bar | mobile manual testing
 
@@ -181,32 +210,96 @@ Tabbed filtering of tasks is enabled on the following pages:
 - [Task List](#task-list-manual-testing)
 - [Profile Detail](#profile-detail-manual-testing)
 
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|Task Kanban or Task List page loads|4 tabs visible: **assigned to**, **watched by** & **created by** the *logged-in user*, "all tasks"|✅|
+|Profile Detail page loads|3 tabs visible: **assigned to**, **watched by** & **created by** the *viewed user*|✅|
+|page loads|[search field](#task-search-manual-testing) is visible|✅|
+|page loads|**assigned to** tab content is visible|✅|
+|page loads|user-specific tabs have a task count in parentheses next in their label|✅|
+|user clicks on a tab|that tasks's content becomes visible without having to reload the page|✅|
+|user watches/unwatches a task|tab counts and contents update without having to reload the page|✅|
+|Kanban only:<br>user deletes a task|tab counts and contents update without having to reload the page|✅|
+
 #### Task Kanban manual testing
 
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|tasks appear in [tabbed](#task-tabs-manual-testing) task list format|✅|
+|page loads|3 columns visible on each tab: **To Do**, **In Progress** & **Done**, with tasks sorted accordingly|✅|
+|page loads|[**Teammates** link](#profile-list-manual-testing) appears next to the search bar|✅|
+|page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in each column|✅|
+|page loads|each task card's color is set according to task prioriy|✅|
+|page loads|**vertical dots** icon visible for each task owned by the logged-in user|✅|
+|**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
+|**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
+|**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
+
 #### Task List manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|tasks appear in [tabbed](#task-tabs-manual-testing) task list format|✅|
+|page loads|[**Teammates** list](#profile-list-manual-testing) appears to the right of to the task list<br>showing user picture and [conditional name](README.md/#conditionally-rendered-names)|✅|
+|page loads|the logged-in user does not appear in the [**Teammates** list](#profile-list-manual-testing)|✅|
+|page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in task list|✅|
+|page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in **Teammates** list|✅|
+|page loads|each task card's color is set according to task prioriy|✅|
+|page loads|**vertical dots** icon visible for each task owned by the logged-in user|✅|
+|**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
+|**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
+|**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
+|user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
 
 #### Task Detail manual testing
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
-|Task Detail page loads|assignee or "not assigned" visible<br>status visible<br>priority visible<br>title visible<br>excerpt visible (if any)<br>due date visible<br>watch icon visible<br>description visible (if any)<br>"last updated on" visible<br>"created on" visible<br>"created by" visible<br>image visible (if any)<br>comment field visible<br>[comments](#comments-manual-testing) visible (if any)|✅|
+|Task Detail page loads|assignee or "not assigned" visible<br>status visible<br>priority visible<br>title visible<br>excerpt visible (if any)<br>due date visible<br>watch icon visible<br>description visible (if any)<br>"last updated on" visible<br>"created on" visible<br>**created by** visible<br>image visible (if any)<br>comment field visible<br>[comments](#comments-manual-testing) visible (if any)|✅|
 |logged in user owns task|**vertical dots** icon visible on top right|✅|
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
 |**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
-|**trashcan** icon clicked|task deletion modal opens|✅|
-|**close** button clicked on delete modal |delete modal closes<br>task is not deleted<br>confirmation message appears|✅|
-|**delete** button clicked on delete modal|task is deleted<br>user is redirected to Kanban page<br>confirmation message appears|✅|
+|**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
+
+#### Task Search manual testing
+
+A search bar appears on the [Task List](#task-list-manual-testing), [Task Kanban](#task-kanban-manual-testing) and [Profile Detail](#profile-detail-manual-testing) pages.
+
+The contents of Task objects can be searched. Fields searched are:
+
+- title
+- excerpt
+- description
+- assignee
+- owner
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|search bar visible|✅|
+|user types in search bar|tasks are filtered with a few second's delay after the user starts typing|✅|
+|there are tasks matching the search string|only the matching tasks are listed from the active tab|
+|there are no tasks matching the search string|information message appears with "not found" asset|
+|user click on another tab|search bar content & search result fintering is cleared|
 
 #### Task Create Form manual testing
 
-### Task Edit Form manual testing
+#### Task Edit Form manual testing
+
+#### Task Deletion manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|**close** button clicked on delete modal |delete modal closes<br>task is not deleted<br>confirmation message appears|✅|
+|**delete** button clicked on delete modal|task is deleted<br>user is redirected to Kanban page<br>confirmation message appears|✅|
 
 ### Comments manual testing
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |Task Detail page loads|comment field visible<br>comment button visible|✅|
-|logged in user has previous comments|**vertical dots** icon visible for each comment|✅|
+|logged in user has previous comments|**vertical dots** icon visible for each comment belonging to the user|✅|
 |comment button clicked<br>comment field empty|comment button is disabled|✅|
 |comment button clicked<br>comment field not empty|comment appears in comment list <br>**vertical dots** icon appears next to comment<br>confirmation message appears|✅|
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
@@ -219,7 +312,25 @@ Tabbed filtering of tasks is enabled on the following pages:
 
 #### Profile List manual testing
 
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|[**Teammates** list](#profile-list-manual-testing) appears in full page view displaying each user's picture, [conditional name](README.md/#conditionally-rendered-names), pronouns (if any), role (if any)|✅|
+|page loads|the logged-in user does not appear in the list|✅|
+|page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in **Teammates** list|✅|
+|user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
+
 #### Profile detail manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads & profile belongs to logged-in user|profile details appear|✅|
+|page loads & profile doesn't belong to logged-in user|avatar, [conditional name](README.md/#conditionally-rendered-names) & any filled-in profile fields appear|✅|
+|page loads|tasks related to the user appear in a [tabbed](#task-tabs-manual-testing) [task list](#task-list-manual-testing) format|✅|
+|page loads|[**Teammates** list](#profile-list-manual-testing) appears to the right of to the task list<br>showing user picture and [conditional name](README.md/#conditionally-rendered-names)|✅|
+|page loads|the logged-in user does not appear in the [**Teammates** list](#profile-list-manual-testing)|✅|
+|page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in **Teammates** list|✅|
+|**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
+|user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
 
 ### Watchers manual testing
 
