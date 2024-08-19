@@ -231,6 +231,8 @@ function TaskForm(props) {
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         type="submit"
+        // disable button if title field empty
+        disabled={!title.trim()}
         onClick={() => {
           // submit button message depending on edit/create
           editForm ? taskEditSuccessMsg() : taskCreateSuccessMsg();
@@ -239,6 +241,8 @@ function TaskForm(props) {
         {/* change button text depending on whether creating or editing task */}
         {editForm ? "save" : "create"}
       </Button>
+      {/* show instruction if title field is empty */}
+      {!title && <p>You must specify a title for the task</p>}
     </div>
   );
 
