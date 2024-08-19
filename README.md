@@ -495,6 +495,8 @@ additional libraries
 
 ## Testing
 
+See the document [`TESTING.md`](TESTING.md) for details.
+
 ## Technologies used
 
 ### Languages used
@@ -510,6 +512,7 @@ additional libraries
 - [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
+- [SP studio](https://sp-studio.de/): create mock-up user pictures
 - [Typos spell checker for VS Code](https://open-vsx.org/extension/tekumara/typos-vscode)
 - [W3C HTML validator](https://validator.w3.org/)
 
@@ -590,6 +593,7 @@ All text was written by me.
 - [lightbulb](https://unsplash.com/photos/lighted-orange-cfl-bylb-HfVfXJjktWw) by [Izumi](https://unsplash.com/@itsaizumi) ([Unspash](https://unsplash.com/))
 - [no-results](/src/assets/no-results.png) & [upload](/src/assets/upload.png) taken from the Moments walkthrough project, colors changed with [onlinepngtools.com](https://onlinepngtools.com/change-png-color)
 - ["this is fine" gif](/src/assets/this-is-fine.gif) from [customemoji.com](https://www.customemoji.com/custom-emoji/this-is-fine-fire)
+- the mockup user images were created by myself and Peter Litauszki with [SP Studio](https://sp-studio.de/)
 
 ### Readmes
 
