@@ -5,6 +5,10 @@
 
 # Task Manager
 
+- [Deployed app](https://pp5-task-manager-frontend-eebb66e2c99d.herokuapp.com/)
+- [Deployed API](https://pp5-task-manager-api-380974d293dd.herokuapp.com/)
+- [API GitHub repository](https://github.com/blahosyl/task-manager-api)
+
 ## UX/UI
 
 The app is intended for smaller groups/teams to complete relatively simple, everyday tasks. Currently, all logged-in users can see and comment on all tasks, so it is suitable for implementing in a closed environment or for tasks that do not contain sensitive information.
@@ -494,6 +498,14 @@ For all other users, only filled-in fields and the [conditionally rendered name]
 ### Admin Panel
 
 ### Future features
+
+Since development time for this version of the project was only a bit more than 3 weeks, and this was my first project using React & Django, several desired features could not be implemented in this short time frame:
+
+- drag & drop tasks on Kanban board
+- ask for current password before changing login credentials
+- tag other users in comments
+- send notifications when due date is close or task status changes
+- the other [features relegated to version 2]((https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+))
 
 ### Code features
 
