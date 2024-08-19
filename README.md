@@ -8,7 +8,13 @@
 - [Deployed app](https://pp5-task-manager-frontend-eebb66e2c99d.herokuapp.com/)
 - [Deployed API](https://pp5-task-manager-api-380974d293dd.herokuapp.com/)
 - [API GitHub repository](https://github.com/blahosyl/task-manager-api)
-- [Project Kanban board](https://github.com/users/blahosyl/projects/6)
+
+See the development progress and further plans on the [Project Kanban board](https://github.com/users/blahosyl/projects/6).
+
+<!-- Shield.io badges -->
+![GitHub last commit](https://img.shields.io/github/last-commit/blahosyl/task-manager-frontend?color=red)
+![GitHub contributors](https://img.shields.io/github/contributors/blahosyl/task-manager-frontend?color=orange)
+![GitHub language count](https://img.shields.io/github/languages/count/blahosyl/task-manager-frontend?color=black)
 
 ## UX/UI
 
@@ -547,11 +553,26 @@ See the document [`TESTING.md`](TESTING.md) for details.
 
 ### Tools used
 
+- [Coolors.co](https://coolors.co/) - color palettes
 - [diffchecker.com](https://www.diffchecker.com/): compare code
 - [ES7+ React/Reduc/React-Native snippets extension for VS Code](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets): quickly insert code snippets
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint): JSX validation
+- [Freeconvert](https://www.freeconvert.com/): convert manual testing videos from `.mov` to `.mp4`
+- [Git](https://git-scm.com/) – version control
+- [GitHub](https://github.com/) – store the source files
+- [GitHub Desktop](https://desktop.github.com/) – GitHub UI
+- [GitHub Issues](https://github.com/features/issues) – feature management, bug tracking
+- [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) – project management
+- [GitHub TOC generator](http://github.com/3kh0/readme-toc/) – automatically generate a Markdown TOC
+- [GitHub web editor](https://github.com/)
+- [GitPod](https://gitpod.io/) – Integrated Development Environment
+- [Google Sheets](https://docs.google.com/spreadsheets) – planning user stories
+- [Heroku](https://heroku.com/) – host the production version of the app
 - [Jigsaw](https://jigsaw.w3.org/css-validator/validator): CSS validator
 - [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
+- [Preview](https://support.apple.com/guide/preview/welcome/mac) – cropping and annotating images
+- [Shields.io](https://shields.io/) – add badges to README
+- [Slack](https://slack.com/) – mentor communication
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
 - [REacTree](https://marketplace.visualstudio.com/): make a React component tree
