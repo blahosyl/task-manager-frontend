@@ -279,9 +279,9 @@ The contents of Task objects can be searched. Fields searched are:
 |---				|---				|:---:	|
 |page loads|search bar visible|✅|
 |user types in search bar|tasks are filtered with a few second's delay after the user starts typing|✅|
-|there are tasks matching the search string|only the matching tasks are listed from the active tab|
-|there are no tasks matching the search string|information message appears with "not found" asset|
-|user click on another tab|search bar content & search result fintering is cleared|
+|there are tasks matching the search string|only the matching tasks are listed from the active tab|✅|
+|there are no tasks matching the search string|information message appears with "not found" asset|✅|
+|user click on another tab|search bar content & search result fintering is cleared|✅|
 
 #### Task Create Form manual testing
 
