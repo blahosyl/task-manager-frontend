@@ -100,15 +100,24 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 
 ## Manual feature testing
 
-### Landing page manual testing
+### Authentication manual testing
+
+#### Navigation bar | desktop manual testing | user not logged in
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |hamburger icon not visible & nav links visible|✅|
+|Signin link clicked |[Signin page](#signin-page-manual-testing) loaded|✅|
+|Signup link clicked |[Signup page](#signup-page-manual-testing) loaded|✅|
+|logo and brand name clicked|[landing page](#landing-page-manual-testing) loaded|✅|
+
+#### Landing page manual testing
 
 This page is only available to logged out users.
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |page loads    |Welcome text visible<br>Signup link visible<br>Signin link visible<br>landing background image visible|✅|
-
-### Authentication manual testing
 
 #### Signin page manual testing
 
@@ -118,8 +127,8 @@ This page is only available to logged out users.
 |---				|---				|:---:	|
 |page loads    |Signin text visible<br>Signup link visible<br>username field visible<br>password field visible<br>Signup link visible<br>signin background image visible|✅|
 |Signup link clicked|[Signup page](#signup-page-manual-testing) loaded|✅|
-|Signin button clicked<br>any field empty |"Please fill in this field"|✅|
-|Signin button clicked<br>both fields filled<br>credentials not correct|"The username and/or password you specified are not correct."|✅|
+|Signin button clicked<br>any field empty |validation message appears|✅|
+|Signin button clicked<br>both fields filled<br>credentials not correct|validation message appears|✅|
 |Signin button clicked<br>both fields filled<br>credentials correct|user is signed in<br>[Task Kanban page](#task-kanban-manual-testing) loads<br>[navigation bar icons change](#navigation-bar--desktop-manual-testing--user-logged-in)|✅|
 
 #### Signup page manual testing
@@ -130,20 +139,11 @@ This page is only available to logged out users.
 |---				|---				|:---:	|
 |Signup page loads    |Signup text visible<br>Signin link visible<br>email field visible<br>username field visible<br>password field visible<br>password (again) field visible<br>Signup button visible|✅|
 |Signin link clicked|[Signin page](#signin-page-manual-testing) loads|✅|
-|Signup button clicked<br>any field empty |"Please fill in this field"|✅|
-|Signup button clicked<br>email field has no `@`|"Please include an `@`..."|✅|
-|Signup button clicked<br>password fields don't match<br>OR password does not conform to rules |password fields get emptied|✅|
-|Signup button clicked<br>username already exists|"A user with that username already exists"|✅|
+|Signup button clicked<br>any field empty |validation message appears|✅|
+|Signup button clicked<br>email field has no `@`|validation message appears|✅|
+|Signup button clicked<br>password fields don't match<br>OR password does not conform to rules |validation message appears|✅|
+|Signup button clicked<br>username already exists|validation message appears|✅|
 |Signup button clicked<br>all fields filled correctly |user is signed up<br>[Signin page](#signin-page-manual-testing) loads|✅|
-
-#### Navigation bar | desktop manual testing | user not logged in
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|page loads    |hamburger icon not visible & nav links visible|✅|
-|Signin link clicked |[Signin page](#signin-page-manual-testing) loaded|✅|
-|Signup link clicked |[Signup page](#signup-page-manual-testing) loaded|✅|
-|logo and brand name clicked|[landing page](#landing-page-manual-testing) loaded|✅|
 
 #### Navigation bar | desktop manual testing | user logged in
 
@@ -155,50 +155,6 @@ This page is only available to logged out users.
 |**list icon** clicked |[Task list page](#task-list-manual-testing) loaded|✅|
 |**sign out icon** clicked |user is signed out & [navigation bar icons change](#navigation-bar--desktop-manual-testing--user-not-logged-in)|✅|
 |logo and brand name clicked|[Task Kanban page](#task-kanban-manual-testing) loaded|✅|
-
-#### Navigation bar | mobile manual testing
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|page loads    |hamburger icon visible<br>logo and brand name visible<br>nav links not visible|✅|
-|hamburger icon clicked|nav bar opens|✅|
-|hamburger icon clicked again OR<br>user clicks outside the nav bar |nav bar closes|✅|
-
-#### Footer manual testing
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
-|GitHub icon clicked | GitHub profile opens in new tab|✅|
-|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
-
-#### Notifications manual testing
-
-Notification messages are used to confirm CRUD actions in the following components:
-
-- [Tasks](#tasks-manual-testing)
-- [Comments](#comments-manual-testing)
-- [Profiles](#profiles-manual-testing)
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|notification is triggered   |notification appears in the top right corner|✅|
-|user clicks notification| notification disappears right after click|✅|
-|user does not click notification| notification disappears when the timer bar runs out|✅|
-
-#### Infinite scroll manual testing
-
-Infinite scroll is used to load the next page of data from the API. It is used for the following components
-
-- [Tasks](#tasks-manual-testing)
-- [Comments](#comments-manual-testing)
-- [Profiles](#profiles-manual-testing)
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|page loads|first 10 objects in a list are loaded<br>the objects appearing on the page can be less because of filtering|✅|
-|scrolls down within the component| another page of objects is loaded|✅|
-|there are no more objects to load| and end message appears after the list|✅|
 
 ### Tasks manual testing
 
@@ -232,6 +188,7 @@ Tabbed filtering of tasks is enabled on the following pages:
 |page loads|each task card's color is set according to task prioriy|✅|
 |page loads|**vertical dots** icon visible for each task owned by the logged-in user|✅|
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|user clicks outside edit/delete menu|**pencil** and **trashcan** icons disappear|✅|
 |**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
 |**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
 |**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
@@ -248,6 +205,7 @@ Tabbed filtering of tasks is enabled on the following pages:
 |page loads|each task card's color is set according to task prioriy|✅|
 |page loads|**vertical dots** icon visible for each task owned by the logged-in user|✅|
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|user clicks outside edit/delete menu|**pencil** and **trashcan** icons disappear|✅|
 |**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
 |**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
 |**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
@@ -260,6 +218,7 @@ Tabbed filtering of tasks is enabled on the following pages:
 |Task Detail page loads|assignee or "not assigned" visible<br>status visible<br>priority visible<br>title visible<br>excerpt visible (if any)<br>due date visible<br>watch icon visible<br>description visible (if any)<br>"last updated on" visible<br>"created on" visible<br>**created by** visible<br>image visible (if any)<br>comment field visible<br>[comments](#comments-manual-testing) visible (if any)|✅|
 |logged in user owns task|**vertical dots** icon visible on top right|✅|
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|user clicks outside edit/delete menu|**pencil** and **trashcan** icons disappear|✅|
 |**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
 |**trashcan** icon clicked|[task deletion](#task-deletion-manual-testing) modal opens|✅|
 
@@ -285,7 +244,24 @@ The contents of Task objects can be searched. Fields searched are:
 
 #### Task Create Form manual testing
 
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|empty task create form visible|✅|
+|title field empty|**create** button disabled<br> instruction text shown below button|✅|
+|title field filled|**create** button enabled<br> instruction text below button disappears|✅|
+|**create** button clicked |new task created<br>confirmation message appears|✅|
+|**cancel** button clicked |new task not created<br>confirmation message appears|✅|
+
 #### Task Edit Form manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|task edit form visible, populated with task data|✅|
+|title field filled|**save** button enabled<br> instruction text below button not shown|✅|
+|title field content is deleted|**save** button disabled<br> instruction text shown below button|✅|
+|title field filled again|**save** button enabled<br> instruction text below button disappears|✅|
+|**save** button clicked |task data updated<br>confirmation message appears|✅|
+|**cancel** button clicked |task data not updated<br>confirmation message appears|✅|
 
 #### Task Deletion manual testing
 
@@ -303,10 +279,23 @@ The contents of Task objects can be searched. Fields searched are:
 |comment button clicked<br>comment field empty|comment button is disabled|✅|
 |comment button clicked<br>comment field not empty|comment appears in comment list <br>**vertical dots** icon appears next to comment<br>confirmation message appears|✅|
 |**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|user clicks outside edit/delete menu|**pencil** and **trashcan** icons disappear|✅|
 |**pencil** icon clicked|comment text filled into comment field<br>**save** & **cancel** buttons appear|✅|
 |save button clicked|comment text updated<br>confirmation message appears|✅|
 |cancel button clicked|comment text not updated<br>confirmation message appears|✅|
 |**trashcan** icon clicked|comment is deleted<br>confirmation message appears|✅|
+
+### Watchers manual testing
+
+The watch/unwatch functionality is available in every Task view apart from the Task Create & Edit Forms.
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|watch icon is visible on task card<br> watcher count visible on task card|✅|
+|user hovers over **eye outline** icon|"watch" tooltip appears|✅|
+|user hovers over **solid eye** icon|"unwatch" tooltip appears|✅|
+|user clicks **eye outline** icon|watcher count increases by one<br> icon changes to **solid eye**<br>watched [tab](#task-tabs-manual-testing) updated accordingly|✅|
+|user clicks **solid eye** icon|watcher count decreases by one<br> icon changes to **eye outline**<br>watched [tab](#task-tabs-manual-testing) updated accordingly|✅|
 
 ### Profiles manual testing
 
@@ -326,13 +315,92 @@ The contents of Task objects can be searched. Fields searched are:
 |page loads & profile belongs to logged-in user|profile details appear|✅|
 |page loads & profile doesn't belong to logged-in user|avatar, [conditional name](README.md/#conditionally-rendered-names) & any filled-in profile fields appear|✅|
 |page loads|tasks related to the user appear in a [tabbed](#task-tabs-manual-testing) [task list](#task-list-manual-testing) format|✅|
+|logged in user owns profile|**pencil** icon visible on top right|✅|
+|**pencil** icon clicked|**pencil with notepad**, **id card** & **key** icons appear with corresponding descriptions|✅|
+|user clicks outside edit menu|**pencil with notepad**, **id card** & **key** icons and corresponding descriptions disappear|✅|
+|**pencil with notepad** icon clicked|[Profile Edit Form](#profile-edit-form-manual-testing) opens|✅|
+|**id card** icon clicked|[Username Edit form](#username-edit-manual-testing) opens|✅|
+|**key** icon clicked|[Password Edit form](#password-edit-manual-testing) opens|✅|
 |page loads|[**Teammates** list](#profile-list-manual-testing) appears to the right of to the task list<br>showing user picture and [conditional name](README.md/#conditionally-rendered-names)|✅|
 |page loads|the logged-in user does not appear in the [**Teammates** list](#profile-list-manual-testing)|✅|
 |page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in **Teammates** list|✅|
 |**Teammates** link clicked | [**Profile List page**](#profile-list-manual-testing) opens|✅|
 |user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
 
-### Watchers manual testing
+#### Profile edit manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|profile edit form visible, filled with existing data|✅|
+|**save** button clicked |profile data updated<br>confirmation message appears|✅|
+|**cancel** button clicked |profile data not updated<br>confirmation message appears|✅|
+
+#### Username edit manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|username edit form visible, filled with existing username|✅|
+|**save** button clicked & username is not valid|validation message appears|✅|
+|**save** button clicked & username is valid|username updated<br>confirmation message appears|✅|
+|**cancel** button clicked |username not updated<br>confirmation message appears|✅|
+
+#### Password edit manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads|password edit form visible|✅|
+|**save** button clicked  & password fields are empty |validation message appears|✅|
+|**save** button clicked  & passwords do not match |validation message appears|✅|
+|**save** button clicked  & passwords are not valid |validation message appears|✅|
+|**save** button clicked  & passwords match and are valid |password updated<br>confirmation message appears|✅|
+|**cancel** button clicked|password not updated<br>confirmation message appears|✅|
+
+
+### General features
+
+#### Infinite scroll manual testing
+
+Infinite scroll is used to load the next page of data from the API. It is used for the following components
+
+- [Tasks](#tasks-manual-testing)
+- [Comments](#comments-manual-testing)
+- [Profiles](#profiles-manual-testing)
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads|first 10 objects in a list are loaded<br>the objects appearing on the page can be less because of filtering|✅|
+|scrolls down within the component| another page of objects is loaded|✅|
+|there are no more objects to load| and end message appears after the list|✅|
+
+#### Notifications manual testing
+
+Notification messages are used to confirm CRUD actions in the following components:
+
+- [Tasks](#tasks-manual-testing)
+- [Comments](#comments-manual-testing)
+- [Profiles](#profiles-manual-testing)
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|notification is triggered   |notification appears in the top right corner|✅|
+|user clicks notification| notification disappears right after click|✅|
+|user does not click notification| notification disappears when the timer bar runs out|✅|
+
+#### Navigation bar | mobile manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |hamburger icon visible<br>logo and brand name visible<br>nav links not visible|✅|
+|hamburger icon clicked|nav bar opens|✅|
+|hamburger icon clicked again OR<br>user clicks outside the nav bar |nav bar closes|✅|
+
+#### Footer manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
+|GitHub icon clicked | GitHub profile opens in new tab|✅|
+|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
 
 ## Accessibility testing
 
