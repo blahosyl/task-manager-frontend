@@ -7,6 +7,10 @@
 
 ## UX/UI
 
+The app is intended for smaller groups/teams to complete relatively simple, everyday tasks. Currently, all logged-in users can see and comment on all tasks, so it is suitable for implementing in a closed environment or for tasks that do not contain sensitive information.
+
+Since the available development time for the current version of the app was only a little over 3 weeks, more fine-grained access control using projects has been relegated to [version 2](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+).
+
 ### Strategy
 
 #### The polarity of project execution
@@ -497,6 +501,12 @@ additional libraries
 #### Security
 
 `npm audit fix` was run after every time a new package was installed. It is beyond the scope of the correct project to fix all dependency warnings, as these are typically handled by more senior developers or dedicated security engineers.
+
+All passwords are stored in a password manager, and not written down in plain text electronically or on physical paper.
+
+Unfortunately, the infrastructure for project submission at Code Institute requires the admin credentials to be submitted in plain text.
+
+#### GitHub branches
 
 ## Testing
 
