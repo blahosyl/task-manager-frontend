@@ -9,9 +9,14 @@
 
 The app is intended for smaller groups/teams to complete relatively simple, everyday tasks. Currently, all logged-in users can see and comment on all tasks, so it is suitable for implementing in a closed environment or for tasks that do not contain sensitive information.
 
+Accordingly, I chose a less work-oriented project for the mockup content: a typical Berliner team of tech workers organizing a team event: a grill party on a boat.
+
 Since the available development time for the current version of the app was only a little over 3 weeks, more fine-grained access control using projects has been relegated to [version 2](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+).
 
 ### Strategy
+
+Most popular productivity apps focus on corporate contexts, consist of a lot of complicated fields and charts, and focus less on the look and feel.
+The goal of this project is to develop an app that is more suited to non-work tasks and emphasizes ease of use and a positive user response.
 
 #### The polarity of project execution
 
