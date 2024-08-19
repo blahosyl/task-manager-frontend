@@ -93,7 +93,7 @@ a:hover i {
   transition: color ease-in-out 0.3s;
 }
 
-/* icons that stand alone & need to have higher contrast to a ligth background */
+/* icons that stand alone & need to have higher contrast to a light background */
 .DarkIcon {
   color: var(--dark-high) !important;
 }
