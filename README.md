@@ -546,10 +546,30 @@ See the document [`TESTING.md`](TESTING.md) for details.
 
 ### Languages used
 
+- [JSX](https://react.dev/learn/writing-markup-with-jsx) – write HTML with JavaScript
+- [JavaScript](https://www.javascript.com/) – programming language for web development
+- [HTML](https://en.wikipedia.org/wiki/HTML5) – markup language for structuring and presenting content
+- [CSS](https://en.wikipedia.org/wiki/CSS) – web style sheet language
+
+### Frameworks & Libraries used
+
+- [React](https://react.dev/) – library for web and native user interfaces
+- [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) – front-end framework
+- [FontAwesome](https://fontawesome.com/) – navigation icons
+- [Kodchasan from Google Fonts](https://fonts.google.com/specimen/Kodchasan) – font used throughout the app
+
 ### Other dependencies used
 
+- [`axios`](https://axios-http.com/docs/intro) – a [promise-based](https://javascript.info/promise-basics) HTTP Client
 - [`dayjs`](https://day.js.org/): format & compare dates
-- [`toastify`](https://fkhadra.github.io/react-toastify/): CRUD notification messages
+- [`jwt-decode`](https://www.npmjs.com/package/jwt-decode) – handling JSON Web Tokens
+- [`react-bootstrap`](https://react-bootstrap-v4.netlify.app/) - front-end framework
+- [`react-dom`](https://www.npmjs.com/package/react-dom) – serves as the entry point to the DOM and server renderers for React
+- [`react-infinite-scroll-component`](https://www.npmjs.com/package/react-infinite-scroll-component) – load more pages of the API response by scrolling
+- [`react-router-dom`](https://www.npmjs.com/package/react-router-dom) – bindings for using React Router in web applications
+- [`react-scripts`](https://www.npmjs.com/package/react-scripts) – scripts and configuration used by Create React App
+- [`react-toastify`](https://fkhadra.github.io/react-toastify/): CRUD notification messages
+- [`web-vitals`](https://www.npmjs.com/package/web-vitals) – measuring all the Web Vitals metrics on real users
 
 ### Tools used
 
