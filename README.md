@@ -503,6 +503,9 @@ See the document [`TESTING.md`](TESTING.md) for details.
 
 ### Other dependencies used
 
+- [`dayjs`](https://day.js.org/): format & compare dates
+- [`toastify`](https://fkhadra.github.io/react-toastify/): CRUD notification messages
+
 ### Tools used
 
 - [diffchecker.com](https://www.diffchecker.com/): compare code
@@ -512,6 +515,7 @@ See the document [`TESTING.md`](TESTING.md) for details.
 - [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
+- [REacTree](https://marketplace.visualstudio.com/): make a React component tree
 - [SP studio](https://sp-studio.de/): create mock-up user pictures
 - [Typos spell checker for VS Code](https://open-vsx.org/extension/tekumara/typos-vscode)
 - [W3C HTML validator](https://validator.w3.org/)
