@@ -1,9 +1,10 @@
+/* styling for Kanban board used by TaskList.js */
+
 /* horizontal scrolling based on 
 https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
 .KanbanContainer{
     display: flex;
     flex-wrap: nowrap;
-    /* justify-content: center; */
     overflow-x: auto;
     /* smooth "overflow scrolling" on iOS */
     -webkit-overflow-scrolling: touch;
@@ -21,14 +22,15 @@ https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 
 /* tablets & larger */
 @media screen and (min-width: 768px) {
     .KanbanColumn {
+        min-width: 320px;
         max-width: 360px;
     }
 }
 
 
 /* laptops & larger */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .KanbanColumn {
-        width: 32%;
+        width: 31.5%;
     }
 }

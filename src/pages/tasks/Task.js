@@ -235,9 +235,8 @@ const Task = (props) => {
             explicitly specified, and == produces a warning*/}
             <span
               className={`
-              mt-1 d-none 
-              ${(taskDetail || taskList) && "d-md-inline"}
-              d-lg-inline
+                mt-1 d-none 
+                d-md-inline
               `}
             >
               {priority === String("LOW")
