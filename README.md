@@ -455,7 +455,14 @@ The Color scheme of the card changes based on the priority of the task:
 - high
 - no priority
 
-The date fields are shown in a format the includes the day of the week, to facilitate processing.
+
+#### Task Create Form
+
+#### Task Edit Form
+
+Only the owner (the user who created the task) can edit or delete it. The reasoning behind this is that they know the requirements, so they can judge wheter a task can be completed or not.
+
+In a future version, I plan to add some edit permissions to task assignees as well ([#98](https://github.com/blahosyl/task-manager-frontend/issues/98)).
 
 #### Watch/unwatch function
 
