@@ -210,7 +210,9 @@ const Task = (props) => {
                   : assignee_username}
               </Link>
             ) : (
-              <Col mt-1>Not assigned</Col>
+              <Col className={`mt-1`}>
+                Not assigned
+              </Col>
             )}
           </Col>
 
