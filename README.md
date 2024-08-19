@@ -8,6 +8,7 @@
 - [Deployed app](https://pp5-task-manager-frontend-eebb66e2c99d.herokuapp.com/)
 - [Deployed API](https://pp5-task-manager-api-380974d293dd.herokuapp.com/)
 - [API GitHub repository](https://github.com/blahosyl/task-manager-api)
+- [Project Kanban board](https://github.com/users/blahosyl/projects/6)
 
 ## UX/UI
 
