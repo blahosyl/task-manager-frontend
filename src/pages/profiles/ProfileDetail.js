@@ -182,7 +182,7 @@ function ProfileDetail() {
               `}
             >
               <TaskList
-                message="No results found. Adjust the search keyword assign a task to yourself."
+                message="No tasks found. Try adjusting the search keyword or clicking a different tab"
                 filter={`assignee__profile=${profile?.id}&ordering=-updated_at&`}
                 taskList
                 tasks={tasks}
@@ -201,7 +201,7 @@ function ProfileDetail() {
               `}
             >
               <TaskList
-                message="No results found. Adjust the search keyword or watch a task."
+                message="No tasks found. Try adjusting the search keyword or clicking a different tab"
                 filter={`watched__owner__profile=${profile?.id}&ordering=-watchers__created_at&`}
                 taskList
                 tasks={tasks}
@@ -220,7 +220,7 @@ function ProfileDetail() {
               `}
             >
               <TaskList
-                message="No results found. Adjust the search keyword or create a task."
+                message="No tasks found. Try adjusting the search keyword or clicking a different tab"
                 filter={`owner__profile=${profile?.id}&ordering=-created_at&`}
                 taskList
                 tasks={tasks}
