@@ -170,6 +170,10 @@ This page is only available to logged out users.
 |Signup button clicked<br>username already exists|validation message appears|✅|
 |Signup button clicked<br>all fields filled correctly |user is signed up<br>[Signin page](#signin-page-manual-testing) loads|✅|
 
+*Click to play video*
+
+https://github.com/user-attachments/assets/d2b935ed-6d7a-43b3-bfed-9e38f8b6a33f
+
 #### Signin page manual testing
 
 This page is only available to logged out users.
@@ -182,6 +186,13 @@ This page is only available to logged out users.
 |Signin button clicked<br>both fields filled<br>credentials not correct|validation message appears|✅|
 |Signin button clicked<br>both fields filled<br>credentials correct|user is signed in<br>[Task Kanban page](#task-kanban-manual-testing) loads<br>[navigation bar icons change](#navigation-bar--desktop-manual-testing--user-logged-in)|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/ec23d8a9-c8de-4926-8351-cd4227a4159a
+
+
+
 #### Navigation bar | desktop manual testing | user logged in
 
 |Action    |Expected result |Result|
@@ -192,6 +203,12 @@ This page is only available to logged out users.
 |**list icon** clicked |[Task list page](#task-list-manual-testing) loaded|✅|
 |**sign out icon** clicked |user is signed out & [navigation bar icons change](#navigation-bar--desktop-manual-testing--user-not-logged-in)|✅|
 |logo and brand name clicked|[Task Kanban page](#task-kanban-manual-testing) loaded|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/6d0a7526-d34f-4827-b899-b1539d26ceb8
+
 
 ### Tasks manual testing
 
@@ -213,6 +230,11 @@ Tabbed filtering of tasks is enabled on the following pages:
 |user clicks on a tab|that tasks's content becomes visible without having to reload the page|✅|
 |user watches/unwatches a task|tab counts and contents update without having to reload the page|✅|
 |Kanban only:<br>user deletes a task|tab counts and contents update without having to reload the page|✅|
+
+*Click to play video*
+
+https://github.com/user-attachments/assets/d581e92f-29d8-405f-b6e7-e616c4f60504
+
 
 #### Task Kanban manual testing
 
