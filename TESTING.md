@@ -337,6 +337,12 @@ https://github.com/user-attachments/assets/501060e2-661b-4cfa-b382-13980ef286c7
 |**cancel** button clicked |new task not created<br>confirmation message appears|✅|
 |**create** button clicked |new task created<br>confirmation message appears|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/4eeefa89-8c9e-407e-b9a6-75326bb7f28e
+
+
 #### Task Edit Form manual testing
 
 |Action				|Expected result	|Result|
@@ -348,12 +354,24 @@ https://github.com/user-attachments/assets/501060e2-661b-4cfa-b382-13980ef286c7
 |**cancel** button clicked |task data not updated<br>confirmation message appears|✅|
 |**save** button clicked |task data updated<br>confirmation message appears|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/7b58f43b-a165-4679-86c4-1a5b32e89a59
+
+
 #### Task Deletion manual testing
 
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |**cancel** button clicked on delete modal |delete modal closes<br>task is not deleted<br>confirmation message appears|✅|
 |**delete** button clicked on delete modal|task is deleted<br>user is redirected to Kanban page<br>confirmation message appears|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/466a2b33-3082-4d72-9d8c-fe39fe1e5d62
+
 
 ### Comments manual testing
 
@@ -370,6 +388,12 @@ https://github.com/user-attachments/assets/501060e2-661b-4cfa-b382-13980ef286c7
 |**save** button clicked|comment text updated<br>confirmation message appears|✅|
 |**trashcan** icon clicked|comment is deleted<br>confirmation message appears|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/e7f9b2d8-60ac-49c3-ab3e-5e57f9630709
+
+
 ### Watchers manual testing
 
 The watch/unwatch functionality is available in every Task view apart from the Task Create & Edit Forms.
@@ -382,6 +406,12 @@ The watch/unwatch functionality is available in every Task view apart from the T
 |user clicks **eye outline** icon|watcher count increases by one<br> icon changes to **solid eye**<br>watched [tab](#task-tabs-manual-testing) updated accordingly|✅|
 |user clicks **solid eye** icon|watcher count decreases by one<br> icon changes to **eye outline**<br>watched [tab](#task-tabs-manual-testing) updated accordingly|✅|
 
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/696cb742-5e80-4592-b34a-07b37817f0e7
+
+
 ### Profiles manual testing
 
 #### Profile List manual testing
@@ -392,6 +422,12 @@ The watch/unwatch functionality is available in every Task view apart from the T
 |page loads|the logged-in user does not appear in the list|✅|
 |page loads|[Infinite Scroll](#infinite-scroll-manual-testing) is active in **Teammates** list|✅|
 |user avatar in **Teammates** list clicked | [**Profile Detail page**](#profile-detail-manual-testing) for corresponding user opens|✅|
+
+*Click to play video*
+
+
+https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
+
 
 #### Profile detail manual testing
 
