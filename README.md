@@ -237,6 +237,10 @@ This facilitated getting an overview of the work items.
 
 Finally, User Stories were broken down into tasks. These can be seen for each User Story individually in [GitHub Issues](https://github.com/blahosyl/task-manager-frontend/issues) and on the [Project Board](#project-board).
 
+Each user story has a list of acceptance criteria, which are the expected outcomes when the story is tested. An issue is only closed if manual testing confirms that the acceptance criteria are fulfilled.  
+
+The commits corresponding to each User Story are linked in each the GitHuB Issue.
+
 As this was my first project using React, some User Stories have a very detailed task list, both as learning and as documentation/reference.
 Issues that have tasks that were already familiar only have high-level bullet points.
 
@@ -499,13 +503,15 @@ additional libraries
 
 ### Tools used
 
-- [diffchecker.com](https://www.diffchecker.com/): comparing code
+- [diffchecker.com](https://www.diffchecker.com/): compare code
 - [ES7+ React/Reduc/React-Native snippets extension for VS Code](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets): quickly insert code snippets
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint): JSX validation
+- [Jigsaw](https://jigsaw.w3.org/css-validator/validator): CSS validator
 - [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting & style checking
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
-- [Typos spell checker](https://open-vsx.org/extension/tekumara/typos-vscode)
+- [Typos spell checker for VS Code](https://open-vsx.org/extension/tekumara/typos-vscode)
+- [W3C HTML validator](https://validator.w3.org/)
 
 ## Deployment
 

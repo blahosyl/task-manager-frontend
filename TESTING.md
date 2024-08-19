@@ -6,6 +6,16 @@ Back to  `README.md`(README.md)
 
 ## Testing User Stories
 
+Each user story has a list of acceptance criteria, which are the expected outcomes when the story is tested. An issue is only closed if manual testing confirms that the acceptance criteria are fulfilled.  
+
+The commits corresponding to each User Story are linked in each the GitHuB Issue.
+
+An overview of implemented and tested User Stories can be seen in the [Google Sheet containing User Stories](https://docs.google.com/spreadsheets/d/1qZQIKNKa_nGfCR9YQQ1UFkeIGvXR_ikOx7Oev0sEVBA/edit?usp=sharing).
+
+All User Stories in the MVP have been implemented and work as intended.
+
+Issues outside the MVO that were not completed for the first release of the project but still intend to be done in further development work are gathered under the label [`v2`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+) in GitHub Issues.
+
 ## Code validation
 
 ### HTML validation
@@ -20,18 +30,29 @@ Back to  `README.md`(README.md)
 
 #### Home page validation
 
+### CSS validation
+
+All custom `css` files were validated with [Jigsaw](https://jigsaw.w3.org/css-validator/validator), which uncovered a few minor issue that were corrected (see the commits in [#154](https://github.com/blahosyl/task-manager-frontend/issues/154)).
+The resulting code passed without errors or warnings for all files.
+
+![CSS validation: no issues](documentation-assets/testing-assets/validation/css-validation/css-validation.png)
+
+In addition, each JS file was manually checked for comment coverage and unused code at the end of development [(#154)](https://github.com/blahosyl/task-manager-frontend/issues/154).
+
 ### JavaScript/JSX validation
 
 [EsLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) was used throughout development to validate the code.
 No errors or warnings are present in the project.
 
-#### `Task.js`
+![JSX validation: no issues](documentation-assets/testing-assets/validation/jsx-validation/jsx-validation.png)
+
+In addition, each JS file was manually checked for comment coverage, and formatted with the [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) at the end of development [(#155)](https://github.com/blahosyl/task-manager-frontend/issues/155).
 
 ## Manual feature testing
 
 ### Landing page
 
-### Comments
+### Comments manual testing
 
 ### Tasks manual testing
 
