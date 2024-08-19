@@ -1,3 +1,8 @@
+<!-- Disable warnings about inline HTML -->
+<!-- markdownlint-disable MD033 -->
+<!-- Disable warnings about hard tabs -->
+<!-- markdownlint-disable MD010 -->
+
 # Testing the Task Manager
 
 Back to  [`README.md`](README.md)
@@ -50,21 +55,124 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 
 ## Manual feature testing
 
-### Landing page
+### Landing page manual testing
 
-### Comments manual testing
-
-### Tasks manual testing
-
-### Profiles manual testing
-
-### Watchers manual testing
+This page is only available to logged out users.
 
 ### Authentication manual testing
 
-#### Signin page
+#### Signin page manual testing
 
-#### Signup page
+This page is only available to logged out users.
+
+#### Signup page manual testing
+
+This page is only available to logged out users.
+
+#### Navigation bar | desktop manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |hamburger icon not visible|✅|
+|Signin link clicked |[Community page](#signin-page-manual-testing) loaded|✅|
+|Signup link clicked |[Home page](#signup-page-manual-testing) loaded|✅|
+|logo and brand name clicked|[landing page](#landing-page-manual-testing) loaded|✅|
+
+#### Navigation bar | mobile manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |hamburger icon visible<br>logo and brand name visible<br>nav links not visible|✅|
+|hamburger icon clicked|nav bar opens|✅|
+|hamburger icon clicked again OR<br>user clicks outside the nav bar |nav bar closes|✅|
+
+#### Footer manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
+|GitHub icon clicked | GitHub profile opens in new tab|✅|
+|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
+
+#### Notifications manual testing
+
+Notification messages are used to confirm CRUD actions in the following components:
+
+- [Tasks](#tasks-manual-testing)
+- [Comments](#comments-manual-testing)
+- [Profiles](#profiles-manual-testing)
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|notification is triggered   |notification appears in the top right corner|✅|
+|user clicks notification| notification disappears right after click|✅|
+|user does not click notification| notification disappears when the timer bar runs out|✅|
+
+#### Infinite scroll manual testing
+
+Infinite scroll is used to load the next page of data from the API. It is used for the following components
+
+- [Tasks](#tasks-manual-testing)
+- [Comments](#comments-manual-testing)
+- [Profiles](#profiles-manual-testing)
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads|first 10 objects in a list are loaded<br>the objects appearing on the page can be less because of filtering|✅|
+|scrolls down within the component| another page of objects is loaded|✅|
+|there are no more objects to load| and end message appears after the list|✅|
+
+### Tasks manual testing
+
+#### Task Tabs manual testing
+
+Tabbed filtering of tasks is enabled on the following pages:
+
+- [Task Kanban](#task-kanban-manual-testing)
+- [Task List](#task-list-manual-testing)
+- [Profile Detail](#profile-detail-manual-testing)
+
+#### Task Kanban manual testing
+
+#### Task List manual testing
+
+#### Task Detail manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|Task Detail page loads|assignee or "not assigned" visible<br>status visible<br>priority visible<br>title visible<br>excerpt visible (if any)<br>due date visible<br>watch icon visible<br>description visible (if any)<br>"last updated on" visible<br>"created on" visible<br>"created by" visible<br>image visible (if any)<br>comment field visible<br>[comments](#comments-manual-testing) visible (if any)|✅|
+|logged in user owns task|**vertical dots** icon visible on top right|✅|
+|**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|**pencil** icon clicked|[Task Edit Form](#task-edit-form-manual-testing) opens|✅|
+|**trashcan** icon clicked|task deletion modal opens|✅|
+|**close** button clicked on delete modal |delete modal closes<br>task is not deleted<br>confirmation message appears|✅|
+|**delete** button clicked on delete modal|task is deleted<br>user is redirected to Kanban page<br>confirmation message appears|✅|
+
+#### Task Create Form manual testing
+
+### Task Edit Form manual testing
+
+### Comments manual testing
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|Task Detail page loads|comment field visible<br>comment button visible|✅|
+|logged in user has previous comments|**vertical dots** icon visible for each comment|✅|
+|comment button clicked<br>comment field empty|comment button is disabled|✅|
+|comment button clicked<br>comment field not empty|comment appears in comment list <br>**vertical dots** icon appears next to comment<br>confirmation message appears|✅|
+|**vertical dots** icon clicked|**pencil** and **trashcan** icons appear|✅|
+|**pencil** icon clicked|comment text filled into comment field<br>**save** & **cancel** buttons appear|✅|
+|save button clicked|comment text updated<br>confirmation message appears|✅|
+|cancel button clicked|comment text not updated<br>confirmation message appears|✅|
+|**trashcan** icon clicked|comment is deleted<br>confirmation message appears|✅|
+
+### Profiles manual testing
+
+#### Profile List manual testing
+
+#### Profile detail manual testing
+
+### Watchers manual testing
 
 ## Accessibility testing
 
