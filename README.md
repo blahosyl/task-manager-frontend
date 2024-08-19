@@ -567,7 +567,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [fix InfiniteScroll not triggering – worked](https://stackoverflow.com/a/74509225)
 - [alternative fix to InfiniteScroll not triggering – worked](https://stackoverflow.com/a/76741176)
 - [Bootstrap tabs](https://react-bootstrap-v4.netlify.app/components/tabs/)
-- [`flex` properyies](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+- [`flex` properties](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 - [conditional tags in React JSX](https://stackoverflow.com/a/33471928)
 - [prop drilling](https://stackoverflow.com/questions/67734236/understanding-how-we-can-avoid-passing-props-through-many-levels-of-component-hi)
 - [`dayjs` `now`](https://day.js.org/docs/en/parse/now)
@@ -577,6 +577,10 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [Bootstrap vertical alignment](https://getbootstrap.com/docs/4.6/utilities/vertical-align/)
 - [always push footer to the bottom](https://stackoverflow.com/a/66565163)
 - [`timeout` documentation](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+- [`react-select` documentation](https://react-select.com/) (not used)
+- [`react-select-async-paginate` documentation](https://www.npmjs.com/package/react-select-async-paginate) (not used)
+- [`react-toastify` documentation](https://fkhadra.github.io/react-toastify/)
+- [Emojipedia](https://emojipedia.org/)
 
 ### Text
 
