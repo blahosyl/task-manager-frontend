@@ -43,7 +43,7 @@ function Landing() {
           </p>
 
           <p>
-            No matter what what the situation is, this cheerful task manager
+            No matter what the situation is, this cheerful task manager
             helps you keep track of your tasks, see how your teammates are
             getting on, and feel energized in the process!
           </p>
