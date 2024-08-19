@@ -25,15 +25,64 @@ Issues outside the MVO that were not completed for the first release of the proj
 
 ### HTML validation
 
+All rendered pages of the project were validated with the [W3C HTML validator](https://validator.w3.org). No errors or warnings were found.
+
+All screenshots of HTML validation can be found in [this folder](/documentation-assets/testing-assets/validation/html-validation/).
+
+> [!INFO]
+> Info messages regarding trailing slashes are disregarded, since these are extensively used in React development.
+
 #### Landing page validation
 
-[No errors found](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2Fsignin)
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2F)
+
+> [!INFO]
+> The Landing page and the Kanban page share the same URL, and are conditionally rendered depending on login status
 
 #### Signin page validation
 
-[No errors found](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2Fsignin)
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2Fsignin)
 
-#### Home page validation
+#### Signup page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2Fsignin)
+
+#### Task Kanban page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2F)
+
+> [!INFO]
+> The Landing page and the Kanban page share the same URL, and are conditionally rendered depending on login status
+
+#### Task List page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Flist)
+
+#### Task List page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Flist)
+
+#### Task Detail page validation
+
+The validated page includes comments.
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Ftasks%2F42%2F)
+
+#### Task Create page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Ftasks%2Fcreate)
+
+#### Task Edit page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Ftasks%2F69%2Fedit)
+
+#### Profile List page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Fteam)
+
+#### Profile Detail page validation
+
+[No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2Fprofiles%2F3)
 
 ### CSS validation
 
