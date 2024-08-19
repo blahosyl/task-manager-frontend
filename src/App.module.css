@@ -19,21 +19,21 @@
   --dark-low: #0A8385;
   --light-low: #D1FAF3;
 
-  /* neutrals */
+  /* other colors */
   --light-neutral: #F9FAFC;
   --white: #FFFFFF;
   --gray: #242a3d;
   --med-gray: #555555;
   --light-gray: #dadfdf;
-  --brown-gray: #dfdada;
   --cream-gray: #888888;
   --light-cream: #f1f1f1;
   --very-light-warm:#FBEDE5;
+  --med-light-orange: #FD9E5E;
+
 
   /* app colors */
-  --med-light-orange: #FD9E5E;
   --icon-color: var(--med-light-orange);
-  --link-color: --med-gray;
+  --link-color: var(--very-dark-med);
   --navicon-active: var(--dark-high);
   --link-hover: var(--dark-low);/* also used for icon hover */
   --background: var(--very-light-warm);
@@ -60,11 +60,6 @@
   border: 1px solid var(--light-gray);
 }
 
-.FillerImage {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
 
 .Image {
   max-height: 40vh;
@@ -72,6 +67,7 @@
   object-fit: contain;
 }
 
+/* the name of the app in the nav bar */
 .AppName {
   color: var(--dark-high);
   font-weight: bold;
@@ -97,6 +93,7 @@ a:hover i {
   transition: color ease-in-out 0.3s;
 }
 
+/* icons that stand alone & need to have higher contrast to a ligth background */
 .DarkIcon {
   color: var(--dark-high) !important;
 }

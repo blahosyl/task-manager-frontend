@@ -1,3 +1,5 @@
+/* style the search bar above the task list */
+
 .SearchBar input {
     border-radius: 20px;
     color: var(--gray);
