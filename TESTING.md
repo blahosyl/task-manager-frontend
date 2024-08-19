@@ -100,7 +100,7 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 
 ## Manual feature testing
 
-### Authentication manual testing
+### Navigation & authentication manual testing
 
 #### Navigation bar | desktop manual testing | user not logged in
 
@@ -111,6 +111,22 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 |Signup link clicked |[Signup page](#signup-page-manual-testing) loaded|✅|
 |logo and brand name clicked|[landing page](#landing-page-manual-testing) loaded|✅|
 
+#### Navigation bar | mobile manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |hamburger icon visible<br>logo and brand name visible<br>nav links not visible|✅|
+|hamburger icon clicked|nav bar opens|✅|
+|hamburger icon clicked again OR<br>user clicks outside the nav bar |nav bar closes|✅|
+
+#### Footer manual testing
+
+|Action    |Expected result |Result|
+|---    |---    |:---: |
+|page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
+|GitHub icon clicked | GitHub profile opens in new tab|✅|
+|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
+
 #### Landing page manual testing
 
 This page is only available to logged out users.
@@ -118,18 +134,6 @@ This page is only available to logged out users.
 |Action				|Expected result	|Result|
 |---				|---				|:---:	|
 |page loads    |Welcome text visible<br>Signup link visible<br>Signin link visible<br>landing background image visible|✅|
-
-#### Signin page manual testing
-
-This page is only available to logged out users.
-
-|Action				|Expected result	|Result|
-|---				|---				|:---:	|
-|page loads    |Signin text visible<br>Signup link visible<br>username field visible<br>password field visible<br>Signup link visible<br>signin background image visible|✅|
-|Signup link clicked|[Signup page](#signup-page-manual-testing) loaded|✅|
-|Signin button clicked<br>any field empty |validation message appears|✅|
-|Signin button clicked<br>both fields filled<br>credentials not correct|validation message appears|✅|
-|Signin button clicked<br>both fields filled<br>credentials correct|user is signed in<br>[Task Kanban page](#task-kanban-manual-testing) loads<br>[navigation bar icons change](#navigation-bar--desktop-manual-testing--user-logged-in)|✅|
 
 #### Signup page manual testing
 
@@ -144,6 +148,18 @@ This page is only available to logged out users.
 |Signup button clicked<br>password fields don't match<br>OR password does not conform to rules |validation message appears|✅|
 |Signup button clicked<br>username already exists|validation message appears|✅|
 |Signup button clicked<br>all fields filled correctly |user is signed up<br>[Signin page](#signin-page-manual-testing) loads|✅|
+
+#### Signin page manual testing
+
+This page is only available to logged out users.
+
+|Action				|Expected result	|Result|
+|---				|---				|:---:	|
+|page loads    |Signin text visible<br>Signup link visible<br>username field visible<br>password field visible<br>Signup link visible<br>signin background image visible|✅|
+|Signup link clicked|[Signup page](#signup-page-manual-testing) loaded|✅|
+|Signin button clicked<br>any field empty |validation message appears|✅|
+|Signin button clicked<br>both fields filled<br>credentials not correct|validation message appears|✅|
+|Signin button clicked<br>both fields filled<br>credentials correct|user is signed in<br>[Task Kanban page](#task-kanban-manual-testing) loads<br>[navigation bar icons change](#navigation-bar--desktop-manual-testing--user-logged-in)|✅|
 
 #### Navigation bar | desktop manual testing | user logged in
 
@@ -318,7 +334,7 @@ The watch/unwatch functionality is available in every Task view apart from the T
 |logged in user owns profile|**pencil** icon visible on top right|✅|
 |**pencil** icon clicked|**pencil with notepad**, **id card** & **key** icons appear with corresponding descriptions|✅|
 |user clicks outside edit menu|**pencil with notepad**, **id card** & **key** icons and corresponding descriptions disappear|✅|
-|**pencil with notepad** icon clicked|[Profile Edit Form](#profile-edit-form-manual-testing) opens|✅|
+|**pencil with notepad** icon clicked|[Profile Edit Form](#profile-edit-manual-testing) opens|✅|
 |**id card** icon clicked|[Username Edit form](#username-edit-manual-testing) opens|✅|
 |**key** icon clicked|[Password Edit form](#password-edit-manual-testing) opens|✅|
 |page loads|[**Teammates** list](#profile-list-manual-testing) appears to the right of to the task list<br>showing user picture and [conditional name](README.md/#conditionally-rendered-names)|✅|
@@ -355,7 +371,6 @@ The watch/unwatch functionality is available in every Task view apart from the T
 |**save** button clicked  & passwords match and are valid |password updated<br>confirmation message appears|✅|
 |**cancel** button clicked|password not updated<br>confirmation message appears|✅|
 
-
 ### General features
 
 #### Infinite scroll manual testing
@@ -385,22 +400,6 @@ Notification messages are used to confirm CRUD actions in the following componen
 |notification is triggered   |notification appears in the top right corner|✅|
 |user clicks notification| notification disappears right after click|✅|
 |user does not click notification| notification disappears when the timer bar runs out|✅|
-
-#### Navigation bar | mobile manual testing
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|page loads    |hamburger icon visible<br>logo and brand name visible<br>nav links not visible|✅|
-|hamburger icon clicked|nav bar opens|✅|
-|hamburger icon clicked again OR<br>user clicks outside the nav bar |nav bar closes|✅|
-
-#### Footer manual testing
-
-|Action    |Expected result |Result|
-|---    |---    |:---: |
-|page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
-|GitHub icon clicked | GitHub profile opens in new tab|✅|
-|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
 
 ## Accessibility testing
 
