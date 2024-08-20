@@ -178,7 +178,9 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 
 #### Images
 
-Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing.
+Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing, Not Found. 
+
+Only pages with relatively little content have background images, as these would be too distracting on pages with multiple tasks, filters or profiles.
 
 #### Emojis & gifs
 
@@ -366,40 +368,70 @@ At the end of every sprint, I reviewed the items that were not completed, and ei
 
 This section briefly introduces the features implemented in the current version of the project. For videos demonstrating how each feature works, see the [Manual feature testing section](TESTING.md#manual-feature-testing) of `TESTING.md`.
 
+### Landing page
+
+This page greets visitors who are not logged in. It has a striking and energetic background image, a short description of the app, and links to the [Signin](#signin-page) & [Signup](#signup-page) pages.
+
+![Landing page](/documentation-assets/readme-assets/amiresponsive/landing-amiresponsive.png)
+
+### Signup page
+
+The signup page contains the Signup Form and a link to the [Signin page](#signin-page). The all field of the signup form are validated.
+
+The design features a salient custom image, and the position of text elements is responsively adapted to complement the image.
+
+![Singup page](/documentation-assets/readme-assets/amiresponsive/signup-amiresponsive.png)
+
+### Signin page
+
+The signin page contains the Signin Form and a link to the [Signup page](#signup-page). The all field of the signup form are validated.
+
+The design features another custom image, and the position of text elements is purposely showcasing the image.
+
+![Singin page](/documentation-assets/readme-assets/amiresponsive/signin-amiresponsive.png)
+
 ### Navigation bar
 
-- Kaban & List
-- Moved + with other Logged-In links
-- only expand NavBar on large screens and above
-- show short name in navbar
+The Navbar is present on every page, and contains the links that are anticipated to be most frequently needed by users.
 
-On medium and smaller screen sizes, the Navbar includes an extra link to the [profile list page](#profile-list).
+#### Navbar for visitors
 
-### Teammates component
+The navbar for visitors features the logo and app name on the left, and the Signin and Signup icons on the right.
 
-This appears on mid and larger viewports, and shows the list of teammates in descending order.
+![Navbar on desktop for visitors](/documentation-assets/readme-assets/features/navbar-full-not-logged-in.png)
 
-Users' names are shown conditionally: the first and/or last name is show if it is available,
-otherwise, the username is displayed.
+It is collapsed on small and medium viewports.
 
-Clicking on a profile avatar or name leads to the relevant [profile detail page](#profile-detail-page).
-Clicking on the heading **Teammates** leads to the [profile list page](#profile-list).
+![Collapsed Navbar on mobile](/documentation-assets/readme-assets/features/navbar-collapsed-not-logged-in.png)
 
-On small screen sizes, the [Navbar](#navigation-bar) includes an extra link to the [profile list page](#profile-list).
+When clicking the hamburger icon, the Navbar expands.
+
+![Expanded Navbar on mobile for visitors](/documentation-assets/readme-assets/features/navbar-expanded-not-logged-in.png)
+
+#### Navbar for Logged-in Users
+
+For this view, I have made considerable changes compared to the Moments project:
+
+- instead of links tofiltered views, the Navbar only has links to the [Kaban](#kanban-board) & [List](#task-list-page) pages, since these have extensive filtering options included.
+- I moved the + icon with the other Logged-In links
+- the NavBar only expands on large screens and above, to avoid overcrowding
+- only the user's [short name](#conditionally-rendered-names) is shown in the navbar
+
+![Navbar on desktop for Logged-in Users](/documentation-assets/readme-assets/features/navbar-desktop-logged-in.png)
+
+On medium and smaller screen sizes, the Navbar includes an extra link to the [Profile List page](#profile-list). This is not needed on larger viewports, as these have the Profile List shown in a sidebar on the main page of [Task List](#task-list-page) and [Profile Detail](#profile-detail-page), and a link to the Task List is included on the [Kanban page](#kanban-board).
+
+![Expanded Navbar on mobile for Logged-in Users](/documentation-assets/readme-assets/features/navbar-expanded-logged-in.png)
+
+I have changed the icon default, active and  hover colors to provide more contrast to the background for [accessibility](/TESTING.md/#color-contrast-testing) reasons.
+
+![Navbar on desktop for Logged-in Users](/documentation-assets/readme-assets/features/navbar-icon-hover-color.png)
 
 ### Footer
 
-#### Home page
+The footer is also present on every page, but the information contained here is predicted to be used less frequently: the developer name and social media profile links.
 
-### Create task page
-
-#### Assignee dropdown
-
-Fetches the list of profiles from the API, and displays them as options in the dropdown.
-
-It displays the first and/or last name of the user if these are filled in. Otherwise, it displays the username.
-
-The Profile ID is sent to the API. Since a profile is automatically created whenever a user is created, profile ID and user ID should be the same.
+![Footer](/documentation-assets/readme-assets/features/footer.png)
 
 #### Task list page
 
@@ -423,6 +455,21 @@ The Color scheme of the card changes based on the priority of the task:
 - med
 - high
 - no priority
+
+![Task List page](/documentation-assets/readme-assets/amiresponsive/task-list-amiresponsive.png)
+
+#### Kanban board
+
+I implemented a task Kanban board, where tasks are automatically sorted based on their status.
+Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for this view for small screens.
+
+This page has the information and layout that a user is likely to want to see, which is why it is the starting page for logged-in users.
+
+Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`.
+
+The conditional color scheme and stretched link functionalities work just like on the [Task List page](#task-list-page).
+
+![Task Kanban board](/documentation-assets/readme-assets/amiresponsive/task-kanban-amiresponsive.png)
 
 ##### Filtering with tabs
 
@@ -455,16 +502,20 @@ Fields searched are:
 - assignee
 - owner
 
-#### Kanban board
+![Task search](/documentation-assets/readme-assets/amiresponsive/search-amiresponsive.png)
 
-I also implemented a task Kanban board, where tasks are automatically sorted based on their status.
-Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for this view for small screens.
+#### Watch/unwatch function
 
-This page has the information and layout that a user is likely to want to see, which is why it is the starting page for logged-in users.
+Users can choose if they want to watch tasks created by them, as this might be required for some tasks but not others.
 
-Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`.
+The watch button is an eye icon and a toolip instruction is show when hovering over it. This changes dynamically depending on whether the logged-in user is already watching the task or not.
 
-The conditional color scheme and stretched link functionalities work just like on the [Task List page](#task-list-page).
+This functionality is available everywhere where a task card is shown:
+
+- [Kanban](#kanban-board) page
+- [Task List](#task-list-page) page
+- [Task Detail](#task-detail-page) page
+- [Profile Detail](#profile-detail-page) page
 
 #### Task detail page
 
@@ -481,7 +532,36 @@ The Color scheme of the card changes based on the priority of the task:
 - high
 - no priority
 
+![Task Detail page](/documentation-assets/readme-assets/amiresponsive/task-detail-amiresponsive.png)
+
+### Teammates component
+
+This appears on mid and larger viewports on the following pages:
+
+- [Task List](#task-list-page) page
+- [Task Detail](#task-detail-page) page
+- [Profile Detail](#profile-detail-page) page
+
+It shows the list of teammates in descending order of profile creation, with infinite scroll
+
+Users' names are shown [conditionally](#conditionally-rendered-names): the first and/or last name is shows if it is available,
+otherwise, the username is displayed.
+
+Clicking on a profile avatar or name leads to the relevant [profile detail page](#profile-detail-page).
+
+Clicking on the heading **Teammates** leads to the [profile list page](#profile-list).
+
+On small screen sizes, the [Navbar](#navigation-bar) includes an extra link to the [profile list page](#profile-list).
+
 #### Task Create Form
+
+#### Assignee dropdown
+
+Fetches the list of profiles from the API, and displays them as options in the dropdown.
+
+It displays the first and/or last name of the user if these are filled in. Otherwise, it displays the username.
+
+The Profile ID is sent to the API. Since a profile is automatically created whenever a user is created, profile ID and user ID should be the same.
 
 #### Task Edit Form
 
@@ -489,18 +569,12 @@ Only the owner (the user who created the task) can edit or delete it. The reason
 
 In a future version, I plan to add some edit permissions to task assignees as well ([#98](https://github.com/blahosyl/task-manager-frontend/issues/98)).
 
-#### Watch/unwatch function
-
-Users can choose if they want to watch tasks created by them, as this might be required for some tasks but not others.
-
-The watch button is an eye icon and a toolip instruction is show when hovering over it. This changes dynamically depending on whether the logged-in user is already watching the task or not.
-
 #### Profile list
 
-This is shown in the sidebar of certain Task views, and as a full-page version under `/team`. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user.
-The full profile list also shows the pronouns and role if these are filled in.
+This is the full-page version  of the Teammates list under the  `/team` URL. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user, whereas
+the full-page profile list also shows the pronouns and role if these are filled in.
 
-#### Profile detail page
+#### Profile Detail page
 
 This page shows a user's profile information and [tasks assigned to them](#task-list-page).
 
@@ -508,11 +582,31 @@ For logged-in users, this shows all profile fields including empty ones.
 In addition, the conditionally rendered user name has the suffix "(me)"
 to indicate the user is viewing their own profile.
 
+![Own Profile Detail page](/documentation-assets/readme-assets/amiresponsive/own-profile-detail-amiresponsive.png)
+
 For all other users, only filled-in fields and the [conditionally rendered name](#conditionally-rendered-names) is shown.
 
-### Access management
+![Profile Detail page](/documentation-assets/readme-assets/amiresponsive/profile-detail-amiresponsive.png)
 
-### Admin Panel
+For users viewing their own Profile Detail page, a pencil icon is shown. This opens the Profile/Username/Password edit dropown menu.
+
+![Profile Edit dropdown](/documentation-assets/readme-assets/amiresponsive/profile-edit-dropdown-amiresponsive.png)
+
+#### Profile Edit Form
+
+![Profile Edit Form](/documentation-assets/readme-assets/amiresponsive/profile-edit-amiresponsive.png)
+
+#### Username Change Form
+
+The Username Change Form is based on the Moments project, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of username, or cancelling the change.
+
+![Username Change Form](/documentation-assets/readme-assets/amiresponsive/username-change-amiresponsive.png)
+
+#### Password Change Form
+
+The Password Change Form is based on the Moments project, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of password, or cancelling the change.
+
+![Password Change Form](/documentation-assets/readme-assets/amiresponsive/password-change-amiresponsive.png)
 
 ### Future features
 

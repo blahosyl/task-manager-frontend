@@ -523,7 +523,7 @@ The accessibility audits uncovered some minor issues with color contrasts and he
 
 All accessibility reports can be found in [this folder](documentation-assets/testing-assets/lighthouse/).
 
-### Color
+### Color contrast testing
 
 In addition to Lighthouse, color contrasts were also tested with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker). This was especially important given that tasks have multiple color schemes conditionally rendered depending on their priority.
 
