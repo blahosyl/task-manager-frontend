@@ -42,8 +42,6 @@ See the development progress and further plans on the [Project Kanban board](htt
     + [Access management structure](#access-management-structure)
     + [CRUD in the FrontEnd](#crud-in-the-frontend)
     + [UI information design](#ui-information-design)
-      - [Navigation bar design](#navigation-bar-design)
-      - [Footer design](#footer-design)
   * [Skeleton](#skeleton)
     + [Landing page wireframe](#landing-page-wireframe)
     + [Task Kanban wireframe](#task-kanban-wireframe)
@@ -239,7 +237,7 @@ The project implemented signup, signin and signout functionalities by using Alla
 The assessment criteria for the MVP require at least TWO forms, with validation, that allow users to create and edit resources in the Back-End API".
 
 The present version of the app contains 3 such forms: Comment, Task and User.
-A profile instance is created automatically for each new user.
+A profile instance is created automatically for each new user. (See the [API documentation](https://github.com/blahosyl/task-manager-api) for more details on data structure).
 
 The 5th model, Watcher, offers the same functionality not via a form, but by clicking the eye icon on a task.
 
@@ -265,10 +263,6 @@ Users can only access CRUD on their own resources, not on those of other users.
 Keeping with established principles, I structured information from top to bottom & left to right.
 
 My goal was to strike a balance between putting as many links on a page as possible and not overcrowding the page: anitcipating user needs regarding what they are most likely to do next from any given page.
-
-##### Navigation bar design
-
-##### Footer design
 
 ### Skeleton
 
@@ -299,7 +293,7 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 
 #### App name
 
-The name "On Fire" reflects the duality of accomplishing a lot vs. everything else around us seeming irredeemable. It reflects the ups and downs of task execution well.
+The name "On Fire" incorporates the duality of accomplishing a lot vs. everything else around us seeming irredeemable. It reflects the ups and downs of task execution well.
 
 #### Visual design
 
@@ -309,7 +303,7 @@ I aimed for balance between harmony and contrast: terracotta and marron with a w
 
 ![Main color palette](/documentation-assets/readme-assets/color-palette.png)
 
-The main colors shown above are supported by their darked and lighter shades to make a monochromatic but high-contrast color scheme for each [task priority](#color-for-visual-effect-as-well-as-conveying-information).
+The main colors shown above are supported by their darker and lighter shades to make a monochromatic but high-contrast color scheme for each [task priority](#color-for-visual-effect-as-well-as-conveying-information).
 
 ##### Logo
 
@@ -317,9 +311,14 @@ The logo evokes the [Kanban board](#kanban-board) with different colored task ca
 
 ##### Images
 
-Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing, Not Found.
+Elements on background images are positioned with intention, matching the image itself.
 
 Only pages with relatively little content have background images, as these would be too distracting on pages with multiple tasks, filters or profiles.
+
+- [Signin page](#signin-page)
+- [Signup page](#signup-page)
+- [Landing page](#landing-page)
+- [Not Found page](#visually-pleasing-not-found-page)
 
 ##### Rounded shapes
 
@@ -335,7 +334,7 @@ To enhance playfulness, emojis are also included in the [CRUD confirmation messa
 
 ##### Typography
 
-I made a long list of suitable candidates of suitable Google Fonts, then I made mockups of the short-listed candidates. These can be seen under the [corresponding GitHub issue](https://github.com/blahosyl/task-manager-frontend/issues/99).
+I made a long list of suitable candidates of suitable Google Fonts, then I made mockups of the app with the short-listed candidates. These can be seen under the [corresponding GitHub issue](https://github.com/blahosyl/task-manager-frontend/issues/99).
 
 In the end, I decided to use [Kodchasan](https://fonts.google.com/specimen/Kodchasan), as it evokes handwriting, while at the same time being very well legible. In addition, this font has a wide selection of weights and styles.
 
@@ -372,14 +371,14 @@ In some cases, 1. is shortened to only show the first name even if a last name i
 
 ##### Tasks without an image
 
-The Moments project that this app is based on requires an image to be added to every task created.
-This makes sense for the use case of the Moments app, being a photo sharing platform.
+The [Moments](https://github.com/Code-Institute-Solutions/moments) project that this app is based on requires an image to be added to every task created.
+This makes sense for the use case of the [Moments](https://github.com/Code-Institute-Solutions/moments) app, being a photo sharing platform.
 
-For the current task manager app, however, images play a much less important role than other types of content, also reflected in the layout of the [Task Detail page](#task-detail-page).Thus, it would be unpractical to force users to add a photo to every task they create, so this is made optional.
+For the current task manager app, however, images play a much less important role than other types of content, also reflected in the layout of the [Task Detail page](#task-detail-page). Thus, it would be unpractical to force users to add a photo to every task they create, so this is made optional.
 
 I also decided not to use a placeholder image for tasks that do not have an image attached,
 as this would create an unnecessary distraction without adding information or a positive UX experience.
-instead, the `CardImage` is displayed conditionally only if there is an image.
+Instead, the `CardImage` is displayed conditionally only if there is an image.
 
 ##### No empty task card for deleted tasks
 
@@ -387,7 +386,7 @@ When manually entering URL of a deleted task into the browser address bar, an em
 
 ![Empty task card shown for deleted tasks](/documentation-assets/readme-assets/empty-task-card.png)
 
-While this is also present in the Moments sample project, it is not good UX, which is why I decided to [change it](https://github.com/blahosyl/task-manager-frontend/issues/129) for the present app.
+While this is also present in the [Moments](https://github.com/Code-Institute-Solutions/moments) sample project, it is not good UX, which is why I decided to [change it](https://github.com/blahosyl/task-manager-frontend/issues/129) for the present app.
 
 Now, these pages show the ["Not Found"](#visually-pleasing-not-found-page) page, which is much less jarring.
 
@@ -403,15 +402,15 @@ Comments are not considered as important or time-consuming to create as tasks, s
 
 ##### No deletion of Users or Profiles
 
-For a content sharing app such as Moments, it is straightforward that when a user deletes their profile, their contributed content is also deleted.
+For a content sharing app such as [Moments](https://github.com/Code-Institute-Solutions/moments), it is straightforward that when a user deletes their profile, their contributed content is also deleted.
 
 For a task manager app, however, this has undesired consequences: the team most likely wants to retain tasks owned by users who are no longer working with them.
 
-Therefore, I did not implement User/Profile deletion in this version of the app. The UX considerations described above call for more careful planning, which is outside the scope of the current 3.5-week development window.
+Therefore, I did not implement User/Profile deletion in this version of the app. The UX considerations described above call for more careful planning, which is outside the scope of the current 3-and-a-half-week development window.
 
 ##### Tooltip for watch/unwatch icon
 
-I have added tooltips to the watch/unwatch icon, to make it more explicit for users that the icon is functional.
+I have added tooltips to the [watch/unwatch icon](#watchunwatch-function), to make it more explicit for users that the icon is functional.
 
 ##### Visually pleasing "Not Found" page
 
@@ -421,7 +420,7 @@ A broken link is always annoying at best, anxiety-inducing at most. This is why 
 
 ##### Slight timeout on redirect
 
-I have noticed that retrieving the currentUser can be a bit slow sometimes, which caused the signup page to show instead of the page the Logged-in User requested. This is why I added a slight timeout to the redirect function adapted from the Moments app.
+I have noticed that retrieving the currentUser can be a bit slow sometimes, which caused the signup page to show instead of the page the Logged-in User requested. This is why I added a slight timeout to the redirect function adapted from the [Moments](https://github.com/Code-Institute-Solutions/moments) app.
 
 ## Project Management | Agile Methodologies
 
@@ -552,7 +551,7 @@ This page greets visitors who are not logged in. It has a striking and energetic
 
 #### Signup page
 
-The signup page contains the Signup Form and a link to the [Signin page](#signin-page). The all field of the signup form are validated.
+The signup page contains the Signup Form and a link to the [Signin page](#signin-page). All fields of the signup form are validated.
 
 The design features a salient custom image, and the position of text elements is responsively adapted to complement the image.
 
@@ -586,7 +585,7 @@ When clicking the hamburger icon, the Navbar expands.
 
 ##### Navbar for Logged-in Users
 
-For this view, I have made considerable changes compared to the Moments project:
+For this view, I have made considerable changes compared to the [Moments](https://github.com/Code-Institute-Solutions/moments) project:
 
 - instead of links tofiltered views, the Navbar only has links to the [Kaban](#kanban-board) & [List](#task-list-page) pages, since these have extensive filtering options included.
 - I moved the + icon with the other Logged-In links
@@ -627,7 +626,7 @@ The Color scheme of the card changes based on the priority of the task:
 
 ![Task Detail page](/documentation-assets/readme-assets/amiresponsive/task-detail-amiresponsive.png)
 
-Cards that are owned by (create by) the currently Logged-in User also have a **vertical dots** icon on the top right. Clicking this enables [editing](#task-edit-form) or [deleting](#task-deletion) a task.
+Cards that are owned by (created by) the currently Logged-in User also have a **vertical dots** icon on the top right. Clicking this enables [editing](#task-edit-form) or [deleting](#task-deletion) a task.
 
 #### Comments
 
@@ -665,7 +664,7 @@ Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for t
 
 This page has the information and layout that a user is likely to want to see, which is why it is the starting page for logged-in users.
 
-Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`.
+Since the size of the task cards in this view is the smallest of all, the content of the task cards shown in this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`.
 
 The conditional color scheme, watch/unwatch and stretched link functionalities work just like on the [Task List page](#task-list-page).
 
@@ -723,7 +722,7 @@ This functionality is available everywhere where a task card is shown:
 
 #### Teammates component
 
-This appears on mid and larger viewports on the following pages:
+This appears on large viewports on the following pages:
 
 - [Task List](#task-list-page) page
 - [Task Detail](#task-detail-page) page
@@ -751,10 +750,10 @@ As soon as the **title** field gets some content, the button is enabled and the 
 
 This form contains the following types of fields:
 
-- several text fields
+- 3 text fields (title, excerpt, description)
 - a date field
 - an image upload field
-- two dropdown selectors with fixed options
+- two dropdown selectors with fixed options (status & priority)
 - and the [assignee dropdown](#assignee-dropdown) where options are dynamically fetched and [conditionally rendered](#conditionally-rendered-names).
 
 The form is responsive, and the buttons are placed at the most convenient location on each screen size.
@@ -773,7 +772,7 @@ Only the owner (the user who created the task) can edit or delete it. The reason
 
 ![Task Edit Form](/documentation-assets/readme-assets/amiresponsive/task-edit-amiresponsive.png)
 
-In a future version, I plan to add some edit permissions to task assignees as well ([#98](https://github.com/blahosyl/task-manager-frontend/issues/98)).
+In a future version, I plan to add some partial edit permissions to task assignees as well ([#98](https://github.com/blahosyl/task-manager-frontend/issues/98)).
 
 #### Assignee dropdown
 
@@ -782,9 +781,11 @@ This is part of the [Task Create Form](#task-create-form) and the [Task Edit For
 It fetches the list of all profiles from the API, and displays them [conditionally](#conditionally-rendered-names) as options in the dropdown:
 it displays the first and/or last name of the user if these are filled in. Otherwise, it displays the username.
 
+![Assignee dropdown selector](/documentation-assets/readme-assets/features/assignee-dropdown.png)
+
 #### Task Deletion
 
-Since tasks are the most important objects in this app, I have enhanced the deletion functionality of the Moments app with an extra confirmation step.
+Since tasks are the most important objects in this app, I have enhanced the deletion functionality of the [Moments](https://github.com/Code-Institute-Solutions/moments) app with an extra confirmation step.
 When clicking the **trashcan** icon on the Task Dropdown menu, a modal pops up confirming whether the user wants to delete the task. This helps avoid accidental errors.
 
 ![Task Deletion modal](/documentation-assets/readme-assets/features/task-deletion-modal.png)
@@ -793,16 +794,16 @@ When clicking the **trashcan** icon on the Task Dropdown menu, a modal pops up c
 
 #### Profile list
 
-This is the full-page version  of the Teammates list under the  `/team` URL. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user, whereas
+This is the full-page version  of the Teammates list under the  `/team` URL. The [sidebar version](#teammates-component) only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user, whereas
 the full-page profile list also shows the pronouns and role if these are filled in.
 
 ![Profile List](/documentation-assets/readme-assets/amiresponsive/profile-list-amiresponsive.png)
 
 #### Profile Detail page
 
-This page shows a user's profile information and [tasks assigned to them](#task-list-page).
+This page shows a user's profile information and [tasks related to them](#task-list-page) (assigned to, watched by or created by the viewed user).
 
-For logged-in users, this shows all profile fields including empty ones.
+For logged-in users, this page shows all profile fields including empty ones.
 In addition, the conditionally rendered user name has the suffix "(me)"
 to indicate the user is viewing their own profile.
 
@@ -824,21 +825,22 @@ This form lets users edit their own profile data. All fields are optional, so th
 
 #### Username Change Form
 
-The Username Change Form is based on the Moments project, validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of username, or cancelling the change.
+The Username Change Form is based on the [Moments](https://github.com/Code-Institute-Solutions/moments) project, validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of username, or cancelling the change.
 
 ![Username Change Form](/documentation-assets/readme-assets/amiresponsive/username-change-amiresponsive.png)
 
 #### Password Change Form
 
-The Password Change Form is based on the Moments project,  validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of password, or cancelling the change.
+The Password Change Form is based on the [Moments](https://github.com/Code-Institute-Solutions/moments) project,  validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of password, or cancelling the change.
 
 ![Password Change Form](/documentation-assets/readme-assets/amiresponsive/password-change-amiresponsive.png)
 
 ### Future features
 
-Since development time for this version of the project was only a bit more than 3 weeks, and this was my first project using React & Django, several desired features could not be implemented in this short time frame:
+Since development time for this version of the project was only a bit more than 3 weeks, and this was my first project using React & DRF, several desired features could not be implemented in this short time frame:
 
 - drag & drop tasks on Kanban board
+- delete task/profile image in UI
 - ask for current password before changing login credentials
 - tag other users in comments
 - send notifications when due date is close or task status changes
@@ -848,7 +850,7 @@ Since development time for this version of the project was only a bit more than 
 
 #### Customization
 
-Although this app started out based on the Moments project, it features extensive code customizationin the form of custom hooks, widely used conditional rendering and [additional libraries](#other-dependencies-used).
+Although this app started out based on the [Moments](https://github.com/Code-Institute-Solutions/moments) project, it features extensive code customizationin the form of custom hooks, refactoring, component reuse, widely used conditional logic & rendering, and [additional libraries](#other-dependencies-used).
 
 #### Regular testing
 
@@ -865,12 +867,12 @@ Apart from making sure that the app functions as intended, I have also taken spe
 I have also done my best to adhere to the principle of Don't Repeat Yourself (DRY):
 
 - I refactored the `TaskCreateForm` and `TaskEditForm` to use the same component, `TaskForm`, which fulfills both functions depending on the `taskEdit` prop.
-- the `TaskList` component is used in both `TaskTabs` and `ProfileDetail`
-- the `Task` component is used in both `TaskList`, `TaskKanban` and `TaskDetail`
-- the `ProfileList` component is usedin `TaskKanban` (conditionally depending on the `taskList` prop), `TaskDetail` and `ProfileDetail`, as well as on its own under `/team`
+- the `TaskList` component is used in both `TaskTabs`  (rendering both the List and Kanban pages) and `ProfileDetail`
+- the `Task` component is used in `TaskList` (on both the List and Kanban pages) and `TaskDetail`
+- the `ProfileList` component is used in `TaskList` (conditionally depending on the `taskList` prop), `TaskDetail` and `ProfileDetail`, as well as on its own under `/team`
 - smaller components, such as `Avatar`, `Asset` or `NotFound` are used throughout the app.
 
-The full component list can be viewed in the section [Components](#components).
+The full component tree can be viewed in the section [Components](#components).
 
 I also completed a number of Issues just for [refactoring code](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Arefactoring+).
 
@@ -890,7 +892,7 @@ Since this is a one-person project, it would have been overly complicated to mak
 
 However, for features or bug fixes that I judged to be especially risky for breaking existing functionality, I created separate [featrue branches](https://github.com/blahosyl/task-manager-frontend/branches).
 
-Normally these would be deleted after they are merged or decided not to be merged. Since this project is submitted for assessment, feature branches are kept as a reference.
+Normally, these would be deleted after they are merged or decided not to be merged. Since this project is submitted for assessment, feature branches are kept as a reference.
 
 ## Testing
 
@@ -1097,7 +1099,7 @@ All text was written by me.
 - [door](https://unsplash.com/photos/orange-room-with-open-door-DIewyzpUbRc) by [Natalia Y.](https://unsplash.com/@foxfox) ([Unspash](https://unsplash.com/))
 - [logo](/src/assets/logo.jpg) & [favicon](public/favicon-16x16.png) created by me, changed colors with [onlinepngtools.com](https://onlinepngtools.com/change-png-color), converted to favicon with [favicon.io/](https://favicon.io/favicon-converter/)
 - [lightbulb](https://unsplash.com/photos/lighted-orange-cfl-bylb-HfVfXJjktWw) by [Izumi](https://unsplash.com/@itsaizumi) ([Unspash](https://unsplash.com/))
-- [no-results](/src/assets/no-results.png) & [upload](/src/assets/upload.png) taken from the Moments walkthrough project, colors changed with [onlinepngtools.com](https://onlinepngtools.com/change-png-color)
+- [no-results](/src/assets/no-results.png) & [upload](/src/assets/upload.png) taken from the [Moments](https://github.com/Code-Institute-Solutions/moments) walkthrough project, colors changed with [onlinepngtools.com](https://onlinepngtools.com/change-png-color)
 - ["this is fine" gif](/src/assets/this-is-fine.gif) from [customemoji.com](https://www.customemoji.com/custom-emoji/this-is-fine-fire)
 - the mockup user images were created by myself and Peter Litauszki with [SP Studio](https://sp-studio.de/)
 
