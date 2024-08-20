@@ -2,6 +2,10 @@
 <!-- markdownlint-disable MD033 -->
 <!-- Disable warnings about hard tabs -->
 <!-- markdownlint-disable MD010 -->
+<!-- Disable warnings *Click to play video* -->
+<!-- markdownlint-disable MD036 -->
+<!-- Disable warnings about video links -->
+<!-- markdownlint-disable MD034 -->
 
 # Testing the Task Manager
 
@@ -115,7 +119,6 @@ In addition, each JS file was manually checked for comment coverage, and formatt
 
 https://github.com/user-attachments/assets/3e75947f-d47b-4733-8145-a9d32d3e8607
 
-
 #### Navigation bar | mobile manual testing
 
 |Action    |Expected result |Result|
@@ -128,21 +131,17 @@ https://github.com/user-attachments/assets/3e75947f-d47b-4733-8145-a9d32d3e8607
 
 https://github.com/user-attachments/assets/f7fe5e11-ef0d-4b3f-81e6-7fd65ec1ea61
 
-
 #### Footer manual testing
 
 |Action    |Expected result |Result|
 |---    |---    |:---: |
 |page loads    |copyright info visible<br>GitHub icon visible<br>LinkedIn icon visible|✅|
 |GitHub icon clicked | GitHub profile opens in new tab|✅|
-|LinkedIn icon clicked | LinkedIn profile opens in new tab
+|LinkedIn icon clicked | LinkedIn profile opens in new tab|✅|
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/cd5a5289-0cca-4a91-92df-aa96990ff9d3
-
-
 
 #### Landing page manual testing
 
@@ -155,7 +154,6 @@ This page is only available to logged out users.
 *Click to play video*
 
 ![04-landing-page-manual-testing](https://github.com/user-attachments/assets/b05654af-bc00-4b56-bc4f-f6cfc4988239)
-
 
 #### Signup page manual testing
 
@@ -188,10 +186,7 @@ This page is only available to logged out users.
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/ec23d8a9-c8de-4926-8351-cd4227a4159a
-
-
 
 #### Navigation bar | desktop manual testing | user logged in
 
@@ -206,9 +201,7 @@ https://github.com/user-attachments/assets/ec23d8a9-c8de-4926-8351-cd4227a4159a
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/6d0a7526-d34f-4827-b899-b1539d26ceb8
-
 
 ### Tasks manual testing
 
@@ -235,7 +228,6 @@ Tabbed filtering of tasks is enabled on the following pages:
 
 https://github.com/user-attachments/assets/d581e92f-29d8-405f-b6e7-e616c4f60504
 
-
 #### Task Kanban manual testing
 
 |Action				|Expected result	|Result|
@@ -254,10 +246,7 @@ https://github.com/user-attachments/assets/d581e92f-29d8-405f-b6e7-e616c4f60504
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/dcc5587b-28a9-4880-b4af-f1e07c735443
-
-
 
 #### Task List manual testing
 
@@ -279,9 +268,7 @@ https://github.com/user-attachments/assets/dcc5587b-28a9-4880-b4af-f1e07c735443
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/cc0dc324-36bc-48f4-b05a-f2f339043bd4
-
 
 #### Task Detail manual testing
 
@@ -296,10 +283,7 @@ https://github.com/user-attachments/assets/cc0dc324-36bc-48f4-b05a-f2f339043bd4
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/68506a43-cfaa-4a1a-bc0a-559b608be9ba
-
-
 
 #### Task Search manual testing
 
@@ -323,9 +307,7 @@ The contents of Task objects can be searched. Fields searched are:
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/501060e2-661b-4cfa-b382-13980ef286c7
-
 
 #### Task Create Form manual testing
 
@@ -339,9 +321,7 @@ https://github.com/user-attachments/assets/501060e2-661b-4cfa-b382-13980ef286c7
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/4eeefa89-8c9e-407e-b9a6-75326bb7f28e
-
 
 #### Task Edit Form manual testing
 
@@ -356,9 +336,7 @@ https://github.com/user-attachments/assets/4eeefa89-8c9e-407e-b9a6-75326bb7f28e
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/7b58f43b-a165-4679-86c4-1a5b32e89a59
-
 
 #### Task Deletion manual testing
 
@@ -369,9 +347,7 @@ https://github.com/user-attachments/assets/7b58f43b-a165-4679-86c4-1a5b32e89a59
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/466a2b33-3082-4d72-9d8c-fe39fe1e5d62
-
 
 ### Comments manual testing
 
@@ -390,9 +366,7 @@ https://github.com/user-attachments/assets/466a2b33-3082-4d72-9d8c-fe39fe1e5d62
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/e7f9b2d8-60ac-49c3-ab3e-5e57f9630709
-
 
 ### Watchers manual testing
 
@@ -408,9 +382,7 @@ The watch/unwatch functionality is available in every Task view apart from the T
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/696cb742-5e80-4592-b34a-07b37817f0e7
-
 
 ### Profiles manual testing
 
@@ -425,9 +397,7 @@ https://github.com/user-attachments/assets/696cb742-5e80-4592-b34a-07b37817f0e7
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
-
 
 #### Profile detail manual testing
 
@@ -452,7 +422,6 @@ https://github.com/user-attachments/assets/0a3576e6-35ed-4e52-8006-237c725290c2
 
 https://github.com/user-attachments/assets/a6268030-33d8-4acd-9a1e-2b9ec78bcd3f
 
-
 #### Profile edit manual testing
 
 |Action				|Expected result	|Result|
@@ -463,9 +432,7 @@ https://github.com/user-attachments/assets/a6268030-33d8-4acd-9a1e-2b9ec78bcd3f
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/277c6ce4-69aa-473e-bcb2-aa06febc7969
-
 
 #### Username edit manual testing
 
@@ -478,9 +445,7 @@ https://github.com/user-attachments/assets/277c6ce4-69aa-473e-bcb2-aa06febc7969
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/0462409f-090d-46f2-a3eb-0fc6802e770d
-
 
 #### Password edit manual testing
 
@@ -495,9 +460,7 @@ https://github.com/user-attachments/assets/0462409f-090d-46f2-a3eb-0fc6802e770d
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/6969fd12-531a-4b99-8362-eb87a9c7e15a
-
 
 ### General features
 
@@ -517,10 +480,7 @@ Infinite scroll is used to load the next page of data from the API. It is used f
 
 *Click to play video*
 
-
 https://github.com/user-attachments/assets/51279d9a-bb54-4bfc-bbf8-08379bf121ca
-
-
 
 #### Notifications manual testing
 
