@@ -599,6 +599,14 @@ As pointed out by my mentor, the orange color of the navbar icons does not need 
 
 ## Automated testing
 
+As all pages containing task or profile data should only be accessible to Logged-in Users in this app, I decided to focus automated testing on this aspect.
+
+In addition to implementing the tests for Avatar and Signout link being in the NavBar for Logged-in Users, I have also implemented tests for the Task Create, Task Kanban and Task List links.
+
+All automated tests pass without error.
+
+![All automated tests pass without error](/documentation-assets/testing-assets/automated-tests/js-automated-tests.png)
+
 ## Bugs
 
 All bugs are tracked in [GitHub Issues](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Abug).
