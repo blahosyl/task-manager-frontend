@@ -59,7 +59,7 @@ See the development progress and further plans on the [Project Kanban board](htt
       - [Typography](#typography)
       - [Mockup content](#mockup-content)
     + [UX Improvements](#ux-improvements)
-    + [Color for visual effect as well as conveying information](#color-for-visual-effect-as-well-as-conveying-information)
+      - [Color for visual effect as well as conveying information](#color-for-visual-effect-as-well-as-conveying-information)
       - [Conditionally rendered names](#conditionally-rendered-names)
       - [Tasks without an image](#tasks-without-an-image)
       - [No empty task card for deleted tasks](#no-empty-task-card-for-deleted-tasks)
@@ -67,25 +67,27 @@ See the development progress and further plans on the [Project Kanban board](htt
       - [Modal confirming task deletion](#modal-confirming-task-deletion)
       - [No deletion of Users or Profiles](#no-deletion-of-users-or-profiles)
       - [Tooltip for watch/unwatch icon](#tooltip-for-watchunwatch-icon)
-    + [Visually pleasing "Not Found" page](#visually-pleasing-not-found-page)
-    + [Slight timeout on redirect](#slight-timeout-on-redirect)
+      - [Visually pleasing "Not Found" page](#visually-pleasing-not-found-page)
+      - [Slight timeout on redirect](#slight-timeout-on-redirect)
 - [Project Management | Agile Methodologies](#project-management--agile-methodologies)
   * [Themes, Epics, Stories & Tasks](#themes-epics-stories--tasks)
   * [Estimation](#estimation)
   * [Project Board](#project-board)
   * [Labels](#labels)
-    + [Prioritization: MoSCoW](#prioritization-moscow)
-    + [Timeboxing](#timeboxing)
-    + [Sprint planning](#sprint-planning)
-    + [Sprint retroactives](#sprint-retroactives)
+  * [Prioritization: MoSCoW](#prioritization-moscow)
+  * [Timeboxing](#timeboxing)
+  * [Sprint planning](#sprint-planning)
+  * [Sprint retroactives](#sprint-retroactives)
 - [Features](#features)
-  * [Landing page](#landing-page)
-  * [Signup page](#signup-page)
-  * [Signin page](#signin-page)
-  * [Navigation bar](#navigation-bar)
-    + [Navbar for visitors](#navbar-for-visitors)
-    + [Navbar for Logged-in Users](#navbar-for-logged-in-users)
-  * [Footer](#footer)
+  * [General features](#general-features)
+    + [Landing page](#landing-page)
+    + [Signup page](#signup-page)
+    + [Signin page](#signin-page)
+    + [Navigation bar](#navigation-bar)
+      - [Navbar for visitors](#navbar-for-visitors)
+      - [Navbar for Logged-in Users](#navbar-for-logged-in-users)
+    + [Footer](#footer)
+  * [Task features](#task-features)
     + [Task detail page](#task-detail-page)
     + [Comments](#comments)
     + [Task List page](#task-list-page)
@@ -93,11 +95,12 @@ See the development progress and further plans on the [Project Kanban board](htt
       - [Filtering with tabs](#filtering-with-tabs)
       - [Searching tasks](#searching-tasks)
     + [Watch/unwatch function](#watchunwatch-function)
-  * [Teammates component](#teammates-component)
+    + [Teammates component](#teammates-component)
     + [Task Create Form](#task-create-form)
     + [Task Edit Form](#task-edit-form)
     + [Assignee dropdown](#assignee-dropdown)
     + [Task Deletion](#task-deletion)
+  * [Profile features](#profile-features)
     + [Profile list](#profile-list)
     + [Profile Detail page](#profile-detail-page)
     + [Profile Edit Form](#profile-edit-form)
@@ -116,6 +119,7 @@ See the development progress and further plans on the [Project Kanban board](htt
   * [Languages used](#languages-used)
   * [Frameworks & Libraries used](#frameworks--libraries-used)
   * [Other dependencies used](#other-dependencies-used)
+    + [Testing libraries](#testing-libraries)
   * [Tools used](#tools-used)
 - [Deployment](#deployment)
   * [Prerequisites](#prerequisites)
@@ -352,7 +356,7 @@ I have planned 49 user stories for UX improvements, and managed to complete most
 
 I highlight a number of them below; the details and implementations can be found in the individual GitHub issues.
 
-#### Color for visual effect as well as conveying information
+##### Color for visual effect as well as conveying information
 
 While I intended the app to be visually interesting and colorful, I did not want this to be gratuitous. Instead, the bold colors of the app server as a visual indication of task priority.
 
@@ -409,13 +413,13 @@ Therefore, I did not implement User/Profile deletion in this version of the app.
 
 I have added tooltips to the watch/unwatch icon, to make it more explicit for users that the icon is functional.
 
-#### Visually pleasing "Not Found" page
+##### Visually pleasing "Not Found" page
 
 A broken link is always annoying at best, anxiety-inducing at most. This is why I styled the "Not Found" page to be interesting, aesthetically pleasing and in harmony with the rest of the app design, with an eye-catching background image and a link to the home page.
 
 ![Not Found Page](/documentation-assets/readme-assets/amiresponsive/not-found-amiresponsive.png)
 
-#### Slight timeout on redirect
+##### Slight timeout on redirect
 
 I have noticed that retrieving the currentUser can be a bit slow sometimes, which caused the signup page to show instead of the page the Logged-in User requested. This is why I added a slight timeout to the redirect function adapted from the Moments app.
 
@@ -488,7 +492,7 @@ The individual epic labels are color-coded to match the [Google Sheet containing
 
 These have provided an excellent way to both filter Issues and to maintain an easier visual overview of them.
 
-#### Prioritization: MoSCoW
+### Prioritization: MoSCoW
 
 As the available time for development was only 2.5 weeks (setting the last few days aside for testing and documentation), sorting User Stories into `must have`, `should have`, `could have` and `won't have` was done on the whole group of User Stories rather than on a sprint-by-sprint basis.
 
@@ -500,20 +504,20 @@ I have modified the MoSCoW method slightly in that I split the `won't have` labe
 The links below show the User Stories excluding "meta" issues such as testing & documentation.
 
 - [User Stories with priority `must have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+must+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen+): 17
-- [User Stories with priority `should have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+should+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen): 32
+- [User Stories with priority `should have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+should+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen): 33
 - [User Stories with priority `could have`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22p%3A+could+have%22+-label%3A%22e%3A+setup+%26+deployment%22+-label%3Aepic+-label%3A%22fe+documentation%22+-label%3A%22e%3A+testing%22+-label%3A%22e%3A+code+quality%22+-label%3Abug+is%3Aopen+): 22
 
 The statistics on total issues & User Stories excluding "meta" issues can be seen on the **Statistics** tab of the [User Stories Google Sheet](https://docs.google.com/spreadsheets/d/1qZQIKNKa_nGfCR9YQQ1UFkeIGvXR_ikOx7Oev0sEVBA/edit?usp=sharing).
 
 Epics that had User Stories of various levels of prioritization received all applicable labels. As the User Stories in the Epic were completed, the labels of completed User Stories were removed from the Epic.
 
-#### Timeboxing
+### Timeboxing
 
 The available development time for the project was 3 weeks and 3 days. Accordingly, work items were divided into 4 milestones:
 
 1. [API, auth, start page & task list](https://github.com/blahosyl/task-manager-frontend/milestone/1)
 2. [CRUD & basic views](https://github.com/blahosyl/task-manager-frontend/milestone/2)
-3. [UX & styling](https://github.com/blahosyl/task-manager-frontend/milestone/3)
+3. [UX, styling & comments](https://github.com/blahosyl/task-manager-frontend/milestone/3)
 4. [Testing & documentation](https://github.com/blahosyl/task-manager-frontend/milestone/4)
 
 The first 3 milestones were assigned the User Stories discussed so far, while the last milestone was planned for "meta" tasks like testing and documentation.
@@ -522,7 +526,7 @@ Each milestone was assigned to a sprint around 5 days in length.
 
 However, as tends to happen in real life, different sprints had different velocities, which is reflected in the uneven number of User Stories completed in each sprint.
 
-#### Sprint planning
+### Sprint planning
 
 At the beginning of every sprint, I reviewed the Issues assigned to the current milestone and decided the order in which they are to be implemented, in a more fine-grained way than the existing prioritization labels.
 
@@ -530,7 +534,7 @@ I also defined tasks for the highest priority items, with tasks definitions for 
 
 Whenever I have received updated information about prioritization or implementation from my mentor or the Code Institute community, I would also make appropriate changes in prioritization during sprints.
 
-#### Sprint retroactives
+### Sprint retroactives
 
 At the end of every sprint, I reviewed the items that were not completed, and either reassigned them to the next sprint, or to [version 2 of the project](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Av2).
 
@@ -538,13 +542,15 @@ At the end of every sprint, I reviewed the items that were not completed, and ei
 
 This section briefly introduces the features implemented in the current version of the project. For videos demonstrating how each feature works, see the [Manual feature testing section](TESTING.md#manual-feature-testing) of `TESTING.md`.
 
-### Landing page
+### General features
+
+#### Landing page
 
 This page greets visitors who are not logged in. It has a striking and energetic background image, a short description of the app, and links to the [Signin](#signin-page) & [Signup](#signup-page) pages.
 
 ![Landing page](/documentation-assets/readme-assets/amiresponsive/landing-amiresponsive.png)
 
-### Signup page
+#### Signup page
 
 The signup page contains the Signup Form and a link to the [Signin page](#signin-page). The all field of the signup form are validated.
 
@@ -552,7 +558,7 @@ The design features a salient custom image, and the position of text elements is
 
 ![Singup page](/documentation-assets/readme-assets/amiresponsive/signup-amiresponsive.png)
 
-### Signin page
+#### Signin page
 
 The signin page contains the Signin Form and a link to the [Signup page](#signup-page). The all field of the signup form are validated.
 
@@ -560,11 +566,11 @@ The design features another custom image, and the position of text elements is p
 
 ![Singin page](/documentation-assets/readme-assets/amiresponsive/signin-amiresponsive.png)
 
-### Navigation bar
+#### Navigation bar
 
 The Navbar is present on every page, and contains the links that are anticipated to be most frequently needed by users.
 
-#### Navbar for visitors
+##### Navbar for visitors
 
 The navbar for visitors features the logo and app name on the left, and the Signin and Signup icons on the right.
 
@@ -578,7 +584,7 @@ When clicking the hamburger icon, the Navbar expands.
 
 ![Expanded Navbar on mobile for visitors](/documentation-assets/readme-assets/features/navbar-expanded-not-logged-in.png)
 
-#### Navbar for Logged-in Users
+##### Navbar for Logged-in Users
 
 For this view, I have made considerable changes compared to the Moments project:
 
@@ -597,11 +603,13 @@ I have changed the icon default, active and  hover colors to provide more contra
 
 ![Navbar on desktop for Logged-in Users](/documentation-assets/readme-assets/features/navbar-icon-hover-color.png)
 
-### Footer
+#### Footer
 
 The footer is also present on every page, but the information contained here is predicted to be used less frequently: the developer name and social media profile links.
 
 ![Footer](/documentation-assets/readme-assets/features/footer.png)
+
+### Task features
 
 #### Task detail page
 
@@ -613,9 +621,9 @@ Other fields are show when they are not empty.
 
 The Color scheme of the card changes based on the priority of the task:
 
-- low
-- med
-- high
+- low (teal)
+- med (maroon)
+- high (terracotta/orange)
 
 ![Task Detail page](/documentation-assets/readme-assets/amiresponsive/task-detail-amiresponsive.png)
 
@@ -623,7 +631,7 @@ Cards that are owned by (create by) the currently Logged-in User also have a **v
 
 #### Comments
 
-The bottom of the Task Detail page shows the comments on the task (if any), as well as the comment create form.
+The bottom of the Task Detail page shows the comments on the task (if any), as well as the Comment Create Form.
 Each comment shows the author's avatar and [conditionally rendered name](#conditionally-rendered-names).
 
 Users can edit or delete their own comments using the **vertical dots** dropdown next to them.
@@ -702,6 +710,8 @@ Users can choose if they want to watch tasks regardless of whether they are assi
 
 The watch button is an eye icon, and a toolip instruction is show when hovering over it. This changes dynamically depending on whether the logged-in user is already watching the task or not.
 
+![Watch/unwatch icon](/documentation-assets/readme-assets/features/watch-unwatch.png)
+
 The count of users watching a task is shown next to the eye icon. This is also updated without having to reload the page.
 
 This functionality is available everywhere where a task card is shown:
@@ -711,7 +721,7 @@ This functionality is available everywhere where a task card is shown:
 - [Task Detail](#task-detail-page) page
 - [Profile Detail](#profile-detail-page) page
 
-### Teammates component
+#### Teammates component
 
 This appears on mid and larger viewports on the following pages:
 
@@ -719,10 +729,12 @@ This appears on mid and larger viewports on the following pages:
 - [Task Detail](#task-detail-page) page
 - [Profile Detail](#profile-detail-page) page
 
-It shows the list of teammates in descending order of profile creation, with infinite scroll
+It shows the list of teammates in descending order of profile creation, with infinite scroll.
 
 Users' names are shown [conditionally](#conditionally-rendered-names): the first and/or last name is shows if it is available,
 otherwise, the username is displayed.
+
+![Teammates sidebar](/documentation-assets/readme-assets/features/teammates-sidebar.png)
 
 Clicking on a profile avatar or name leads to the relevant [profile detail page](#profile-detail-page).
 
@@ -776,6 +788,8 @@ Since tasks are the most important objects in this app, I have enhanced the dele
 When clicking the **trashcan** icon on the Task Dropdown menu, a modal pops up confirming whether the user wants to delete the task. This helps avoid accidental errors.
 
 ![Task Deletion modal](/documentation-assets/readme-assets/features/task-deletion-modal.png)
+
+### Profile features
 
 #### Profile list
 
@@ -961,11 +975,7 @@ Naturally, detailed instructions are only provided for the tools used in this pr
 ### Prerequisites
 
 - [GitPod](https://www.gitpod.io/) (or another IDE)
-- [Python 3.12](https://www.python.org/)
-- [pip](https://github.com/pypa/pip)
-- [git](https://git-scm.com/)
-- [Neon](https://neon.tech/) (or another Postgres database)
-- [Cloudinary](https://cloudinary.com/) (or another media hosting provider)
+- [GitHub](https://github.com/) (or another version control provider)
 - [Heroku](https://www.heroku.com/) (or another could platform)
 - Dependencies listed in [`requirements.txt`](requirements.txt)
 
