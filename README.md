@@ -458,11 +458,11 @@ Fields searched are:
 #### Kanban board
 
 I also implemented a task Kanban board, where tasks are automatically sorted based on their status.
-Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for this view.
+Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for this view for small screens.
 
 This page has the information and layout that a user is likely to want to see, which is why it is the starting page for logged-in users.
 
-Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`
+Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`.
 
 The conditional color scheme and stretched link functionalities work just like on the [Task List page](#task-list-page).
 
