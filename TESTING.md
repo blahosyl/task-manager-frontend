@@ -97,14 +97,14 @@ All rendered pages of the project were validated with the [W3C HTML validator](h
 
 All screenshots of HTML validation can be found in [this folder](/documentation-assets/testing-assets/validation/html-validation/).
 
-> [!INFO]
+> [!NOTE]  
 > Info messages regarding trailing slashes are disregarded, since these are extensively used in React development.
 
 #### Landing page validation
 
 [No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp5-task-manager-frontend-eebb66e2c99d.herokuapp.com%2F)
 
-> [!INFO]
+> [!NOTE]  
 > The Landing page and the Kanban page share the same URL, and are conditionally rendered depending on login status
 
 #### Signin page validation
@@ -119,7 +119,7 @@ All screenshots of HTML validation can be found in [this folder](/documentation-
 
 [No errors or warnings found](https://validator.w3.org/nu/?doc=https%3A%2F%2F3000-blahosyl-taskmanagerfro-e3n8xmkax6p.ws.codeinstitute-ide.net%2F)
 
-> [!INFO]
+> [!NOTE]  
 > The Landing page and the Kanban page share the same URL, and are conditionally rendered depending on login status
 
 #### Task List page validation
