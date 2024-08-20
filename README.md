@@ -181,23 +181,51 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 
 ### Surface
 
+#### App name
+
+The name "On Fire" reflects the duality of accomplishing a lot vs. everything else around us seeming irredeemable. It reflects the ups and downs of task execution well.
+
 #### Visual design
 
 ##### Color palette
 
-A balance between harmony and contrast: terracotta and marron with a warm shade of teal.
+I aimed for balance between harmony and contrast: terracotta and marron with a warm shade of teal.
+
+![Main color palette](/documentation-assets/readme-assets/color-palette.png)
+
+The main colors shown above are supported by their darked and lighter shades to make a monochromatic but high-contrast color scheme for each [task priority](#color-for-visual-effect-as-well-as-conveying-information).
 
 ##### Logo
 
-#### Images
+The logo evokes the [Kanban board](#kanban-board) with different colored task cards forming a grid. It matches the main app colors.
+
+##### Images
 
 Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing, Not Found.
 
 Only pages with relatively little content have background images, as these would be too distracting on pages with multiple tasks, filters or profiles.
 
-#### Emojis & gifs
+##### Rounded shapes
+
+As a counterpoint to businesslike straight edges, I have designed the app with the corners of most components rounded. This evokes a sense of playfulness and relaxation.
+
+##### Emojis & gifs
+
+Predictably, the 🔥 emoji features heavily in both the app name and the task overdue indicator.
+
+Putting the emojified version of the ["this is fine!" meme](https://en.wikipedia.org/wiki/Gunshow_(webcomic)#%22This_is_fine%22) on the home page further underscores the app's theme.
+
+To enhance playfulness, emojis are also included in the [CRUD confirmation messages](#explicit-confirmation-after-user-crud-actions).
 
 ##### Typography
+
+I made a long list of suitable candidates of suitable Google Fonts, then I made mockups of the short-listed candidates. These can be seen under the [corresponding GitHub issue](https://github.com/blahosyl/task-manager-frontend/issues/99).
+
+In the end, I decided to use [Kodchasan](https://fonts.google.com/specimen/Kodchasan), as it evokes handwriting, while at the same time being very well legible. In addition, this font has a wide selection of weights and styles.
+
+##### Mockup content
+
+To carry on the playful theme, the [mockup user images](#image-credits) are in a cartoon style and in colors harmonizing with the overall theme.
 
 #### UX Improvements
 
