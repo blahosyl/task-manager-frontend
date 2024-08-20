@@ -911,6 +911,12 @@ See the document [`TESTING.md`](TESTING.md) for details.
 - [`react-toastify`](https://fkhadra.github.io/react-toastify/): CRUD notification messages
 - [`web-vitals`](https://www.npmjs.com/package/web-vitals) – measuring all the Web Vitals metrics on real users
 
+#### Testing libraries
+
+- `@testing-library/react` –  React DOM testing utilities
+- `@testing-library/jest-dom`: – test the state of the DOM
+- `@testing-library/user-event`: – simulate user events
+
 ### Tools used
 
 - [Am I Responsive?](https://ui.dev/amiresponsive) – show the website on a range of devices
@@ -1100,6 +1106,7 @@ All text was written by me.
 - [EastStr](https://github.com/ndsurgenor/east-street) by Nathan Surgenor
 - [League Hub](https://github.com/MikeR94/CI-Project-Portfolio-5) by [MikeE94](https://github.com/MikeR94)
 - [Tick it](https://github.com/jkingportfolio/ci_pp5_tick_it_react) by [Jamie King](https://github.com/jkingportfolio)
+- [Task Tracker](https://github.com/Code-Institute-Submissions/scottsmyth56-tasktracker-app) by [Scott Smyth](https://github.com/scottsmyth56)
 - [The README of my first Code Institute project](https://github.com/blahosyl/academic-publishing)
 - [The README of my second Code Institute project](https://github.com/blahosyl/operator-game)
 - [The README of my third Code Institute project](https://github.com/blahosyl/dinner-party)
