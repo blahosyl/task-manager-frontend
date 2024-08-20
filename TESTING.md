@@ -62,7 +62,7 @@ Back to  [`README.md`](README.md)
 - [Accessibility testing](#accessibility-testing)
   * [Lighthouse](#lighthouse)
   * [Color contrast testing](#color-contrast-testing)
-    + [High specifications](#high-specifications)
+  * [High theme specifications](#high-theme-specifications)
   * [Medium theme specifications](#medium-theme-specifications)
   * [Low theme](#low-theme)
   * [Neutral color specifications](#neutral-color-specifications)
@@ -595,7 +595,7 @@ Where contrast did not meet at least AA standard, the colors were changed.
 
 As pointed out by my mentor, the orange color of the navbar icons does not need to reach high contrast with the background, since it is always accompanied by a corresponding text indicating where the nav link leads.
 
-#### High specifications
+#### High theme specifications
 
 |color name  |HEX code|
 |---   |--- |
