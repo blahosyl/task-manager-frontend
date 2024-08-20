@@ -6,12 +6,76 @@
 <!-- markdownlint-disable MD036 -->
 <!-- Disable warnings about video links -->
 <!-- markdownlint-disable MD034 -->
+<!-- Disable warnings about list markers -->
+<!-- markdownlint-disable MD004 -->
 
-# Testing the Task Manager
+# Testing the app
 
 Back to  [`README.md`](README.md)
 
 ## Table of Contents
+
+- [Testing User Stories](#testing-user-stories)
+- [Code validation](#code-validation)
+  * [HTML validation](#html-validation)
+    + [Landing page validation](#landing-page-validation)
+    + [Signin page validation](#signin-page-validation)
+    + [Signup page validation](#signup-page-validation)
+    + [Task Kanban page validation](#task-kanban-page-validation)
+    + [Task List page validation](#task-list-page-validation)
+    + [Task Detail page validation](#task-detail-page-validation)
+    + [Task Create page validation](#task-create-page-validation)
+    + [Task Edit page validation](#task-edit-page-validation)
+    + [Profile List page validation](#profile-list-page-validation)
+    + [Profile Detail page validation](#profile-detail-page-validation)
+  * [CSS validation](#css-validation)
+  * [JavaScript/JSX validation](#javascriptjsx-validation)
+- [Manual feature testing](#manual-feature-testing)
+  * [Navigation & authentication manual testing](#navigation--authentication-manual-testing)
+    + [Navigation bar | desktop manual testing | user not logged in](#navigation-bar--desktop-manual-testing--user-not-logged-in)
+    + [Navigation bar | mobile manual testing](#navigation-bar--mobile-manual-testing)
+    + [Footer manual testing](#footer-manual-testing)
+    + [Landing page manual testing](#landing-page-manual-testing)
+    + [Signup page manual testing](#signup-page-manual-testing)
+    + [Signin page manual testing](#signin-page-manual-testing)
+    + [Navigation bar | desktop manual testing | user logged in](#navigation-bar--desktop-manual-testing--user-logged-in)
+  * [Tasks manual testing](#tasks-manual-testing)
+    + [Task Tabs manual testing](#task-tabs-manual-testing)
+    + [Task Kanban manual testing](#task-kanban-manual-testing)
+    + [Task List manual testing](#task-list-manual-testing)
+    + [Task Detail manual testing](#task-detail-manual-testing)
+    + [Task Search manual testing](#task-search-manual-testing)
+    + [Task Create Form manual testing](#task-create-form-manual-testing)
+    + [Task Edit Form manual testing](#task-edit-form-manual-testing)
+    + [Task Deletion manual testing](#task-deletion-manual-testing)
+  * [Comments manual testing](#comments-manual-testing)
+  * [Watchers manual testing](#watchers-manual-testing)
+  * [Profiles manual testing](#profiles-manual-testing)
+    + [Profile List manual testing](#profile-list-manual-testing)
+    + [Profile detail manual testing](#profile-detail-manual-testing)
+    + [Profile edit manual testing](#profile-edit-manual-testing)
+    + [Username edit manual testing](#username-edit-manual-testing)
+    + [Password edit manual testing](#password-edit-manual-testing)
+  * [General features](#general-features)
+    + [Infinite scroll manual testing](#infinite-scroll-manual-testing)
+    + [Notifications manual testing](#notifications-manual-testing)
+- [Accessibility testing](#accessibility-testing)
+  * [Lighthouse](#lighthouse)
+  * [Color contrast testing](#color-contrast-testing)
+    + [High specifications](#high-specifications)
+  * [Medium theme specifications](#medium-theme-specifications)
+  * [Low theme](#low-theme)
+  * [Neutral color specifications](#neutral-color-specifications)
+    + [High theme contrast check](#high-theme-contrast-check)
+    + [Medium theme contrast check](#medium-theme-contrast-check)
+    + [Low theme contrast check](#low-theme-contrast-check)
+- [Automated testing](#automated-testing)
+- [Bugs](#bugs)
+  * [Known bugs](#known-bugs)
+  * [Solved bugs](#solved-bugs)
+    + [Expected errors in the Console](#expected-errors-in-the-console)
+
+<small><i><a href='http://github.com/3kh0/readme-toc/'>Table of contents generated with readme-toc</a></i></small>
 
 ## Testing User Stories
 
