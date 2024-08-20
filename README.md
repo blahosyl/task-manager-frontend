@@ -2,6 +2,8 @@
 <!-- markdownlint-disable MD033 -->
 <!-- Disable warnings about hard tabs -->
 <!-- markdownlint-disable MD010 -->
+<!-- Disable warnings about language specifictaion infenced code blocks -->
+<!-- markdownlint-disable MD040 -->
 
 # Task Manager
 
@@ -604,29 +606,81 @@ See the document [`TESTING.md`](TESTING.md) for details.
 
 ## Deployment
 
+The following instructions describe the deployment process with the tools used for this project.
+Of course, you can choose other tools/providers for the individual functions described below, e. g., a different Postgres database instead of Neon, or a different development environment instead of GitPod.
+Naturally, detailed instructions are only provided for the tools used in this project.
+
 ### Prerequisites
+
+- [GitPod](https://www.gitpod.io/) (or another IDE)
+- [Python 3.12](https://www.python.org/)
+- [pip](https://github.com/pypa/pip)
+- [git](https://git-scm.com/)
+- [Neon](https://neon.tech/) (or another Postgres database)
+- [Cloudinary](https://cloudinary.com/) (or another media hosting provider)
+- [Heroku](https://www.heroku.com/) (or another could platform)
+- Dependencies listed in [`requirements.txt`](requirements.txt)
+
+> [! WARNING]
+> The setup has been known to be prone to version conflicts, so use the exact versions specified in [`requirements.txt`](requirements.txt)
 
 ### Fork the repository
 
+You can fork the repository by following these steps:
+
+1. Log in to [GitHub](https://github.com/) (if you don't have a GitHub account yet, you can [create one](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) for free).
+2. Navigate to the project website [https://github.com/blahosyl/task-manager-api](https://github.com/blahosyl/task-manager-api).
+3. Click on **Fork** in the upper right part of the screen.
+4. On the next page you have the possibility to change the repository name. To do this, simply write your desired name in the text field in the center part of the screen. You can also leave the name as it is.
+5. Click **Fork** in the bottom right part of the screen.
+
+>[!TIP]
+>If you do rename the repository, make sure to keep the [GitHub naming conventions](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md) in mind.
+
 ### Deploy in the development environment
+
+1. Open the repository in a new workspace in GitPod.
+2. Create a new React app by typing the following into the terminal:<br>
+ `npx create-react-app . --use-npm`
+3. Install all required dependencies from the `package.json` file by typing `npm install` into the terminal (without any arguments).
+4. Because of a conflict between the GitHub template provided by Code Institute and Node, you might have to downgrade your `node` and `npm` versions.
+Run `nvm install 16 && nvm use 16` in the terminal to use `node` v16.20.2 (`npm` v8.19.4).
+5. To connect the app to the deployed API, go to [`/src/api/axiosDefaults.js`](/src/api/axiosDefaults.js), and add your deployed API's URL to `axios.defaults.baseURL`, replacing the current URL.
+6. Start the app in the development environment by typing `npm start` into the terminal.
 
 ### Deploy to production
 
-#### Pre#deployment steps
+#### Pre-deployment steps
+
+Make sure to complete the following pre-deployment steps in your development environment, especially if you made changes to the project:
+
+1. Commit any changes you made to the code.
+2. Push your changes to GitHub.
 
 #### Steps on Heroku
+
+1. Log in to your [Heroku](https://www.heroku.com/) account (or create a new one if you have not done so yet).
+2. [Create a new Heroku app](https://dashboard.heroku.com/new-app) by selecting your region and app name.
+3. Under **Deploy > Deployment method** in Heroku, select **GitHub** and connect Heroku to your GitHub account.
+	- Type in your repository name, then click **Search**.
+	- When your repository appears, click **Connect** next to it.
+4. Under **Deploy > Manual deploy** in Heroku, select **Deploy branch** to deploy manually.
+	- Once the process is finished, the following message will appear:<br>
+	_Your app was successfully deployed_
+	- Click **View** under the message, and a new tab will appear with your deployed app.
+5. (optional) Under **Deploy > Automatic deploy** in Heroku, select **Enable Automatic Deploys** if you want your app to be rebuilt each time you push to the `main` branch of your GitHub repository (but make sure your `settings.py` file always has `DEBUG=False` when you do).
 
 ## Credits
 
 ### Code credits
 
-This project was developed on the basis of the [Moments](https://github.com/Code-Institute-Solutions/moments0) walkthrough project by [Code Institute](https://github.com/Code-Institute-Solutions/).
+This project was developed on the basis of the [Moments](https://github.com/Code-Institute-Solutions/moments) walkthrough project by [Code Institute](https://github.com/Code-Institute-Solutions/).
 
 Many features and the overall feel was inspired by [Trello](https://support.atlassian.com/trello/).
 
 I have also consulted the project [Tick It](https://github.com/Code-Institute-Submissions/ci_pp5_tick_it_react) by [Jamie King](https://github.com/jkingportfolio) and implemented the [Task deletion confirmation modal](https://github.com/blahosyl/task-manager-frontend/issues/17) based on it.
 
-Spencer Barriball kindly provided a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5MBDG/p1723141476108919?thread_ts=1723121474.717569&cid=C02MTH5MBDG) to get rid of the [non-breaking warning](https://github.com/blahosyl/task-manager-frontend/issues/83) in the Profile Edit Form, which is also present in the [Moments](https://github.com/Code-Institute-Solutions/moments0) walkthrough project by [Code Institute](https://github.com/Code-Institute-Solutions/).
+Spencer Barriball kindly provided a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5MBDG/p1723141476108919?thread_ts=1723121474.717569&cid=C02MTH5MBDG) to get rid of the [non-breaking warning](https://github.com/blahosyl/task-manager-frontend/issues/83) in the Profile Edit Form, which is also present in the [Moments](https://github.com/Code-Institute-Solutions/moments) walkthrough project by [Code Institute](https://github.com/Code-Institute-Solutions/).
 
 Tutor John Rearden was kind enough to keep working on [making infinite scroll work for Profiles](https://github.com/blahosyl/task-manager-frontend/issues/66), which we could not solve in the tutoring session, and came up with a [solution](https://github.com/johnrearden/task-manager-frontend/commit/ec8e98e9cdbad1159501fc5b92dc2f23cb7975a4#diff-0c6bbc781d2ac66b877546123b753fb2f69957838aea8419d7c2bc46740d6aea): using a custom API call instead of using `fetchMoreData().`
 
@@ -668,6 +722,7 @@ Following a [suggestion](https://code-institute-room.slack.com/archives/C02MTH5M
 - [`react-toastify` documentation](https://fkhadra.github.io/react-toastify/)
 - [Emojipedia](https://emojipedia.org/)
 - [customizing `Markdownlint`](https://github.com/DavidAnson/vscode-markdownlint#configure)
+- [install all dependencies from `package.json`](https://stackoverflow.com/a/42969648)
 
 ### Text
 
