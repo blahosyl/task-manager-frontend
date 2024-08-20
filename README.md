@@ -77,7 +77,21 @@ The app comes with built-in filters for the most likely use cases. These are acc
 
 #### Components
 
+The component tree of the app is depicted below (generated with [ReacTree](https://marketplace.visualstudio.com/)).
 
+It illustrates the extensive reuse of not only small components like `Avatar` or `Asset`, but also larger components like `TaskList`, `ProfileList` and `Task`.
+
+This is discussed in more details in the section [DRY](#dry).
+
+![Start of component tree](/documentation-assets/readme-assets/component-tree/vertical/1-start-vertical-component-tree.png)
+
+![2nd part of component tree](/documentation-assets/readme-assets/component-tree/vertical/2-task-create-vertical-component-tree.png)
+
+![3rd part of component tree](/documentation-assets/readme-assets/component-tree/vertical/3-task-detail-vertical-component-tree.png)
+
+![4th part of component tree](/documentation-assets/readme-assets/component-tree/vertical/4-task-profile-vertical-component-tree.png)
+
+![5th part of component tree](/documentation-assets/readme-assets/component-tree/vertical/5-end-vertical-component-tree.png)
 
 #### Access management structure
 
@@ -649,6 +663,12 @@ The Password Change Form is based on the Moments project,  validated, with added
 
 ![Password Change Form](/documentation-assets/readme-assets/amiresponsive/password-change-amiresponsive.png)
 
+#### Not Found page
+
+A broken link is always annoying at best, anxiety-inducing at most. This is why I styled the "Not Found" page to be interesting, aesthetically pleasing and in harmony with the rest of the app design, with an eye-catching background image and a link to the home page.
+
+![Not Found Page](/documentation-assets/readme-assets/amiresponsive/not-found-amiresponsive.png)
+
 ### Future features
 
 Since development time for this version of the project was only a bit more than 3 weeks, and this was my first project using React & Django, several desired features could not be implemented in this short time frame:
@@ -684,6 +704,8 @@ I have also done my best to adhere to the principle of Don't Repeat Yourself (DR
 - the `Task` component is used in both `TaskList`, `TaskKanban` and `TaskDetail`
 - the `ProfileList` component is usedin `TaskKanban` (conditionally depending on the `taskList` prop), `TaskDetail` and `ProfileDetail`, as well as on its own under `/team`
 - smaller components, such as `Avatar`, `Asset` or `NotFound` are used throughout the app.
+
+The full component list can be viewed in the section [Components](#components).
 
 I also completed a number of Issues just for [refactoring code](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Arefactoring+).
 
@@ -766,7 +788,7 @@ See the document [`TESTING.md`](TESTING.md) for details.
 - [Slack](https://slack.com/) – mentor communication
 - [`png` color changer](https://onlinepngtools.com/change-png-color)
 - [Prettier extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): code formatter
-- [REacTree](https://marketplace.visualstudio.com/): make a React component tree
+- [ReacTree](https://marketplace.visualstudio.com/): make a React component tree
 - [SP studio](https://sp-studio.de/): create mock-up user pictures
 - [Typos spell checker for VS Code](https://open-vsx.org/extension/tekumara/typos-vscode)
 - [Visual Studio Code](https://code.visualstudio.com/) – code editor
