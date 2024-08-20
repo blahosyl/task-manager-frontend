@@ -660,8 +660,10 @@ Run `nvm install 16 && nvm use 16` in the terminal to use `node` v16.20.2 (`npm`
 
 Make sure to complete the following pre-deployment steps in your development environment, especially if you made changes to the project:
 
-1. Commit any changes you made to the code.
-2. Push your changes to GitHub.
+1. Check that a `Procfile` is present in the repository at the root level. 
+It should have the content `web: serve -s build`.
+2. Commit any changes you made to the code.
+3. Push your changes to GitHub.
 
 #### Steps on Heroku
 
