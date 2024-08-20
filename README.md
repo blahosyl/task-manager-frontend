@@ -178,7 +178,7 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 
 #### Images
 
-Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing, Not Found. 
+Elements on background images are positioned with intention, matching the image itself: Signin, Signup, Landing, Not Found.
 
 Only pages with relatively little content have background images, as these would be too distracting on pages with multiple tasks, filters or profiles.
 
@@ -449,7 +449,7 @@ The Color scheme of the card changes based on the priority of the task:
 
 ![Task Detail page](/documentation-assets/readme-assets/amiresponsive/task-detail-amiresponsive.png)
 
-Cards that are owned by (create by) the currently Logged-in User also have a **verical dots** icon on the top right. Clicking this enables [editing](#task-edit-form) or [deleting](#task-deletion) a task.
+Cards that are owned by (create by) the currently Logged-in User also have a **vertical dots** icon on the top right. Clicking this enables [editing](#task-edit-form) or [deleting](#task-deletion) a task.
 
 #### Task List page
 
@@ -519,7 +519,7 @@ Fields searched are:
 
 #### Watch/unwatch function
 
-Users can choose if they want to watch tasks regardless of whether they are assgined to them or the tasks were created by them.
+Users can choose if they want to watch tasks regardless of whether they are assigned to them or the tasks were created by them.
 
 The watch button is an eye icon, and a toolip instruction is show when hovering over it. This changes dynamically depending on whether the logged-in user is already watching the task or not.
 
@@ -555,11 +555,12 @@ On small screen sizes, the [Navbar](#navigation-bar) includes an extra link to t
 
 This is used for creating new tasks, and is available to all Logged-in Users.
 
-Since the **title** field is compulsory on all tasks, the **create** button is disabled on the form when the page loads, with an information message under it. 
+Since the **title** field is compulsory on all tasks, the **create** button is disabled on the form when the page loads, with an information message under it.
 As soon as the **title** field gets some content, the button is enabled and the message disappears.
 
 This form contains the following types of fields:
-- several text fields 
+
+- several text fields
 - a date field
 - an image upload field
 - two dropdown selectors with fixed options
