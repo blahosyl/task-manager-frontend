@@ -77,8 +77,7 @@ The app comes with built-in filters for the most likely use cases. These are acc
 
 #### Components
 
-`TaskTabs` uses `ProfileList` and `TaskList` directly when the `taskList` prop is passed. `TaskList` uses `Task`.
-Otherwise, `TaskTabs` uses `TaskKanban`, which uses `Task`
+
 
 #### Access management structure
 
@@ -133,11 +132,9 @@ Users can only access CRUD on their own resources, not on those of other users.
 
 #### UI information design
 
-importance: left to right & top to bottom
+Keeping with established principles, I structured information from top to bottom & left to right.
 
-intuitive navigation
-
-balance between putting as many links on a page as possible and not overcrowding the page: anitcipating user needs regarding what they are most likely to do next from any given page
+My goal was to strike a balance between putting as many links on a page as possible and not overcrowding the page: anitcipating user needs regarding what they are most likely to do next from any given page.
 
 ##### Navigation bar design
 
@@ -173,6 +170,8 @@ To make the UI more uniform, the fields of create/edit forms of the app ended up
 #### Visual design
 
 ##### Color palette
+
+A balance between harmony and contrast: terracotta and marron with a warm shade of teal.
 
 ##### Logo
 
@@ -451,6 +450,15 @@ The Color scheme of the card changes based on the priority of the task:
 
 Cards that are owned by (create by) the currently Logged-in User also have a **vertical dots** icon on the top right. Clicking this enables [editing](#task-edit-form) or [deleting](#task-deletion) a task.
 
+#### Comments
+
+The bottom of the Task Detail page shows the comments on the task (if any), as well as the comment create form.
+Each comment shows the author's avatar and [conditionally rendered name](#conditionally-rendered-names).
+
+Users can edit or delete their own comments using the **vertical dots** dropdown next to them.
+
+![Comments](/documentation-assets/readme-assets/features/comment.png)
+
 #### Task List page
 
 The task list features a more compact version of the task cards, with only the following information shown:
@@ -467,7 +475,7 @@ The card body can be clicked to go to the [Task Detail](#task-detail-page) page.
 This link is not stretched to the whole card, because the card header contains a link to the [assigned user's profile](#profile-detail-page),
 and the bottom part of the card contains the [watch/unwatch icon](#watchunwatch-function).
 
-The conditional color scheme work just like on the [Task Detail page](#task-detail-page).
+The conditional color scheme works just like on the [Task Detail page](#task-detail-page).
 
 ![Task List page](/documentation-assets/readme-assets/amiresponsive/task-list-amiresponsive.png)
 
@@ -653,27 +661,49 @@ Since development time for this version of the project was only a bit more than 
 
 ### Code features
 
-custom hooks
+#### Customization
 
-conditional rendering
-
-additional libraries
+Although this app started out based on the Moments project, it features extensive code customizationin the form of custom hooks, widely used conditional rendering and [additional libraries](#other-dependencies-used).
 
 #### Regular testing
 
+The code was continually tested and validated with ESLint throughout development.
+At the end of the development process, a final, comprehensive round of testing and validating was completed.
+The results are detailed in [TESTING.md](TESTING.md).
+
 #### Adequate commenting
 
+Apart from making sure that the app functions as intended, I have also taken special care to make sure the code is well organized and appropriately commented. Since I am just becoming familiar with React (and dealing with executive functioning issues), I have erred on the side of "more is more" for code comments and docstrings for methods that were new to me.
+
 #### DRY
+
+I have also done my best to adhere to the principle of Don't Repeat Yourself (DRY):
+
+- I refactored the `TaskCreateForm` and `TaskEditForm` to use the same component, `TaskForm`, which fulfills both functions depending on the `taskEdit` prop.
+- the `TaskList` component is used in both `TaskTabs` and `ProfileDetail`
+- the `Task` component is used in both `TaskList`, `TaskKanban` and `TaskDetail`
+- the `ProfileList` component is usedin `TaskKanban` (conditionally depending on the `taskList` prop), `TaskDetail` and `ProfileDetail`, as well as on its own under `/team`
+- smaller components, such as `Avatar`, `Asset` or `NotFound` are used throughout the app.
+
+I also completed a number of Issues just for [refactoring code](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3Arefactoring+).
 
 #### Security
 
 `npm audit fix` was run after every time a new package was installed. It is beyond the scope of the correct project to fix all dependency warnings, as these are typically handled by more senior developers or dedicated security engineers.
+
+There are no secret keys or URIs stored in this app (as opposed to the API).
 
 All passwords are stored in a password manager, and not written down in plain text electronically or on physical paper.
 
 Unfortunately, the infrastructure for project submission at Code Institute requires the admin credentials to be submitted in plain text.
 
 #### GitHub branches
+
+Since this is a one-person project, it would have been overly complicated to make use of feature branches for all user stories. Therefore, I conducted most development on the `main` branch.
+
+However, for features or bug fixes that I judged to be especially risky for breaking existing functionality, I created separate [featrue branches](https://github.com/blahosyl/task-manager-frontend/branches).
+
+Normally these would be deleted after they are merged or decided not to be merged. Since this project is submitted for assessment, feature branches are kept as a reference.
 
 ## Testing
 
