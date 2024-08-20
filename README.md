@@ -433,7 +433,25 @@ The footer is also present on every page, but the information contained here is 
 
 ![Footer](/documentation-assets/readme-assets/features/footer.png)
 
-#### Task list page
+#### Task detail page
+
+The card header contains an avatar with a link to the [assigned user's profile](#profile-detail-page),
+the due date / watch box contains the [watch/unwatch icon](#watchunwatch-function),
+and the bottom part of the card displays the avatar of the tasks's owner (creator) with a link to their [profile](#profile-detail-page).
+
+Other fields are show when they are not empty.
+
+The Color scheme of the card changes based on the priority of the task:
+
+- low
+- med
+- high
+
+![Task Detail page](/documentation-assets/readme-assets/amiresponsive/task-detail-amiresponsive.png)
+
+Cards that are owned by (create by) the currently Logged-in User also have a **verical dots** icon on the top right. Clicking this enables [editing](#task-edit-form) or [deleting](#task-deletion) a task.
+
+#### Task List page
 
 The task list features a more compact version of the task cards, with only the following information shown:
 
@@ -449,25 +467,20 @@ The card body can be clicked to go to the [Task Detail](#task-detail-page) page.
 This link is not stretched to the whole card, because the card header contains a link to the [assigned user's profile](#profile-detail-page),
 and the bottom part of the card contains the [watch/unwatch icon](#watchunwatch-function).
 
-The Color scheme of the card changes based on the priority of the task:
-
-- low
-- med
-- high
-- no priority
+The conditional color scheme work just like on the [Task Detail page](#task-detail-page).
 
 ![Task List page](/documentation-assets/readme-assets/amiresponsive/task-list-amiresponsive.png)
 
 #### Kanban board
 
-I implemented a task Kanban board, where tasks are automatically sorted based on their status.
+The main task view implemented in this app is a task Kanban board, where tasks are automatically sorted based on their status.
 Inspired by GitHub Projects and Trello, I implemented horizontal scrolling for this view for small screens.
 
 This page has the information and layout that a user is likely to want to see, which is why it is the starting page for logged-in users.
 
 Since the size of the task cards in this view is the smallest of all, the content of the Task cards shown on this view is the most minimal/compact. This is governed by the conditional rendering logic in `Task.js`.
 
-The conditional color scheme and stretched link functionalities work just like on the [Task List page](#task-list-page).
+The conditional color scheme, watch/unwatch and stretched link functionalities work just like on the [Task List page](#task-list-page).
 
 ![Task Kanban board](/documentation-assets/readme-assets/amiresponsive/task-kanban-amiresponsive.png)
 
@@ -506,9 +519,11 @@ Fields searched are:
 
 #### Watch/unwatch function
 
-Users can choose if they want to watch tasks created by them, as this might be required for some tasks but not others.
+Users can choose if they want to watch tasks regardless of whether they are assgined to them or the tasks were created by them.
 
-The watch button is an eye icon and a toolip instruction is show when hovering over it. This changes dynamically depending on whether the logged-in user is already watching the task or not.
+The watch button is an eye icon, and a toolip instruction is show when hovering over it. This changes dynamically depending on whether the logged-in user is already watching the task or not.
+
+The count of users watching a task is shown next to the eye icon. This is also updated without having to reload the page.
 
 This functionality is available everywhere where a task card is shown:
 
@@ -516,23 +531,6 @@ This functionality is available everywhere where a task card is shown:
 - [Task List](#task-list-page) page
 - [Task Detail](#task-detail-page) page
 - [Profile Detail](#profile-detail-page) page
-
-#### Task detail page
-
-The card header contains an avatar with a link to the [assigned user's profile](#profile-detail-page),
-the due date / watch box contains the [watch/unwatch icon](#watchunwatch-function),
-and the bottom part of the card displays the avatar of the tasks's owner (creator) with a link to their [profile](#profile-detail-page).
-
-XXXX Which fields are shown with placeholders, which fields aren't
-
-The Color scheme of the card changes based on the priority of the task:
-
-- low
-- med
-- high
-- no priority
-
-![Task Detail page](/documentation-assets/readme-assets/amiresponsive/task-detail-amiresponsive.png)
 
 ### Teammates component
 
@@ -555,24 +553,56 @@ On small screen sizes, the [Navbar](#navigation-bar) includes an extra link to t
 
 #### Task Create Form
 
-#### Assignee dropdown
+This is used for creating new tasks, and is available to all Logged-in Users.
 
-Fetches the list of profiles from the API, and displays them as options in the dropdown.
+Since the **title** field is compulsory on all tasks, the **create** button is disabled on the form when the page loads, with an information message under it. 
+As soon as the **title** field gets some content, the button is enabled and the message disappears.
 
-It displays the first and/or last name of the user if these are filled in. Otherwise, it displays the username.
+This form contains the following types of fields:
+- several text fields 
+- a date field
+- an image upload field
+- two dropdown selectors with fixed options
+- and the [assignee dropdown](#assignee-dropdown) where options are dynamically fetched and [conditionally rendered](#conditionally-rendered-names).
 
-The Profile ID is sent to the API. Since a profile is automatically created whenever a user is created, profile ID and user ID should be the same.
+The form is responsive, and the buttons are placed at the most convenient location on each screen size.
+
+![Task Create Form](/documentation-assets/readme-assets/amiresponsive/task-create-amiresponsive.png)
 
 #### Task Edit Form
 
+The Task Edit Form has the same structure as the [Task Create Form](#task-create-form), which help user navigation and also makes use of the same component in the code.
+
+The title of the page and the submit button text change conditionally depending on which form is rendered.
+
+The Task Edit Form fetches the existing data from the API and pre-fills the fields with these.
+
 Only the owner (the user who created the task) can edit or delete it. The reasoning behind this is that they know the requirements, so they can judge whether a task can be completed or not.
 
+![Task Edit Form](/documentation-assets/readme-assets/amiresponsive/task-edit-amiresponsive.png)
+
 In a future version, I plan to add some edit permissions to task assignees as well ([#98](https://github.com/blahosyl/task-manager-frontend/issues/98)).
+
+#### Assignee dropdown
+
+This is part of the [Task Create Form](#task-create-form) and the [Task Edit Form](#task-edit-form).
+
+It fetches the list of all profiles from the API, and displays them [conditionally](#conditionally-rendered-names) as options in the dropdown:
+it displays the first and/or last name of the user if these are filled in. Otherwise, it displays the username.
+
+#### Task Deletion
+
+Since tasks are the most important objects in this app, I have enhanced the deletion functionality of the Moments app with an extra confirmation step.
+When clicking the **trashcan** icon on the Task Dropdown menu, a modal pops up confirming whether the user wants to delete the task. This helps avoid accidental errors.
+
+![Task Deletion modal](/documentation-assets/readme-assets/features/task-deletion-modal.png)
 
 #### Profile list
 
 This is the full-page version  of the Teammates list under the  `/team` URL. The sidebar version only shows the avatar & [conditionally rendered name](#conditionally-rendered-names) of the user, whereas
 the full-page profile list also shows the pronouns and role if these are filled in.
+
+![Profile List](/documentation-assets/readme-assets/amiresponsive/profile-list-amiresponsive.png)
 
 #### Profile Detail page
 
@@ -594,17 +624,19 @@ For users viewing their own Profile Detail page, a pencil icon is shown. This op
 
 #### Profile Edit Form
 
+This form lets users edit their own profile data. All fields are optional, so the **save** button is never disabled.
+
 ![Profile Edit Form](/documentation-assets/readme-assets/amiresponsive/profile-edit-amiresponsive.png)
 
 #### Username Change Form
 
-The Username Change Form is based on the Moments project, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of username, or cancelling the change.
+The Username Change Form is based on the Moments project, validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of username, or cancelling the change.
 
 ![Username Change Form](/documentation-assets/readme-assets/amiresponsive/username-change-amiresponsive.png)
 
 #### Password Change Form
 
-The Password Change Form is based on the Moments project, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of password, or cancelling the change.
+The Password Change Form is based on the Moments project,  validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of password, or cancelling the change.
 
 ![Password Change Form](/documentation-assets/readme-assets/amiresponsive/password-change-amiresponsive.png)
 
