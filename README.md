@@ -201,15 +201,20 @@ Only pages with relatively little content have background images, as these would
 
 #### UX Improvements
 
-put timeout on redirect, so pages don't keep flickering
+At the suggestion of my mentor, I have focused on UX improvements rather than maximizing models & CRUD in this first iteration of the project.
 
-feedback: toastify messages
+I have planned 49 user stories for UX improvements, and managed to complete most of them, heavily focusing on tasks and profiles:
 
-conditional rendering
+- [UX Comments](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+comments%22)
+- [UX General](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+general%22)
+- [UX Profiles](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+profiles%22)
+- [UX Tasks](https://github.com/blahosyl/task-manager-frontend/issues?q=label%3A%22e%3A+ux+tasks%22)
 
-use of color for visual effect as well as conveying information
+I highlight a number of them below; the details and implementations can be found in the individual GitHub issues.
 
-not found page: interesting graphic instead of just a plain message
+#### Color for visual effect as well as conveying information
+
+While I intended the app to be visually interesting and colorful, I did not want this to be gratuitous. Instead, the bold colors of the app server as a visual indication of task priority.
 
 ##### Conditionally rendered names
 
@@ -240,27 +245,39 @@ When manually entering URL of a deleted task into the browser address bar, an em
 
 While this is also present in the Moments sample project, it is not good UX, which is why I decided to [change it](https://github.com/blahosyl/task-manager-frontend/issues/129) for the present app.
 
-One of my attempts at a solution was to put all of the rendering in TaskDetail into a conditional clause checking if `task` exists, otherwise render the NotFound page. This failed to work. Similarly, checking for `task.id` failed.
-
-I theorized that this is because these 2 variables are defined in the component, and must exist so that the app knows which task the user wants to see. However, `task.title` is empty if the task has been deleted, and it must not be empty for any existing tasks, since it's a compulsory field. Setting this as the condition for rendering the TaskDetail page received the desired result for the deleted pages.
-
-However, this change also caused TaskDetail pages for **existing tasks** to show a "Not Found" page (I suspect because the rendering conditional kicked in before the data were received from the API).
-
-Instead, I used the `setLoaded` logic from `TaskList` and implemented in in `TaskDetail` as well.
+Now, these pages show the ["Not Found"](#visually-pleasing-not-found-page) page, which is much less jarring.
 
 ##### Explicit confirmation after user CRUD actions
 
 I added confirmation notifications after a user successfully completes a CRUD operation, or presses the Cancel button on a CRUD form ([#29](https://github.com/blahosyl/task-manager-frontend/issues/29)). At the suggestion of my mentor, I used the `toastify` package, as it comes with push-style notifications out of the box.
 
+##### Modal confirming task deletion
+
+Since tasks are the most important in this app, I wanted to protect them from accidental deletion. This is why I added a confirmation modal to the task deletion function, as illustrated in the [Features section](#task-deletion).
+
+Comments are not considered as important or time-consuming to create as tasks, so here I opted for convenience over caution, and let users delete comments without double-checking.
+
 ##### No deletion of Users or Profiles
 
-##### Modal confirming task deletion
+For a content sharing app such as Moments, it is straightforward that when a user deletes their profile, their contributed content is also deleted.
+
+For a task manager app, however, this has undesired consequences: the team most likely wants to retain tasks owned by users who are no longer working with them.
+
+Therefore, I did not implement User/Profile deletion in this version of the app. The UX considerations described above call for more careful planning, which is outside the scope of the current 3.5-week development window.
 
 ##### Tooltip for watch/unwatch icon
 
-Deleting a task can have dire consequences, so I added a modal to confirm that this is what the user really intended.
+I have added tooltips to the watch/unwatch icon, to make it more explicit for users that the icon is functional.
 
-Comments are not considered as important or time-consuming to create as tasks, so here I opted for convenience over caution, and let users delete comments without double-checking.
+#### Visually pleasing "Not Found" page
+
+A broken link is always annoying at best, anxiety-inducing at most. This is why I styled the "Not Found" page to be interesting, aesthetically pleasing and in harmony with the rest of the app design, with an eye-catching background image and a link to the home page.
+
+![Not Found Page](/documentation-assets/readme-assets/amiresponsive/not-found-amiresponsive.png)
+
+#### Slight timeout on redirect
+
+I have noticed that retrieving the currentUser can be a bit slow sometimes, which caused the signup page to show instead of the page the Logged-in User requested. This is why I added a slight timeout to the redirect function adapted from the Moments app.
 
 ## Project Management | Agile Methodologies
 
@@ -662,12 +679,6 @@ The Username Change Form is based on the Moments project, validated, with added 
 The Password Change Form is based on the Moments project,  validated, with added [CRUD messages](#explicit-confirmation-after-user-crud-actions) confirming the change of password, or cancelling the change.
 
 ![Password Change Form](/documentation-assets/readme-assets/amiresponsive/password-change-amiresponsive.png)
-
-#### Not Found page
-
-A broken link is always annoying at best, anxiety-inducing at most. This is why I styled the "Not Found" page to be interesting, aesthetically pleasing and in harmony with the rest of the app design, with an eye-catching background image and a link to the home page.
-
-![Not Found Page](/documentation-assets/readme-assets/amiresponsive/not-found-amiresponsive.png)
 
 ### Future features
 
