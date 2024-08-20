@@ -23,7 +23,7 @@ An overview of implemented and tested User Stories can be seen in the [Google Sh
 
 All User Stories in the MVP have been implemented and work as intended.
 
-Issues outside the MVO that were not completed for the first release of the project but still intend to be done in further development work are gathered under the label [`v2`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+) in GitHub Issues.
+Issues outside the MVP that were not completed for the first release of the project but still intend to be done in further development work are gathered under the label [`v2`](https://github.com/blahosyl/task-manager-frontend/issues?q=is%3Aissue+label%3A%22v2%22+) in GitHub Issues.
 
 ## Code validation
 
