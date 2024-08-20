@@ -19,9 +19,6 @@ export const ProfileDataProvider = ({ children }) => {
   });
 
   const currentUser = useCurrentUser();
-  
-  console.log(profileData);
-  console.log(profileData.profileList?.length);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -32,7 +29,6 @@ export const ProfileDataProvider = ({ children }) => {
           profileList: data,
         }));
       } catch (err) {
-        console.log(err);
       }
     };
 

@@ -51,7 +51,6 @@ function TaskList({
         setTasks(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 

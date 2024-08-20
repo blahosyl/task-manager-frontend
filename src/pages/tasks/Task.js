@@ -98,7 +98,6 @@ const Task = (props) => {
       taskList ? history.push("/list") : history.push(`/`);
       setTabListChanged(true);
     } catch (err) {
-      console.log(err);
       setShowDeleteModal(false);
     }
   };
@@ -126,7 +125,6 @@ const Task = (props) => {
       }));
       setTabListChanged(true);
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -150,7 +148,6 @@ const Task = (props) => {
       }));
       setTabListChanged(true);
     } catch (err) {
-      console.log(err);
     }
   };
 

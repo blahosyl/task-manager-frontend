@@ -33,7 +33,6 @@ function TaskTabs(props) {
   const [tabListChanged, setTabListChanged] = useState(false);
 
   const currentUser = useCurrentUser();
-  console.log("currentUser", currentUser);
   const currentUser_id = currentUser?.profile_id || "";
 
   const id = currentUser_id;
@@ -41,9 +40,7 @@ function TaskTabs(props) {
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
 
-  console.log("pageProfile", pageProfile);
   useEffect(() => {
-    console.log("component rendered");
     const fetchData = async () => {
       try {
         const [{ data: pageProfile }] = await Promise.all([
@@ -55,7 +52,6 @@ function TaskTabs(props) {
           pageProfile: { results: [pageProfile] },
         }));
       } catch (err) {
-        console.log(err);
       }
     };
     fetchData();

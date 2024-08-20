@@ -86,7 +86,6 @@ const ProfileList = (props) => {
                     },
                   }));
                 } catch (err) {
-                  console.log(err);
                 }
               }}
             />

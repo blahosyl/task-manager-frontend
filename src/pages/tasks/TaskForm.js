@@ -69,7 +69,6 @@ function TaskForm(props) {
           },
         }));
       } catch (err) {
-        console.log(err);
       }
     };
     nextProfilesLink && nextProfiles();
@@ -119,7 +118,6 @@ function TaskForm(props) {
             image,
             is_owner,
           } = data;
-          console.log(data);
 
           is_owner
             ? setTaskData({
@@ -134,7 +132,6 @@ function TaskForm(props) {
               })
             : history.push("/");
         } catch (err) {
-          console.log(err);
         }
       }
     };
@@ -191,7 +188,6 @@ function TaskForm(props) {
         history.push(`/tasks/${data.id}`);
       }
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

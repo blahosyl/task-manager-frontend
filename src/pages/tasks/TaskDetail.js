@@ -47,10 +47,7 @@ function TaskDetail() {
         setTask({ results: [task] });
         setComments(comments);
         setHasLoaded(true);
-        console.log(task);
-        console.log("hasLoaded", hasLoaded);
       } catch (err) {
-        console.log(err);
       }
     };
 
