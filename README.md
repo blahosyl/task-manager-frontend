@@ -356,6 +356,8 @@ At the end of every sprint, I reviewed the items that were not completed, and ei
 
 ## Features
 
+This section briefly introduces the features implemented in the current version of the project. For videos demonstrating how each feature works, see the [Manual feature testing section](TESTING.md#manual-feature-testing) of `TESTING.md`.
+
 ### Navigation bar
 
 - Kaban & List
