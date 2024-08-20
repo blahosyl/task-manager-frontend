@@ -577,10 +577,13 @@ See the document [`TESTING.md`](TESTING.md) for details.
 
 ### Tools used
 
+- [Am I Responsive?](https://ui.dev/amiresponsive) – show the website on a range of devices
+- [Balsamiq](https://balsamiq.com/) – create wireframes
 - [Coolors.co](https://coolors.co/) - color palettes
 - [diffchecker.com](https://www.diffchecker.com/): compare code
 - [ES7+ React/Reduc/React-Native snippets extension for VS Code](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets): quickly insert code snippets
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint): JSX validation
+- [Favicon.io](https://favicon.io/) – create the favicon
 - [Freeconvert](https://www.freeconvert.com/): convert manual testing videos from `.mov` to `.mp4`
 - [Git](https://git-scm.com/) – version control
 - [GitHub](https://github.com/) – store the source files
@@ -590,6 +593,7 @@ See the document [`TESTING.md`](TESTING.md) for details.
 - [GitHub TOC generator](http://github.com/3kh0/readme-toc/) – automatically generate a Markdown TOC
 - [GitHub web editor](https://github.com/)
 - [GitPod](https://gitpod.io/) – Integrated Development Environment
+- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools) – troubleshoot, test responsivity and styling
 - [Google Sheets](https://docs.google.com/spreadsheets) – planning user stories
 - [Heroku](https://heroku.com/) – host the production version of the app
 - [Jigsaw](https://jigsaw.w3.org/css-validator/validator): CSS validator
@@ -602,7 +606,9 @@ See the document [`TESTING.md`](TESTING.md) for details.
 - [REacTree](https://marketplace.visualstudio.com/): make a React component tree
 - [SP studio](https://sp-studio.de/): create mock-up user pictures
 - [Typos spell checker for VS Code](https://open-vsx.org/extension/tekumara/typos-vscode)
+- [Visual Studio Code](https://code.visualstudio.com/) – code editor
 - [W3C HTML validator](https://validator.w3.org/)
+- [WebAIM](https://webaim.org/resources/contrastchecker/) – color contrast checking
 
 ## Deployment
 
