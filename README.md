@@ -5,7 +5,13 @@
 <!-- Disable warnings about language specifictaion infenced code blocks -->
 <!-- markdownlint-disable MD040 -->
 
-# Task Manager
+# On Fire 🔥 - the cheerful productivity app
+
+This app lets users track tasks in a simple, visually pleasing and functionally colored app. It features multiple filtering options at a click, and an intuitive UI without overwhelming settings & lists.
+
+![App showcase](/documentation-assets/readme-assets/amiresponsive/showcase.png)
+
+Developer: [Dr. Sylvia Blaho](https://www.linkedin.com/in/blahosylvia/)
 
 - [Deployed app](https://pp5-task-manager-frontend-eebb66e2c99d.herokuapp.com/)
 - [Deployed API](https://pp5-task-manager-api-380974d293dd.herokuapp.com/)
@@ -660,7 +666,7 @@ Run `nvm install 16 && nvm use 16` in the terminal to use `node` v16.20.2 (`npm`
 
 Make sure to complete the following pre-deployment steps in your development environment, especially if you made changes to the project:
 
-1. Check that a `Procfile` is present in the repository at the root level. 
+1. Check that a `Procfile` is present in the repository at the root level.
 It should have the content `web: serve -s build`.
 2. Commit any changes you made to the code.
 3. Push your changes to GitHub.
